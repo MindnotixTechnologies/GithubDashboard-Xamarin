@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GithubDashboard", "GithubDashboard.csproj", "{13A581B3-8163-472C-B69F-56304059E4FB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|iPhoneSimulator = Debug|iPhoneSimulator
+		Release|iPhoneSimulator = Release|iPhoneSimulator
+		Debug|iPhone = Debug|iPhone
+		Release|iPhone = Release|iPhone
+		Ad-Hoc|iPhone = Ad-Hoc|iPhone
+		AppStore|iPhone = AppStore|iPhone
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{13A581B3-8163-472C-B69F-56304059E4FB}.Ad-Hoc|iPhone.ActiveCfg = Ad-Hoc|iPhone
+		{13A581B3-8163-472C-B69F-56304059E4FB}.Ad-Hoc|iPhone.Build.0 = Ad-Hoc|iPhone
+		{13A581B3-8163-472C-B69F-56304059E4FB}.AppStore|iPhone.ActiveCfg = AppStore|iPhone
+		{13A581B3-8163-472C-B69F-56304059E4FB}.AppStore|iPhone.Build.0 = AppStore|iPhone
+		{13A581B3-8163-472C-B69F-56304059E4FB}.Debug|iPhone.ActiveCfg = Debug|iPhone
+		{13A581B3-8163-472C-B69F-56304059E4FB}.Debug|iPhone.Build.0 = Debug|iPhone
+		{13A581B3-8163-472C-B69F-56304059E4FB}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
+		{13A581B3-8163-472C-B69F-56304059E4FB}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{13A581B3-8163-472C-B69F-56304059E4FB}.Release|iPhone.ActiveCfg = Release|iPhone
+		{13A581B3-8163-472C-B69F-56304059E4FB}.Release|iPhone.Build.0 = Release|iPhone
+		{13A581B3-8163-472C-B69F-56304059E4FB}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
+		{13A581B3-8163-472C-B69F-56304059E4FB}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = GithubDashboard.csproj
+	EndGlobalSection
+EndGlobal

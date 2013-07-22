@@ -2,6 +2,7 @@ using System;
 using System.Drawing;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
+using GithubAPI;
 
 namespace GithubDashboard
 {
@@ -24,6 +25,8 @@ namespace GithubDashboard
 			base.ViewDidLoad ();
 			
 			// Perform any additional setup after loading the view, typically from a nib.
+
+			PunchCard.PunchCardEntries ("sammyd", "sammyd.github.com");
 		}
 
 		public override void ViewWillAppear (bool animated)

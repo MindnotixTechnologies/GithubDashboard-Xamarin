@@ -80,9 +80,13 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="monotouch" />
+    <Reference Include="RestSharp.MonoTouch">
+      <HintPath>Components\restsharp-104.1.0\lib\ios\RestSharp.MonoTouch.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
+    <Folder Include="GithubAPI\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -94,9 +98,17 @@
     <Compile Include="GithubDashboardViewController.designer.cs">
       <DependentUpon>GithubDashboardViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="GithubAPI\PunchCard.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <XamarinComponentReference Include="restsharp">
+      <InstallationInProgress>True</InstallationInProgress>
+      <Version>104.1.0</Version>
+      <Visible>False</Visible>
+    </XamarinComponentReference>
+  </ItemGroup>
 </Project>

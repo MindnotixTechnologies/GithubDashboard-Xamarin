@@ -19,6 +19,8 @@ namespace GithubDashboard
 
 			// Need to set the repo for our punch card
 			this.punchCard.ChangeRepo ("sammyd", "sammyd.github.com");
+
+			System.Console.WriteLine (WeeklyCommitCount.WeeklyCommitForRepo ("sammyd", "sammyd.github.com"));
 		}
 		#endregion
 

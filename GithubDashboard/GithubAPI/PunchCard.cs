@@ -22,28 +22,34 @@ namespace GithubAPI
 			this.Commits = list [2];
 		}
 
+		public override string ToString ()
+		{
+			return string.Format ("[PunchCardEntry: Day={0}, Hour={1}, Commits={2}]", Day, Hour, Commits);
+		}
 	}
 
 	static public class PunchCard
 	{
-		static public IList<PunchCardEntry> PunchCardEntries(string owner, string repo)
+		static public IEnumerable<PunchCardEntry> PunchCardEntries(string owner, string repo)
 		{
+			// Create a client for the GitHub API
 			var client = new RestClient ("https://api.github.com/");
 
+			// The endpoint needs the owner and repo strings
 			var request = new RestRequest ("repos/{owner}/{repo}/stats/punch_card", Method.GET);
 			request.AddUrlSegment ("owner", owner);
 			request.AddUrlSegment ("repo", repo);
 
+			// The return is an 'array' of arrays of 3 ints each.
 			IRestResponse<List<List<int>>> response = client.Execute<List<List<int>>> (request);
 
+			// Let's convert the 2D array into an 'array' of PunchCardEntry objects
 			IEnumerable<PunchCardEntry> mapped =
 				from dp in response.Data
 					select new PunchCardEntry (dp);
 
-
-			System.Console.WriteLine (mapped);
-
-			return null;
+			// Send them back
+			return mapped;
 		}
 	}
 }

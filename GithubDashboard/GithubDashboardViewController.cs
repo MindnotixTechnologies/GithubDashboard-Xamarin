@@ -16,8 +16,9 @@ namespace GithubDashboard
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
-			
-			// Perform any additional setup after loading the view, typically from a nib.
+
+			// Need to set the repo for our punch card
+			this.punchCard.ChangeRepo ("sammyd", "sammyd.github.com");
 		}
 		#endregion
 

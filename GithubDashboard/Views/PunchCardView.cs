@@ -78,28 +78,39 @@ namespace GithubDashboard
 		// Variables to store chart and datasource
 		private ShinobiChart _bubbleChart;
 		private PunchCardViewDataSource _dataSource;
+		private string _owner;
+		private string _repo;
 
-		public PunchCardView (System.Drawing.RectangleF frame) : base(frame)
+		public PunchCardView(IntPtr p) : base(p)
 		{
-			this.createDatasource ();
-			this.createChart ();
 		}
 
-		public PunchCardView (IntPtr p) : base(p)
+		// Use this to specify the repo owner and name
+		public void ChangeRepo(string owner, string repo)
 		{
+			_owner = owner;
+			_repo = repo;
+			// Make a new datasource
 			this.createDatasource ();
-			this.createChart ();
+			// If we haven't got a chart, then create one
+			if(_bubbleChart == null)
+			{
+				this.createChart ();
+			}
+			// Adds set the new datasource
+			_bubbleChart.DataSource = _dataSource;
 		}
 
 		private void createDatasource()
 		{
 			// Create the data source for a sample repository
-			_dataSource = new PunchCardViewDataSource("sammyd", "sammyd.github.com");
+			_dataSource = new PunchCardViewDataSource(_owner, _repo);
 		}
 
 		private void createChart()
 		{
 			_bubbleChart = new ShinobiChart (this.Bounds);
+			_bubbleChart.AutoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight;
 
 			SChartAxis xAxis = new SChartNumberAxis ();
 			xAxis.RangePaddingHigh = new NSNumber (0.5);
@@ -113,7 +124,7 @@ namespace GithubDashboard
 			yAxis.Title = "Day";
 			_bubbleChart.YAxis = yAxis;
 
-			_bubbleChart.DataSource = _dataSource;
+			// Add it as a subview
 			this.AddSubview (_bubbleChart);
 		}
 

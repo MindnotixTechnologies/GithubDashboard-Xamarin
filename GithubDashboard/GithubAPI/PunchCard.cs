@@ -7,9 +7,16 @@ namespace GithubAPI
 {
 	public class PunchCardEntry
 	{
+		private static string[] _daysOfWeek = { "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" };
 		public int Day { get; set; }
 		public int Hour { get; set; }
 		public int Commits { get; set; }
+
+		// Convert the int to a day name
+		public string DayName
+		{
+			get { return _daysOfWeek [this.Day]; }
+		}
 
 		public PunchCardEntry(IList<int> list)
 		{

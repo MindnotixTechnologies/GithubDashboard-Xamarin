@@ -44,7 +44,7 @@ namespace GithubDashboard
 			{
 				SChartBubbleDataPoint dp = new SChartBubbleDataPoint ();
 				dp.XValue = new NSNumber(entry.Hour);
-				dp.YValue = new NSNumber(entry.Day);
+				dp.YValue = new NSString(entry.DayName);
 				dp.Area = entry.Commits * 50.0;
 				return dp;
 			}
@@ -107,7 +107,7 @@ namespace GithubDashboard
 			xAxis.Title = "Hour";
 			_bubbleChart.XAxis = xAxis;
 
-			SChartAxis yAxis = new SChartNumberAxis ();
+			SChartCategoryAxis yAxis = new SChartCategoryAxis ();
 			yAxis.RangePaddingHigh = new NSNumber (0.5);
 			yAxis.RangePaddingLow = new NSNumber (0.5);
 			yAxis.Title = "Day";

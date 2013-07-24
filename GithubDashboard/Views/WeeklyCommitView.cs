@@ -62,13 +62,71 @@ namespace GithubDashboard
 
 			public override SChartSeries GetSeries (ShinobiChart chart, int dataSeriesIndex)
 			{
-
+				SChartColumnSeries series = new SChartColumnSeries ();
+				series.StackIndex = new NSNumber (0);
+				if (dataSeriesIndex == 0) {
+					series.Title = "Non-owner";
+				} else {
+					series.Title = "Owner";
+				}
+				return series;
 			}
 			#endregion
 		}
 
-		public WeeklyCommitView ()
+
+		private ShinobiChart _columnChart;
+		private WeeklyCommitViewDatasource _dataSource;
+		private string _owner;
+		private string _repo;
+
+		public WeeklyCommitView (IntPtr p) : base(p)
 		{
+		}
+
+		// Use this to specify the repo owner and name
+		public void ChangeRepo(string owner, string repo)
+		{
+			_owner = owner;
+			_repo = repo;
+			// Make a new datasource
+			this.createDatasource ();
+			// If we haven't got a chart, then create one
+			if(_columnChart == null)
+			{
+				this.createChart ();
+			}
+			// Adds set the new datasource
+			_columnChart.DataSource = _dataSource;
+		}
+
+		private void createDatasource()
+		{
+			// Create the data source for a sample repository
+			_dataSource = new WeeklyCommitViewDatasource(_owner, _repo);
+		}
+
+		private void createChart()
+		{
+			_columnChart = new ShinobiChart (this.Bounds);
+			_columnChart.AutoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight;
+
+			SChartNumberAxis xAxis = new SChartNumberAxis ();
+			xAxis.Title = "Week";
+			_columnChart.XAxis = xAxis;
+
+			SChartNumberAxis yAxis = new SChartNumberAxis ();
+			yAxis.RangePaddingHigh = new NSNumber (0.5);
+			yAxis.Title = "Commits";
+			_columnChart.YAxis = yAxis;
+
+			// Display the legend
+			_columnChart.Legend.Hidden = false;
+			_columnChart.Legend.Placement = SChartLegendPlacement.InsidePlotArea;
+			_columnChart.Legend.Position = SChartLegendPosition.TopLeft;
+
+			// Add it as a subview
+			this.AddSubview (_columnChart);
 		}
 	}
 }

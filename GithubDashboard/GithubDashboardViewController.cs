@@ -17,10 +17,10 @@ namespace GithubDashboard
 		{
 			base.ViewDidLoad ();
 
-			// Need to set the repo for our punch card
+			// Need to set the repo for our views
 			this.punchCard.ChangeRepo ("sammyd", "sammyd.github.com");
+			this.weeklyCommit.ChangeRepo ("sammyd", "sammyd.github.com");
 
-			System.Console.WriteLine (WeeklyCommitCount.WeeklyCommitForRepo ("sammyd", "sammyd.github.com"));
 		}
 		#endregion
 

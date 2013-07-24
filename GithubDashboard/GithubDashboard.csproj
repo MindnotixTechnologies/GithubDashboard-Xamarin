@@ -106,6 +106,8 @@
     </Compile>
     <Compile Include="GithubAPI\PunchCard.cs" />
     <Compile Include="Views\PunchCardView.cs" />
+    <Compile Include="GithubAPI\WeeklyCommitCount.cs" />
+    <Compile Include="Views\WeeklyCommitView.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />

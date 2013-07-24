@@ -13,12 +13,20 @@ namespace GithubDashboard
 	{
 		[Outlet]
 		GithubDashboard.PunchCardView punchCard { get; set; }
+
+		[Outlet]
+		GithubDashboard.WeeklyCommitView weeklyCommit { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
 			if (punchCard != null) {
 				punchCard.Dispose ();
 				punchCard = null;
+			}
+
+			if (weeklyCommit != null) {
+				weeklyCommit.Dispose ();
+				weeklyCommit = null;
 			}
 		}
 	}

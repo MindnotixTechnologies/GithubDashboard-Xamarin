@@ -20,7 +20,7 @@ namespace GithubDashboard
 			// Need to set the repo for our views
 			this.punchCard.ChangeRepo ("sammyd", "sammyd.github.com");
 			this.weeklyCommit.ChangeRepo ("sammyd", "sammyd.github.com");
-
+			this.codeFrequency.ChangeRepo ("sammyd", "sammyd.github.com");
 		}
 		#endregion
 

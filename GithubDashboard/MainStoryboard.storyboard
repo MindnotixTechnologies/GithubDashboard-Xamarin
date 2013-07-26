@@ -17,6 +17,11 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <view contentMode="scaleToFill" id="bN6-PL-BOC" customClass="CodeFrequencyView">
+                                <rect key="frame" x="20" y="421" width="522" height="307"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <view contentMode="scaleToFill" id="ZEY-nb-RTm" customClass="WeeklyCommitView">
                                 <rect key="frame" x="550" y="106" width="454" height="307"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -28,6 +33,7 @@
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
+                        <outlet property="codeFrequency" destination="bN6-PL-BOC" id="nzk-XO-h5z"/>
                         <outlet property="punchCard" destination="dDD-GK-wHN" id="jKX-Sd-ok4"/>
                         <outlet property="weeklyCommit" destination="ZEY-nb-RTm" id="n56-6C-8NO"/>
                     </connections>
@@ -37,9 +43,13 @@
         </scene>
     </scenes>
     <classes>
+        <class className="CodeFrequencyView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CodeFrequencyView.h"/>
+        </class>
         <class className="GithubDashboardViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GithubDashboardViewController.h"/>
             <relationships>
+                <relationship kind="outlet" name="codeFrequency" candidateClass="CodeFrequencyView"/>
                 <relationship kind="outlet" name="punchCard" candidateClass="PunchCardView"/>
                 <relationship kind="outlet" name="weeklyCommit" candidateClass="WeeklyCommitView"/>
             </relationships>

@@ -12,6 +12,9 @@ namespace GithubDashboard
 	partial class GithubDashboardViewController
 	{
 		[Outlet]
+		GithubDashboard.CodeFrequencyView codeFrequency { get; set; }
+
+		[Outlet]
 		GithubDashboard.PunchCardView punchCard { get; set; }
 
 		[Outlet]
@@ -27,6 +30,11 @@ namespace GithubDashboard
 			if (weeklyCommit != null) {
 				weeklyCommit.Dispose ();
 				weeklyCommit = null;
+			}
+
+			if (codeFrequency != null) {
+				codeFrequency.Dispose ();
+				codeFrequency = null;
 			}
 		}
 	}

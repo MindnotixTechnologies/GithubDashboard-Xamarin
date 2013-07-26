@@ -92,6 +92,7 @@
     <Folder Include="GithubAPI\" />
     <Folder Include="Shinobi\" />
     <Folder Include="Views\" />
+    <Folder Include="Utilities\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -108,6 +109,9 @@
     <Compile Include="Views\PunchCardView.cs" />
     <Compile Include="GithubAPI\WeeklyCommitCount.cs" />
     <Compile Include="Views\WeeklyCommitView.cs" />
+    <Compile Include="GithubAPI\CodeFrequency.cs" />
+    <Compile Include="Views\CodeFrequencyView.cs" />
+    <Compile Include="Utilities\DateExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />

@@ -27,6 +27,11 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <view contentMode="scaleToFill" id="25q-5n-VPz" customClass="RepoSummaryView">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -49,13 +54,21 @@
         <class className="GithubDashboardViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GithubDashboardViewController.h"/>
             <relationships>
-                <relationship kind="outlet" name="codeFrequency" candidateClass="CodeFrequencyView"/>
                 <relationship kind="outlet" name="punchCard" candidateClass="PunchCardView"/>
                 <relationship kind="outlet" name="weeklyCommit" candidateClass="WeeklyCommitView"/>
             </relationships>
         </class>
         <class className="PunchCardView" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PunchCardView.h"/>
+        </class>
+        <class className="RepoSummaryView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RepoSummaryView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="forks" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="ownerImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="repoName" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="watchers" candidateClass="UILabel"/>
+            </relationships>
         </class>
         <class className="WeeklyCommitView" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/WeeklyCommitView.h"/>

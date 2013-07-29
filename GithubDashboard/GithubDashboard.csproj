@@ -112,9 +112,15 @@
     <Compile Include="GithubAPI\CodeFrequency.cs" />
     <Compile Include="Views\CodeFrequencyView.cs" />
     <Compile Include="Utilities\DateExtensions.cs" />
+    <Compile Include="GithubAPI\RepoSummary.cs" />
+    <Compile Include="Views\RepoSummaryView.cs" />
+    <Compile Include="Views\RepoSummaryView.designer.cs">
+      <DependentUpon>RepoSummaryView.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />
+    <InterfaceDefinition Include="Views\RepoSummaryView.xib" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

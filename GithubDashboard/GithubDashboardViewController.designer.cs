@@ -18,10 +18,18 @@ namespace GithubDashboard
 		GithubDashboard.PunchCardView punchCard { get; set; }
 
 		[Outlet]
+		GithubDashboard.RepoSummaryView repoSummary { get; set; }
+
+		[Outlet]
 		GithubDashboard.WeeklyCommitView weeklyCommit { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (codeFrequency != null) {
+				codeFrequency.Dispose ();
+				codeFrequency = null;
+			}
+
 			if (punchCard != null) {
 				punchCard.Dispose ();
 				punchCard = null;
@@ -32,9 +40,9 @@ namespace GithubDashboard
 				weeklyCommit = null;
 			}
 
-			if (codeFrequency != null) {
-				codeFrequency.Dispose ();
-				codeFrequency = null;
+			if (repoSummary != null) {
+				repoSummary.Dispose ();
+				repoSummary = null;
 			}
 		}
 	}

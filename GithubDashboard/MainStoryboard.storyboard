@@ -40,6 +40,7 @@
                     <connections>
                         <outlet property="codeFrequency" destination="bN6-PL-BOC" id="nzk-XO-h5z"/>
                         <outlet property="punchCard" destination="dDD-GK-wHN" id="jKX-Sd-ok4"/>
+                        <outlet property="repoSummary" destination="25q-5n-VPz" id="xuO-Qg-EEC"/>
                         <outlet property="weeklyCommit" destination="ZEY-nb-RTm" id="n56-6C-8NO"/>
                     </connections>
                 </viewController>
@@ -54,7 +55,9 @@
         <class className="GithubDashboardViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GithubDashboardViewController.h"/>
             <relationships>
+                <relationship kind="outlet" name="codeFrequency" candidateClass="CodeFrequencyView"/>
                 <relationship kind="outlet" name="punchCard" candidateClass="PunchCardView"/>
+                <relationship kind="outlet" name="repoSummary" candidateClass="RepoSummaryView"/>
                 <relationship kind="outlet" name="weeklyCommit" candidateClass="WeeklyCommitView"/>
             </relationships>
         </class>

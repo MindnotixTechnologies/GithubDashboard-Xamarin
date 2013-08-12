@@ -5,6 +5,10 @@ using RestSharp;
 
 namespace GithubAPI
 {
+	/// <summary>
+	/// Details the number of commits for a given day and hour.
+	/// see: http://developer.github.com/v3/repos/statistics/#get-the-number-of-commits-per-hour-in-each-day
+	/// </summary>
 	public class PunchCardEntry
 	{
 		private static string[] _daysOfWeek = { "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" };

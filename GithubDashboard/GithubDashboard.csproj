@@ -116,7 +116,6 @@
     <Compile Include="GithubAPI\CodeFrequencyEntry.cs" />
     <Compile Include="GithubAPI\PunchCardEntry.cs" />
     <Compile Include="GithubAPI\RepoSummaryData.cs" />
-    <Compile Include="GithubAPI\UserSummaryData.cs" />
     <Compile Include="GithubAPI\WeeklyCommitData.cs" />
     <Compile Include="GithubAPI\GithubDataProvider.cs" />
     <Compile Include="GithubAPI\IGithubDataProvider.cs" />

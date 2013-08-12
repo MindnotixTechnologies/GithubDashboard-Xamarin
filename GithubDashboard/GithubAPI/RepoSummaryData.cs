@@ -11,6 +11,7 @@ namespace GithubAPI
 		public int watchers {get;set;}
 		public int open_issues {get;set;}
 		public bool has_issues {get;set;}
+		public string language {get;set;}
 	}
 	
 }

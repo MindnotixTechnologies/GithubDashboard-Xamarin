@@ -14,6 +14,7 @@ namespace GithubDashboard
 	{
 		private RepoSummaryView _viewFromNib;
 		private RepoSummaryData _repoData;
+		private UITapGestureRecognizer _tapRecogniser;
 
 		public RepoSummaryView (IntPtr h) : base(h)
 		{
@@ -35,6 +36,23 @@ namespace GithubDashboard
 					this.UpdateViewForRepoData ();
 				});
 			});
+		}
+
+		public void SetTapHandler(Action<RectangleF> tapHandler)
+		{
+			if (_viewFromNib != null) {
+				if (_tapRecogniser != null) {
+					// If we've already been called then remove the old one
+					_viewFromNib.repoName.RemoveGestureRecognizer (_tapRecogniser);
+				}
+				// Create a tap recogniser which will call our tapHandler callback
+				_tapRecogniser = new UITapGestureRecognizer (r => {
+					tapHandler (_viewFromNib.repoName.Frame);
+				});
+				// Add to the repoName label
+				_viewFromNib.repoName.AddGestureRecognizer ( _tapRecogniser );
+				_viewFromNib.repoName.UserInteractionEnabled = true;
+			}
 		}
 
 

@@ -93,6 +93,7 @@
     <Folder Include="Shinobi\" />
     <Folder Include="Views\" />
     <Folder Include="Utilities\" />
+    <Folder Include="Views\RepoSelector\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -119,6 +120,8 @@
     <Compile Include="GithubAPI\UserSummaryData.cs" />
     <Compile Include="GithubAPI\WeeklyCommitData.cs" />
     <Compile Include="GithubAPI\GithubDataProvider.cs" />
+    <Compile Include="Views\RepoSelector\RepoSelectorViewControllerController.cs" />
+    <Compile Include="Views\RepoSelector\RepoSelectorViewControllerSource.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />

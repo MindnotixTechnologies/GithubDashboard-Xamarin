@@ -92,7 +92,7 @@ namespace GithubDashboard
 		public void ChangeRepo(string owner, string repo)
 		{
 			// Get hold of the data asynchronously
-			GithubDataProvider.WeeklyCommitForRepo (owner, repo, data => {
+			GithubDataProvider.Instance.WeeklyCommitForRepo (owner, repo, data => {
 				// Create new chart datasource with response
 				_dataSource = new WeeklyCommitViewDatasource(data);
 

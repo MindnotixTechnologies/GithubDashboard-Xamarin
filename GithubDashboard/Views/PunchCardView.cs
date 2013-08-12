@@ -88,7 +88,7 @@ namespace GithubDashboard
 		// Use this to specify the repo owner and name
 		public void ChangeRepo(string owner, string repo)
 		{
-			GithubDataProvider.PunchCardEntries (owner, repo, data => {
+			GithubDataProvider.Instance.PunchCardEntries (owner, repo, data => {
 				// Create a new datasource
 				_dataSource = new PunchCardViewDataSource (data);
 				InvokeOnMainThread (delegate {

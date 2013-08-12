@@ -119,6 +119,7 @@
     <Compile Include="GithubAPI\UserSummaryData.cs" />
     <Compile Include="GithubAPI\WeeklyCommitData.cs" />
     <Compile Include="GithubAPI\GithubDataProvider.cs" />
+    <Compile Include="GithubAPI\IGithubDataProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />

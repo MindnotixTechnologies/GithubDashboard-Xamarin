@@ -95,7 +95,7 @@ namespace GithubDashboard
 		// Use this to specify the repo owner and name
 		public void ChangeRepo(string owner, string repo)
 		{
-			GithubDataProvider.CodeFrequencyEntries (owner, repo, data => {
+			GithubDataProvider.Instance.CodeFrequencyEntries (owner, repo, data => {
 				// Create a new chart datasource with the data
 				_dataSource = new CodeFrequencyDataSource(data);
 

@@ -27,7 +27,7 @@ namespace GithubDashboard
 			}
 
 			// Update the repo data
-			GithubDataProvider.SummmaryForRepo (owner, repo, data => {
+			GithubDataProvider.Instance.SummmaryForRepo (owner, repo, data => {
 				// Save the retrieved data
 				_repoData = data;
 				// Refresh the view

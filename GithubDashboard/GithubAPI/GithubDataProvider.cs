@@ -5,12 +5,15 @@ using System.Linq;
 
 namespace GithubAPI
 {
-	static public class GithubDataProvider
+	public class GithubDataProvider : IGithubDataProvider
 	{	
-		static private String BaseURL = "https://api.github.com/";
+		public static IGithubDataProvider Instance = new GithubDataProvider();
+
+		private String BaseURL = "https://api.github.com/";
 
 		#region API Methods to pull different data from the github API
-		public static void WeeklyCommitForRepo(string owner, string repo, Action<WeeklyCommitData> callback)
+
+		public void WeeklyCommitForRepo(string owner, string repo, Action<WeeklyCommitData> callback)
 		{
 			// Create a client using the utility method
 			var client = GetGithubRestClient ();
@@ -23,7 +26,7 @@ namespace GithubAPI
 			});
 		}
 
-		public static void CodeFrequencyEntries(string owner, string repo, Action<IEnumerable<CodeFrequencyEntry>> callback)
+		public void CodeFrequencyEntries(string owner, string repo, Action<IEnumerable<CodeFrequencyEntry>> callback)
 		{
 			// Create a client using the utility method
 			var client = GetGithubRestClient ();
@@ -41,7 +44,7 @@ namespace GithubAPI
 			});
 		}
 
-		public static void PunchCardEntries(string owner, string repo, Action<IEnumerable<PunchCardEntry>> callback)
+		public void PunchCardEntries(string owner, string repo, Action<IEnumerable<PunchCardEntry>> callback)
 		{
 			// Create a client using the utility method
 			var client = GetGithubRestClient ();
@@ -60,7 +63,7 @@ namespace GithubAPI
 			});
 		}
 
-		public static void SummmaryForRepo(string owner, string repo, Action<RepoSummaryData> callback)
+		public void SummmaryForRepo(string owner, string repo, Action<RepoSummaryData> callback)
 		{
 			// Create a client using the utility method
 			var client = GetGithubRestClient ();
@@ -72,17 +75,19 @@ namespace GithubAPI
 				callback(response.Data);
 			});
 		}
+
 		#endregion
 
 
 		#region Utility methods
+
 		// This method could be replaced with some IoC magic
-		static private IRestClient GetGithubRestClient()
+		private IRestClient GetGithubRestClient()
 		{
 			return new RestClient (BaseURL);
 		}
 
-		static private IRestRequest GetGithubRestRequest(String urlPart, String owner, String repo)
+		private IRestRequest GetGithubRestRequest(String urlPart, String owner, String repo)
 		{
 			// Create a request
 			var request = new RestRequest (urlPart, Method.GET);

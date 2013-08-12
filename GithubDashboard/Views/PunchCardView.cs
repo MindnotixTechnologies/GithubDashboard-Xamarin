@@ -27,12 +27,9 @@ namespace GithubDashboard
 			private IList<SChartBubbleDataPoint> CreateDataPointsFromPunchCardEntries(IEnumerable<PunchCardDataEntry> entries)
 			{
 				// We aren't interested in the entries which don't represent any commits
-				List<SChartBubbleDataPoint> dps = new List<SChartBubbleDataPoint> (
-					from entry in entries
-					where entry.Commits != 0
-					select this.CreateBubbleDataPointForPunchCardEntry(entry)
-				);
-				return dps;
+				return entries.Where (entry => entry.Commits != 0)
+						   	.Select (entry => CreateBubbleDataPointForPunchCardEntry(entry))
+							.ToList ();
 			}
 
 			// Utility Function to create punch card entry to a bubble data point

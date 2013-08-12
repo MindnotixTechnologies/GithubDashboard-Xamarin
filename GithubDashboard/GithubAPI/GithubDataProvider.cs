@@ -36,9 +36,8 @@ namespace GithubAPI
 			// The return is an 'array' of arrays of 3 ints each.
 			client.ExecuteAsync<List<List<long>>> (request, response => {
 				// Let's convert the 2D array into an 'array' of PunchCardEntry objects
-				var mapped =
-					from dp in response.Data
-						select new CodeFrequencyDataItem (dp);
+				var mapped = new CodeFrequencyData(response.Data.Select(dp => new CodeFrequencyDataItem (dp)));
+
 				// And push the results back
 				callback(new CodeFrequencyData(mapped));
 			});
@@ -54,12 +53,10 @@ namespace GithubAPI
 			// The return is an 'array' of arrays of 3 ints each.
 			client.ExecuteAsync<List<List<int>>> (request, response => {
 				// Let's convert the 2D array into an 'array' of PunchCardEntry objects
-				var mapped =
-					from dp in response.Data
-						select new PunchCardDataEntry (dp);
+				var mapped = new PunchCardData(response.Data.Select(dp => new PunchCardDataEntry(dp)));
 
 				// Send them back
-				callback(new PunchCardData(mapped));
+				callback(mapped);
 			});
 		}
 

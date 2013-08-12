@@ -22,6 +22,9 @@ namespace GithubDashboard
 
 		[Outlet]
 		GithubDashboard.WeeklyCommitView weeklyCommit { get; set; }
+
+		[Outlet]
+		GithubDashboard.CommitHistoryView commitHistory { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
@@ -35,14 +38,19 @@ namespace GithubDashboard
 				punchCard = null;
 			}
 
+			if (repoSummary != null) {
+				repoSummary.Dispose ();
+				repoSummary = null;
+			}
+
 			if (weeklyCommit != null) {
 				weeklyCommit.Dispose ();
 				weeklyCommit = null;
 			}
 
-			if (repoSummary != null) {
-				repoSummary.Dispose ();
-				repoSummary = null;
+			if (commitHistory != null) {
+				commitHistory.Dispose ();
+				commitHistory = null;
 			}
 		}
 	}

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using RestSharp;
 using System.Linq;
+using GithubDashboard;
 
 namespace GithubAPI
 {
@@ -21,6 +22,18 @@ namespace GithubAPI
 			IRestResponse<WeeklyCommitData> response = client.Execute<WeeklyCommitData> (request);
 
 			// Send them back
+			return response.Data;
+		}
+
+		static public IEnumerable<CommitData> CommitsForRepo(string owner, string repo)
+		{
+			// Create a client using the utility method
+			var client = GetGithubRestClient ();
+			// And create the request
+			var request = GetGithubRestRequest ("repos/{owner}/{repo}/commits", owner, repo);
+
+			var response = client.Execute<List<CommitData>>(request);
+
 			return response.Data;
 		}
 

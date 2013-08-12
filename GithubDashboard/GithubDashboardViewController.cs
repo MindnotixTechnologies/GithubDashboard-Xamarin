@@ -22,6 +22,7 @@ namespace GithubDashboard
 			this.weeklyCommit.ChangeRepo ("sammyd", "sammyd.github.com");
 			this.codeFrequency.ChangeRepo ("sammyd", "sammyd.github.com");
 			this.repoSummary.ChangeRepo ("sammyd", "sammyd.github.com");
+			this.commitHistory.ChangeRepo ("sammyd", "sammyd.github.com");
 		}
 		#endregion
 

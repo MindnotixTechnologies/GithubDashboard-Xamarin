@@ -86,6 +86,9 @@
     <Reference Include="RestSharp.MonoTouch">
       <HintPath>Components\restsharp-104.1.0\lib\ios\RestSharp.MonoTouch.dll</HintPath>
     </Reference>
+    <Reference Include="ShinobiGrids">
+      <HintPath>Shinobi\ShinobiGrids.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
@@ -119,6 +122,8 @@
     <Compile Include="GithubAPI\UserSummaryData.cs" />
     <Compile Include="GithubAPI\WeeklyCommitData.cs" />
     <Compile Include="GithubAPI\GithubDataProvider.cs" />
+    <Compile Include="GithubAPI\CommitData.cs" />
+    <Compile Include="Views\CommitHistoryView.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />

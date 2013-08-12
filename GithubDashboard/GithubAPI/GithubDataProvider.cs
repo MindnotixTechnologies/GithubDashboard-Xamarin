@@ -10,21 +10,20 @@ namespace GithubAPI
 		static private String BaseURL = "https://api.github.com/";
 
 		#region API Methods to pull different data from the github API
-		static public WeeklyCommitData WeeklyCommitForRepo(string owner, string repo)
+		public static void WeeklyCommitForRepo(string owner, string repo, Action<WeeklyCommitData> callback)
 		{
 			// Create a client using the utility method
 			var client = GetGithubRestClient ();
 			// And create the request
 			var request = GetGithubRestRequest ("repos/{owner}/{repo}/stats/participation", owner, repo);
 
-			// The return is an 'array' of arrays of 3 ints each.
-			IRestResponse<WeeklyCommitData> response = client.Execute<WeeklyCommitData> (request);
-
-			// Send them back
-			return response.Data;
+			// Perform an async request call. Send the data back to the caller
+			client.ExecuteAsync<WeeklyCommitData> (request, response => {
+				callback(response.Data);
+			});
 		}
 
-		public static IEnumerable<CodeFrequencyEntry> CodeFrequencyEntries(string owner, string repo)
+		public static void CodeFrequencyEntries(string owner, string repo, Action<IEnumerable<CodeFrequencyEntry>> callback)
 		{
 			// Create a client using the utility method
 			var client = GetGithubRestClient ();
@@ -32,18 +31,17 @@ namespace GithubAPI
 			var request = GetGithubRestRequest ("repos/{owner}/{repo}/stats/code_frequency", owner, repo);
 
 			// The return is an 'array' of arrays of 3 ints each.
-			IRestResponse<List<List<long>>> response = client.Execute<List<List<long>>> (request);
-
-			// Let's convert the 2D array into an 'array' of PunchCardEntry objects
-			IEnumerable<CodeFrequencyEntry> mapped =
-				from dp in response.Data
-					select new CodeFrequencyEntry (dp);
-
-			// Send them back
-			return mapped;
+			client.ExecuteAsync<List<List<long>>> (request, response => {
+				// Let's convert the 2D array into an 'array' of PunchCardEntry objects
+				var mapped =
+					from dp in response.Data
+						select new CodeFrequencyEntry (dp);
+				// And push the results back
+				callback(mapped);
+			});
 		}
 
-		static public IEnumerable<PunchCardEntry> PunchCardEntries(string owner, string repo)
+		public static void PunchCardEntries(string owner, string repo, Action<IEnumerable<PunchCardEntry>> callback)
 		{
 			// Create a client using the utility method
 			var client = GetGithubRestClient ();
@@ -51,18 +49,18 @@ namespace GithubAPI
 			var request = GetGithubRestRequest ("repos/{owner}/{repo}/stats/punch_card", owner, repo);
 
 			// The return is an 'array' of arrays of 3 ints each.
-			IRestResponse<List<List<int>>> response = client.Execute<List<List<int>>> (request);
+			client.ExecuteAsync<List<List<int>>> (request, response => {
+				// Let's convert the 2D array into an 'array' of PunchCardEntry objects
+				var mapped =
+					from dp in response.Data
+						select new PunchCardEntry (dp);
 
-			// Let's convert the 2D array into an 'array' of PunchCardEntry objects
-			IEnumerable<PunchCardEntry> mapped =
-				from dp in response.Data
-					select new PunchCardEntry (dp);
-
-			// Send them back
-			return mapped;
+				// Send them back
+				callback(mapped);
+			});
 		}
 
-		static public RepoSummaryData SummmaryForRepo(string owner, string repo)
+		public static void SummmaryForRepo(string owner, string repo, Action<RepoSummaryData> callback)
 		{
 			// Create a client using the utility method
 			var client = GetGithubRestClient ();
@@ -70,10 +68,9 @@ namespace GithubAPI
 			var request = GetGithubRestRequest ("repos/{owner}/{repo}", owner, repo);
 
 			// The return is an 'array' of arrays of 3 ints each.
-			IRestResponse<RepoSummaryData> response = client.Execute<RepoSummaryData> (request);
-
-			// Send them back
-			return response.Data;
+			client.ExecuteAsync<RepoSummaryData> (request, response => {
+				callback(response.Data);
+			});
 		}
 		#endregion
 

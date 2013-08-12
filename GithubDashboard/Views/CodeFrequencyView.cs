@@ -6,6 +6,7 @@ using ShinobiCharts;
 using System.Collections.Generic;
 using GithubAPI;
 using Utilities;
+using System.Drawing;
 
 namespace GithubDashboard
 {
@@ -17,10 +18,9 @@ namespace GithubDashboard
 			private IList<SChartDataPoint> _additionDPs;
 			private IList<SChartDataPoint> _removalDPs;
 
-			public CodeFrequencyDataSource(string owner, string repo)
+			public CodeFrequencyDataSource(IEnumerable<CodeFrequencyEntry> entries)
 			{
-				var data = GithubDataProvider.CodeFrequencyEntries(owner, repo);
-				this.CreateDataPointsFromCodeFrequencies(data);
+				this.CreateDataPointsFromCodeFrequencies(entries);
 			}
 
 			private void CreateDataPointsFromCodeFrequencies(IEnumerable<CodeFrequencyEntry> entries)
@@ -81,33 +81,40 @@ namespace GithubDashboard
 
 		private ShinobiChart _columnChart;
 		private CodeFrequencyDataSource _dataSource;
-		private string _owner;
-		private string _repo;
+		private UIActivityIndicatorView _actIndicator;
 
 		public CodeFrequencyView (IntPtr p) : base(p)
 		{
+			// Create an activity indicator
+			_actIndicator = new UIActivityIndicatorView ();
+			_actIndicator.Center = new PointF (Bounds.Width / 2, Bounds.Height / 2);
+			_actIndicator.StartAnimating ();
+			this.Add (_actIndicator);
 		}
 
 		// Use this to specify the repo owner and name
 		public void ChangeRepo(string owner, string repo)
 		{
-			_owner = owner;
-			_repo = repo;
-			// Make a new datasource
-			this.createDatasource ();
-			// If we haven't got a chart, then create one
-			if(_columnChart == null)
-			{
-				this.createChart ();
-			}
-			// Adds set the new datasource
-			_columnChart.DataSource = _dataSource;
-		}
+			GithubDataProvider.CodeFrequencyEntries (owner, repo, data => {
+				// Create a new chart datasource with the data
+				_dataSource = new CodeFrequencyDataSource(data);
 
-		private void createDatasource()
-		{
-			// Create the data source for a sample repository
-			_dataSource = new CodeFrequencyDataSource(_owner, _repo);
+				InvokeOnMainThread (delegate {
+					// If we haven't got a chart, then create one
+					if(_columnChart == null)
+					{
+						this.createChart ();
+					}
+					// Set the chart's datasource
+					_columnChart.DataSource = _dataSource;
+					// Redraw the chart
+					_columnChart.RedrawChart ();
+					// Get rid of the activity indicator
+					_actIndicator.RemoveFromSuperview ();
+					_actIndicator.StopAnimating ();
+				});
+
+			});
 		}
 
 		private void createChart()

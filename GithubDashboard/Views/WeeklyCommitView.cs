@@ -5,6 +5,7 @@ using MonoTouch.Foundation;
 using ShinobiCharts;
 using System.Collections.Generic;
 using GithubAPI;
+using System.Drawing;
 
 namespace GithubDashboard
 {
@@ -16,9 +17,8 @@ namespace GithubDashboard
 			private IList<SChartDataPoint> _ownerDPs;
 			private IList<SChartDataPoint> _nonOwnerDPs;
 
-			public WeeklyCommitViewDatasource(string owner, string repo)
+			public WeeklyCommitViewDatasource(WeeklyCommitData data)
 			{
-				WeeklyCommitData data = GithubDataProvider.WeeklyCommitForRepo(owner, repo);
 				_ownerDPs = this.ConvertToDataPoints(data.Owner);
 				_nonOwnerDPs = this.ConvertToDataPoints(data.Others);
 			}
@@ -53,7 +53,7 @@ namespace GithubDashboard
 
 			public override SChartData GetDataPoint (ShinobiChart chart, int dataIndex, int dataSeriesIndex)
 			{
-				if(dataSeriesIndex == 0) {
+				if (dataSeriesIndex == 0) {
 					return _nonOwnerDPs [dataIndex];
 				} else {
 					return _ownerDPs [dataIndex];
@@ -77,33 +77,40 @@ namespace GithubDashboard
 
 		private ShinobiChart _columnChart;
 		private WeeklyCommitViewDatasource _dataSource;
-		private string _owner;
-		private string _repo;
+		private UIActivityIndicatorView _actIndicator;
 
 		public WeeklyCommitView (IntPtr p) : base(p)
 		{
+			// Create an activity indicator
+			_actIndicator = new UIActivityIndicatorView ();
+			_actIndicator.Center = new PointF (Bounds.Width / 2, Bounds.Height / 2);
+			_actIndicator.StartAnimating ();
+			this.Add (_actIndicator);
 		}
 
 		// Use this to specify the repo owner and name
 		public void ChangeRepo(string owner, string repo)
 		{
-			_owner = owner;
-			_repo = repo;
-			// Make a new datasource
-			this.createDatasource ();
-			// If we haven't got a chart, then create one
-			if(_columnChart == null)
-			{
-				this.createChart ();
-			}
-			// Adds set the new datasource
-			_columnChart.DataSource = _dataSource;
-		}
+			// Get hold of the data asynchronously
+			GithubDataProvider.WeeklyCommitForRepo (owner, repo, data => {
+				// Create new chart datasource with response
+				_dataSource = new WeeklyCommitViewDatasource(data);
 
-		private void createDatasource()
-		{
-			// Create the data source for a sample repository
-			_dataSource = new WeeklyCommitViewDatasource(_owner, _repo);
+				InvokeOnMainThread (delegate {
+					// If we haven't got a chart, then create one
+					if(_columnChart == null)
+					{
+						this.createChart ();
+					}
+					// Assign it to this chart
+					_columnChart.DataSource = _dataSource;
+					// And then redraw the chart
+					_columnChart.RedrawChart();
+					// Get rid of the activity indicator
+					_actIndicator.RemoveFromSuperview ();
+					_actIndicator.StopAnimating ();
+				});
+			});
 		}
 
 		private void createChart()
@@ -126,7 +133,7 @@ namespace GithubDashboard
 			_columnChart.Legend.Position = SChartLegendPosition.TopLeft;
 
 			// Add it as a subview
-			this.AddSubview (_columnChart);
+			this.Add (_columnChart);
 		}
 	}
 }

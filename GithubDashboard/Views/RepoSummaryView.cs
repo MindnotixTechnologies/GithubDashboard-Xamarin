@@ -25,10 +25,16 @@ namespace GithubDashboard
 			if(_viewFromNib == null) {
 				this.LoadFromNib ();
 			}
+
 			// Update the repo data
-			_repoData = GithubDataProvider.SummmaryForRepo (owner, repo);
-			// Refresh the view
-			this.UpdateViewForRepoData ();
+			GithubDataProvider.SummmaryForRepo (owner, repo, data => {
+				// Save the retrieved data
+				_repoData = data;
+				// Refresh the view
+				InvokeOnMainThread (delegate {
+					this.UpdateViewForRepoData ();
+				});
+			});
 		}
 
 

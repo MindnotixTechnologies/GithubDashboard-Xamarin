@@ -5,6 +5,7 @@ using MonoTouch.Foundation;
 using ShinobiCharts;
 using System.Collections.Generic;
 using GithubAPI;
+using System.Drawing;
 
 namespace GithubDashboard
 {
@@ -15,15 +16,10 @@ namespace GithubDashboard
 		private class PunchCardViewDataSource : SChartDataSource
 		{
 			private IList<SChartBubbleDataPoint> _dataPoints;
-			private string _owner;
-			private string _repo;
 
 			// Constructor takes an owner's name and a repo
-			public PunchCardViewDataSource(string owner, string repo)
+			public PunchCardViewDataSource(IEnumerable<PunchCardEntry> punchCardEntries)
 			{
-				_owner = owner;
-				_repo = repo;
-				IEnumerable<PunchCardEntry> punchCardEntries = GithubDataProvider.PunchCardEntries(_owner, _repo);
 				_dataPoints = this.CreateDataPointsFromPunchCardEntries(punchCardEntries);
 			}
 
@@ -78,33 +74,38 @@ namespace GithubDashboard
 		// Variables to store chart and datasource
 		private ShinobiChart _bubbleChart;
 		private PunchCardViewDataSource _dataSource;
-		private string _owner;
-		private string _repo;
+		private UIActivityIndicatorView _actIndicator;
 
 		public PunchCardView(IntPtr p) : base(p)
 		{
+			// Create an activity indicator
+			_actIndicator = new UIActivityIndicatorView ();
+			_actIndicator.Center = new PointF (Bounds.Width / 2, Bounds.Height / 2);
+			_actIndicator.StartAnimating ();
+			this.Add (_actIndicator);
 		}
 
 		// Use this to specify the repo owner and name
 		public void ChangeRepo(string owner, string repo)
 		{
-			_owner = owner;
-			_repo = repo;
-			// Make a new datasource
-			this.createDatasource ();
-			// If we haven't got a chart, then create one
-			if(_bubbleChart == null)
-			{
-				this.createChart ();
-			}
-			// Adds set the new datasource
-			_bubbleChart.DataSource = _dataSource;
-		}
-
-		private void createDatasource()
-		{
-			// Create the data source for a sample repository
-			_dataSource = new PunchCardViewDataSource(_owner, _repo);
+			GithubDataProvider.PunchCardEntries (owner, repo, data => {
+				// Create a new datasource
+				_dataSource = new PunchCardViewDataSource (data);
+				InvokeOnMainThread (delegate {
+					// If we haven't got a chart, then create one
+					if(_bubbleChart == null)
+					{
+						this.createChart ();
+					}
+					// Set it for the chart
+					_bubbleChart.DataSource = _dataSource;
+					// Redraw the chart
+					_bubbleChart.RedrawChart ();
+					// Get rid of the activity indicator
+					_actIndicator.RemoveFromSuperview ();
+					_actIndicator.StopAnimating ();
+				});
+			});
 		}
 
 		private void createChart()

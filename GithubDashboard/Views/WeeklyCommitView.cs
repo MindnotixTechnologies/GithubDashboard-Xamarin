@@ -18,7 +18,7 @@ namespace GithubDashboard
 
 			public WeeklyCommitViewDatasource(string owner, string repo)
 			{
-				WeeklyCommitData data = WeeklyCommitCount.WeeklyCommitForRepo(owner, repo);
+				WeeklyCommitData data = GithubDataProvider.WeeklyCommitForRepo(owner, repo);
 				_ownerDPs = this.ConvertToDataPoints(data.Owner);
 				_nonOwnerDPs = this.ConvertToDataPoints(data.Others);
 			}

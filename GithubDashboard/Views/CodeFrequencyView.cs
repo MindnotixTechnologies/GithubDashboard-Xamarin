@@ -19,7 +19,7 @@ namespace GithubDashboard
 
 			public CodeFrequencyDataSource(string owner, string repo)
 			{
-				var data = CodeFrequency.CodeFrequencyEntries(owner, repo);
+				var data = GithubDataProvider.CodeFrequencyEntries(owner, repo);
 				this.CreateDataPointsFromCodeFrequencies(data);
 			}
 

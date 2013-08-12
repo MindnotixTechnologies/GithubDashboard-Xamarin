@@ -80,11 +80,11 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="monotouch" />
-    <Reference Include="RestSharp.MonoTouch">
-      <HintPath>Components\restsharp-104.1.0\lib\ios\RestSharp.MonoTouch.dll</HintPath>
-    </Reference>
     <Reference Include="ShinobiCharts">
       <HintPath>Shinobi\ShinobiCharts.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp.MonoTouch">
+      <HintPath>Components\restsharp-104.1.0\lib\ios\RestSharp.MonoTouch.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -105,18 +105,20 @@
     <Compile Include="GithubDashboardViewController.designer.cs">
       <DependentUpon>GithubDashboardViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="GithubAPI\PunchCard.cs" />
     <Compile Include="Views\PunchCardView.cs" />
-    <Compile Include="GithubAPI\WeeklyCommitCount.cs" />
     <Compile Include="Views\WeeklyCommitView.cs" />
-    <Compile Include="GithubAPI\CodeFrequency.cs" />
     <Compile Include="Views\CodeFrequencyView.cs" />
     <Compile Include="Utilities\DateExtensions.cs" />
-    <Compile Include="GithubAPI\RepoSummary.cs" />
     <Compile Include="Views\RepoSummaryView.cs" />
     <Compile Include="Views\RepoSummaryView.designer.cs">
       <DependentUpon>RepoSummaryView.cs</DependentUpon>
     </Compile>
+    <Compile Include="GithubAPI\CodeFrequencyEntry.cs" />
+    <Compile Include="GithubAPI\PunchCardEntry.cs" />
+    <Compile Include="GithubAPI\RepoSummaryData.cs" />
+    <Compile Include="GithubAPI\UserSummaryData.cs" />
+    <Compile Include="GithubAPI\WeeklyCommitData.cs" />
+    <Compile Include="GithubAPI\GithubDataProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />

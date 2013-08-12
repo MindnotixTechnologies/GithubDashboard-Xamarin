@@ -26,7 +26,7 @@ namespace GithubDashboard
 				this.LoadFromNib ();
 			}
 			// Update the repo data
-			_repoData = RepoSummary.SummmaryForRepo (owner, repo);
+			_repoData = GithubDataProvider.SummmaryForRepo (owner, repo);
 			// Refresh the view
 			this.UpdateViewForRepoData ();
 		}

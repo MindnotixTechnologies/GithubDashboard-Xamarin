@@ -23,7 +23,7 @@ namespace GithubDashboard
 			{
 				_owner = owner;
 				_repo = repo;
-				IEnumerable<PunchCardEntry> punchCardEntries = PunchCard.PunchCardEntries(_owner, _repo);
+				IEnumerable<PunchCardEntry> punchCardEntries = GithubDataProvider.PunchCardEntries(_owner, _repo);
 				_dataPoints = this.CreateDataPointsFromPunchCardEntries(punchCardEntries);
 			}
 

@@ -80,11 +80,14 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="monotouch" />
+    <Reference Include="RestSharp.MonoTouch">
+      <HintPath>Components\restsharp-104.1.0\lib\ios\RestSharp.MonoTouch.dll</HintPath>
+    </Reference>
     <Reference Include="ShinobiCharts">
       <HintPath>Shinobi\ShinobiCharts.dll</HintPath>
     </Reference>
-    <Reference Include="RestSharp.MonoTouch">
-      <HintPath>Components\restsharp-104.1.0\lib\ios\RestSharp.MonoTouch.dll</HintPath>
+    <Reference Include="ShinobiGrids">
+      <HintPath>Shinobi\ShinobiGrids.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

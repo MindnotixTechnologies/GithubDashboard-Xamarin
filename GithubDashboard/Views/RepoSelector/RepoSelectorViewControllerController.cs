@@ -7,26 +7,12 @@ using System.Collections.Generic;
 
 namespace GithubDashboard
 {
-	public class RepoSelectorViewDelegate: UITableViewDelegate
-	{
-		private Action<NSIndexPath> _repoSelectionHandler;
-		public RepoSelectorViewDelegate(Action<NSIndexPath> repoSelectionHandler)
-		{
-			_repoSelectionHandler = repoSelectionHandler;
-		}
-
-		public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
-		{
-			_repoSelectionHandler (indexPath);
-		}
-	}
-
 	public class RepoSelectorViewControllerController : UITableViewController
 	{
 		private String _owner;
 		private RepoSelectorViewControllerSource _tableViewDataSource;
-		private RepoSelectorViewDelegate _tableViewDelegate;
 		private UIActivityIndicatorView _actIndicator;
+		Action<String> _repoSelectionHandler;
 
 		public RepoSelectorViewControllerController (String owner, Action<string> repoSelectionHandler) : base (UITableViewStyle.Plain)
 		{
@@ -36,26 +22,16 @@ namespace GithubDashboard
 			_actIndicator.StartAnimating ();
 			View.Add (_actIndicator);
 
-
-			// Save off the repo selection handler
-			_tableViewDelegate = new RepoSelectorViewDelegate (idxPath => {
-				if (_tableViewDataSource != null) {
-					var repoName = _tableViewDataSource.NameForIndex (idxPath.Row);
-					repoSelectionHandler (repoName);
-				}
-			});
+			// Save the selection handler
+			_repoSelectionHandler = repoSelectionHandler;
 		}
 
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
-
-			// Set the delegate
-			TableView.Delegate = _tableViewDelegate;
-
 			// Get the data
 			GithubDataProvider.RepoList (_owner, data => {
-				_tableViewDataSource = new RepoSelectorViewControllerSource (data);
+				_tableViewDataSource = new RepoSelectorViewControllerSource (data, _repoSelectionHandler);
 				InvokeOnMainThread (delegate {
 					TableView.Source = _tableViewDataSource;
 					TableView.ReloadData ();
@@ -64,7 +40,6 @@ namespace GithubDashboard
 				});
 			});
 		}
-
 	}
 }
 

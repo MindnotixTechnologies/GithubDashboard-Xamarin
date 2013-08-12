@@ -10,6 +10,7 @@ namespace GithubDashboard
 	public class RepoSelectorViewControllerSource : UITableViewSource
 	{
 		private IList<RepoSummaryData> _repoData;
+		private Action<string> _repoSelectionHandler;
 
 		public string NameForIndex(int index)
 		{
@@ -17,9 +18,10 @@ namespace GithubDashboard
 			return curRepo.name;
 		}
 
-		public RepoSelectorViewControllerSource (IEnumerable<RepoSummaryData> repoData)
+		public RepoSelectorViewControllerSource (IEnumerable<RepoSummaryData> repoData, Action<string> repoSelectionHandler)
 		{
 			_repoData = new List<RepoSummaryData>(repoData);
+			_repoSelectionHandler = repoSelectionHandler;
 		}
 
 		public override int NumberOfSections (UITableView tableView)
@@ -38,13 +40,18 @@ namespace GithubDashboard
 			var cell = tableView.DequeueReusableCell ("RepoSelectorTableViewCell");
 			if (cell == null)
 				cell = new UITableViewCell(UITableViewCellStyle.Value1, "RepoSelectorTableViewCell");
-			
-			// TODO: populate the cell with the appropriate data based on the indexPath
+
 			var curRepo = _repoData [indexPath.Row];
 			cell.TextLabel.Text = curRepo.name;
 			cell.DetailTextLabel.Text = curRepo.language;
 			
 			return cell;
+		}
+
+		public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
+		{
+			var curRepo = _repoData [indexPath.Row];
+			_repoSelectionHandler (curRepo.name);
 		}
 	}
 }

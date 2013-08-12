@@ -20,13 +20,13 @@ namespace GithubAPI
 		/// Gets the number of additions / deletions each week for the given repo.
 		/// see: http://developer.github.com/v3/repos/statistics/#get-the-number-of-additions-and-deletions-per-week
 		/// </summary>
-		void CodeFrequencyEntries(string owner, string repo, Action<IEnumerable<CodeFrequencyEntry>> callback);
+		void CodeFrequencyEntries(string owner, string repo, Action<CodeFrequencyData> callback);
 
 		/// <summary>
 		/// Gets the number of commits per hour each day for the given repo.
 		/// see: http://developer.github.com/v3/repos/statistics/#get-the-number-of-commits-per-hour-in-each-day
 		/// </summary>
-		void PunchCardEntries(string owner, string repo, Action<IEnumerable<PunchCardEntry>> callback);
+		void PunchCardEntries(string owner, string repo, Action<PunchCardData> callback);
 
 		/// <summary>
 		/// Gets the summary information for the given repo.

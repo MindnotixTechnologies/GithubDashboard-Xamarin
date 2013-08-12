@@ -7,16 +7,16 @@ using Utilities;
 namespace GithubAPI
 {
 	/// <summary>
-	/// Details the number of additions / deletions each week for the given repo.
+	/// Details the number of additions / deletions for a single week for the given repo.
 	/// see: http://developer.github.com/v3/repos/statistics/#get-the-number-of-additions-and-deletions-per-week
 	/// </summary>
-	public class CodeFrequencyEntry
+	public class CodeFrequencyDataItem
 	{
 		public DateTime WeekCommencing { get; set; }
 		public int Additions { get; set; }
 		public int Deletions { get; set; }
 
-		public CodeFrequencyEntry (IList<long> list)
+		public CodeFrequencyDataItem (IList<long> list)
 		{
 			if (list.Count != 3) {
 				throw new ArgumentException ("The IList must have 3 integer elements");

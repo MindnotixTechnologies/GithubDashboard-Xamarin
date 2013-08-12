@@ -18,13 +18,13 @@ namespace GithubDashboard
 			private IList<SChartBubbleDataPoint> _dataPoints;
 
 			// Constructor takes an owner's name and a repo
-			public PunchCardViewDataSource(IEnumerable<PunchCardEntry> punchCardEntries)
+			public PunchCardViewDataSource(IEnumerable<PunchCardDataEntry> punchCardEntries)
 			{
 				_dataPoints = this.CreateDataPointsFromPunchCardEntries(punchCardEntries);
 			}
 
 			// Utility function to convert PunchCardEntries to SChartBubblePoints
-			private IList<SChartBubbleDataPoint> CreateDataPointsFromPunchCardEntries(IEnumerable<PunchCardEntry> entries)
+			private IList<SChartBubbleDataPoint> CreateDataPointsFromPunchCardEntries(IEnumerable<PunchCardDataEntry> entries)
 			{
 				// We aren't interested in the entries which don't represent any commits
 				List<SChartBubbleDataPoint> dps = new List<SChartBubbleDataPoint> (
@@ -36,7 +36,7 @@ namespace GithubDashboard
 			}
 
 			// Utility Function to create punch card entry to a bubble data point
-			private SChartBubbleDataPoint CreateBubbleDataPointForPunchCardEntry(PunchCardEntry entry)
+			private SChartBubbleDataPoint CreateBubbleDataPointForPunchCardEntry(PunchCardDataEntry entry)
 			{
 				SChartBubbleDataPoint dp = new SChartBubbleDataPoint ();
 				dp.XValue = new NSNumber(entry.Hour);

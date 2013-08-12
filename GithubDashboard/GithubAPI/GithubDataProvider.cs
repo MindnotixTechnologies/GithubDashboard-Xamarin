@@ -26,7 +26,7 @@ namespace GithubAPI
 			});
 		}
 
-		public void CodeFrequencyEntries(string owner, string repo, Action<IEnumerable<CodeFrequencyEntry>> callback)
+		public void CodeFrequencyEntries(string owner, string repo, Action<CodeFrequencyData> callback)
 		{
 			// Create a client using the utility method
 			var client = GetGithubRestClient ();
@@ -38,13 +38,13 @@ namespace GithubAPI
 				// Let's convert the 2D array into an 'array' of PunchCardEntry objects
 				var mapped =
 					from dp in response.Data
-						select new CodeFrequencyEntry (dp);
+						select new CodeFrequencyDataItem (dp);
 				// And push the results back
-				callback(mapped);
+				callback(new CodeFrequencyData(mapped));
 			});
 		}
 
-		public void PunchCardEntries(string owner, string repo, Action<IEnumerable<PunchCardEntry>> callback)
+		public void PunchCardEntries(string owner, string repo, Action<PunchCardData> callback)
 		{
 			// Create a client using the utility method
 			var client = GetGithubRestClient ();
@@ -56,10 +56,10 @@ namespace GithubAPI
 				// Let's convert the 2D array into an 'array' of PunchCardEntry objects
 				var mapped =
 					from dp in response.Data
-						select new PunchCardEntry (dp);
+						select new PunchCardDataEntry (dp);
 
 				// Send them back
-				callback(mapped);
+				callback(new PunchCardData(mapped));
 			});
 		}
 

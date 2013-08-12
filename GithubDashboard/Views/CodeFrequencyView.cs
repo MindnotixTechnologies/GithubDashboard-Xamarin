@@ -18,17 +18,17 @@ namespace GithubDashboard
 			private IList<SChartDataPoint> _additionDPs;
 			private IList<SChartDataPoint> _removalDPs;
 
-			public CodeFrequencyDataSource(IEnumerable<CodeFrequencyEntry> entries)
+			public CodeFrequencyDataSource(IEnumerable<CodeFrequencyDataItem> entries)
 			{
 				this.CreateDataPointsFromCodeFrequencies(entries);
 			}
 
-			private void CreateDataPointsFromCodeFrequencies(IEnumerable<CodeFrequencyEntry> entries)
+			private void CreateDataPointsFromCodeFrequencies(IEnumerable<CodeFrequencyDataItem> entries)
 			{
 				_additionDPs = new List<SChartDataPoint> ();
 				_removalDPs = new List<SChartDataPoint> ();
 
-				foreach (CodeFrequencyEntry entry in entries) {
+				foreach (CodeFrequencyDataItem entry in entries) {
 					SChartDataPoint addPt = new SChartDataPoint ();
 					SChartDataPoint remPt = new SChartDataPoint ();
 					addPt.XValue = entry.WeekCommencing.ToNSDate ();

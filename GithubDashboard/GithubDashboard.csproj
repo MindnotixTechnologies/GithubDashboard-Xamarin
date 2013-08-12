@@ -113,12 +113,14 @@
     <Compile Include="Views\RepoSummaryView.designer.cs">
       <DependentUpon>RepoSummaryView.cs</DependentUpon>
     </Compile>
-    <Compile Include="GithubAPI\CodeFrequencyEntry.cs" />
-    <Compile Include="GithubAPI\PunchCardEntry.cs" />
     <Compile Include="GithubAPI\RepoSummaryData.cs" />
     <Compile Include="GithubAPI\WeeklyCommitData.cs" />
     <Compile Include="GithubAPI\GithubDataProvider.cs" />
     <Compile Include="GithubAPI\IGithubDataProvider.cs" />
+    <Compile Include="GithubAPI\CodeFrequencyData.cs" />
+    <Compile Include="GithubAPI\CodeFrequencyDataItem.cs" />
+    <Compile Include="GithubAPI\PunchCardData.cs" />
+    <Compile Include="GithubAPI\PunchCardDataEntry.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />

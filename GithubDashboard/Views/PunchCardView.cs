@@ -10,7 +10,7 @@ using System.Drawing;
 namespace GithubDashboard
 {
 	[Register("PunchCardView")]
-	public class PunchCardView : UIView
+	public class PunchCardView : UIView, IDataView<PunchCardData>
 	{
 		// Create a class to represent the chart datasource
 		private class PunchCardViewDataSource : SChartDataSource
@@ -18,25 +18,22 @@ namespace GithubDashboard
 			private IList<SChartBubbleDataPoint> _dataPoints;
 
 			// Constructor takes an owner's name and a repo
-			public PunchCardViewDataSource(IEnumerable<PunchCardEntry> punchCardEntries)
+			public PunchCardViewDataSource(IEnumerable<PunchCardDataEntry> punchCardEntries)
 			{
 				_dataPoints = this.CreateDataPointsFromPunchCardEntries(punchCardEntries);
 			}
 
 			// Utility function to convert PunchCardEntries to SChartBubblePoints
-			private IList<SChartBubbleDataPoint> CreateDataPointsFromPunchCardEntries(IEnumerable<PunchCardEntry> entries)
+			private IList<SChartBubbleDataPoint> CreateDataPointsFromPunchCardEntries(IEnumerable<PunchCardDataEntry> entries)
 			{
 				// We aren't interested in the entries which don't represent any commits
-				List<SChartBubbleDataPoint> dps = new List<SChartBubbleDataPoint> (
-					from entry in entries
-					where entry.Commits != 0
-					select this.CreateBubbleDataPointForPunchCardEntry(entry)
-				);
-				return dps;
+				return entries.Where (entry => entry.Commits != 0)
+						   	.Select (entry => CreateBubbleDataPointForPunchCardEntry(entry))
+							.ToList ();
 			}
 
 			// Utility Function to create punch card entry to a bubble data point
-			private SChartBubbleDataPoint CreateBubbleDataPointForPunchCardEntry(PunchCardEntry entry)
+			private SChartBubbleDataPoint CreateBubbleDataPointForPunchCardEntry(PunchCardDataEntry entry)
 			{
 				SChartBubbleDataPoint dp = new SChartBubbleDataPoint ();
 				dp.XValue = new NSNumber(entry.Hour);
@@ -85,30 +82,25 @@ namespace GithubDashboard
 			this.Add (_actIndicator);
 		}
 
-		// Use this to specify the repo owner and name
-		public void ChangeRepo(string owner, string repo)
+		public void RenderData(PunchCardData data)
 		{
-			GithubDataProvider.PunchCardEntries (owner, repo, data => {
-				// Create a new datasource
-				_dataSource = new PunchCardViewDataSource (data);
-				InvokeOnMainThread (delegate {
-					// If we haven't got a chart, then create one
-					if(_bubbleChart == null)
-					{
-						this.createChart ();
-					}
-					// Set it for the chart
-					_bubbleChart.DataSource = _dataSource;
-					// Redraw the chart
-					_bubbleChart.RedrawChart ();
-					// Get rid of the activity indicator
-					_actIndicator.RemoveFromSuperview ();
-					_actIndicator.StopAnimating ();
-				});
-			});
+			_dataSource = new PunchCardViewDataSource (data);
+
+			// If we haven't got a chart, then create one
+			if(_bubbleChart == null)
+			{
+				this.CreateChart ();
+			}
+			// Set it for the chart
+			_bubbleChart.DataSource = _dataSource;
+			// Redraw the chart
+			_bubbleChart.RedrawChart ();
+			// Get rid of the activity indicator
+			_actIndicator.RemoveFromSuperview ();
+			_actIndicator.StopAnimating ();
 		}
 
-		private void createChart()
+		private void CreateChart()
 		{
 			_bubbleChart = new ShinobiChart (this.Bounds);
 			_bubbleChart.AutoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight;

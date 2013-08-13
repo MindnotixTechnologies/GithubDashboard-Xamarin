@@ -10,7 +10,7 @@ using System.Drawing;
 namespace GithubDashboard
 {
 	[Register("WeeklyCommitView")]
-	public class WeeklyCommitView : UIView
+	public class WeeklyCommitView : UIView, IDataView<WeeklyCommitData>
 	{
 		private class WeeklyCommitViewDatasource : SChartDataSource
 		{
@@ -88,29 +88,22 @@ namespace GithubDashboard
 			this.Add (_actIndicator);
 		}
 
-		// Use this to specify the repo owner and name
-		public void ChangeRepo(string owner, string repo)
+		public void RenderData(WeeklyCommitData data)
 		{
-			// Get hold of the data asynchronously
-			GithubDataProvider.WeeklyCommitForRepo (owner, repo, data => {
-				// Create new chart datasource with response
-				_dataSource = new WeeklyCommitViewDatasource(data);
+			_dataSource = new WeeklyCommitViewDatasource(data);
 
-				InvokeOnMainThread (delegate {
-					// If we haven't got a chart, then create one
-					if(_columnChart == null)
-					{
-						this.createChart ();
-					}
-					// Assign it to this chart
-					_columnChart.DataSource = _dataSource;
-					// And then redraw the chart
-					_columnChart.RedrawChart();
-					// Get rid of the activity indicator
-					_actIndicator.RemoveFromSuperview ();
-					_actIndicator.StopAnimating ();
-				});
-			});
+				// If we haven't got a chart, then create one
+			if(_columnChart == null)
+			{
+				this.createChart ();
+			}
+			// Assign it to this chart
+			_columnChart.DataSource = _dataSource;
+			// And then redraw the chart
+			_columnChart.RedrawChart();
+			// Get rid of the activity indicator
+			_actIndicator.RemoveFromSuperview ();
+			_actIndicator.StopAnimating ();
 		}
 
 		private void createChart()

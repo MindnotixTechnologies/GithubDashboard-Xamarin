@@ -7,13 +7,15 @@ using System.IO;
 
 namespace GithubAPI
 {
-	static public class GithubDataProvider
+	public class GithubDataProvider : IGithubDataProvider
 	{	
-		static private String BaseURL = "https://api.github.com/";
-		static private string authTokenJsonPath = "./GithubAPI/GithubAuthenticationToken.json";
+		public static IGithubDataProvider Instance = new GithubDataProvider();
+		private String BaseURL = "https://api.github.com/";
+		private String authTokenJsonPath = "./GithubAPI/GithubAuthenticationToken.json";
 
 		#region API Methods to pull different data from the github API
-		public static void WeeklyCommitForRepo(string owner, string repo, Action<WeeklyCommitData> callback)
+
+		public void WeeklyCommitForRepo(string owner, string repo, Action<WeeklyCommitData> callback)
 		{
 			// Create a client using the utility method
 			var client = GetGithubRestClient ();
@@ -26,7 +28,7 @@ namespace GithubAPI
 			});
 		}
 
-		public static void CodeFrequencyEntries(string owner, string repo, Action<IEnumerable<CodeFrequencyEntry>> callback)
+		public void CodeFrequencyEntries(string owner, string repo, Action<CodeFrequencyData> callback)
 		{
 			// Create a client using the utility method
 			var client = GetGithubRestClient ();
@@ -36,17 +38,14 @@ namespace GithubAPI
 			// Perform an async request call. Send the data back to the caller
 			client.ExecuteAsync<List<List<long>>> (request, response => {
 				// Let's convert the 2D array into an 'array' of PunchCardEntry objects
-				if(response.Data != null) {
-					var mapped =
-						from dp in response.Data
-							select new CodeFrequencyEntry (dp);
-					// And push the results back
-					callback(mapped);
-				}
+				var mapped = new CodeFrequencyData(response.Data.Select(dp => new CodeFrequencyDataItem (dp)));
+
+				// And push the results back
+				callback(new CodeFrequencyData(mapped));
 			});
 		}
 
-		public static void PunchCardEntries(string owner, string repo, Action<IEnumerable<PunchCardEntry>> callback)
+		public void PunchCardEntries(string owner, string repo, Action<PunchCardData> callback)
 		{
 			// Create a client using the utility method
 			var client = GetGithubRestClient ();
@@ -56,16 +55,14 @@ namespace GithubAPI
 			// Perform an async request call. Send the data back to the caller
 			client.ExecuteAsync<List<List<int>>> (request, response => {
 				// Let's convert the 2D array into an 'array' of PunchCardEntry objects
-				var mapped =
-					from dp in response.Data
-						select new PunchCardEntry (dp);
+				var mapped = new PunchCardData(response.Data.Select(dp => new PunchCardDataEntry(dp)));
 
 				// Send them back
 				callback(mapped);
 			});
 		}
 
-		public static void SummmaryForRepo(string owner, string repo, Action<RepoSummaryData> callback)
+		public void SummmaryForRepo(string owner, string repo, Action<RepoSummaryData> callback)
 		{
 			// Create a client using the utility method
 			var client = GetGithubRestClient ();
@@ -78,7 +75,7 @@ namespace GithubAPI
 			});
 		}
 
-		public static void RepoList(string owner, Action<IEnumerable<RepoSummaryData>> callback)
+		public void RepoList(string owner, Action<IEnumerable<RepoSummaryData>> callback)
 		{
 			// Create a client
 			var client = GetGithubRestClient ();
@@ -95,8 +92,9 @@ namespace GithubAPI
 
 
 		#region Utility methods
+
 		// This method could be replaced with some IoC magic
-		static private IRestClient GetGithubRestClient()
+		private IRestClient GetGithubRestClient()
 		{
 			var client = new RestClient (BaseURL);
 
@@ -138,7 +136,7 @@ namespace GithubAPI
 			return client;
 		}
 
-		static private IRestRequest GetGithubRestRequest(String urlPart, String owner, String repo)
+		private IRestRequest GetGithubRestRequest(String urlPart, String owner, String repo)
 		{
 			// Get the request for just this owner
 			var request = GetGithubRestRequest (urlPart, owner);

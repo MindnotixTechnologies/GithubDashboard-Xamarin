@@ -17,12 +17,13 @@ namespace GithubDashboard
 		}
 
 		#region View lifecycle
+
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
 
-			// Set the initial settings for the dashboard
-			this.UpdateDashBoard ("sammyd", "sammyd.github.com");
+			// Need to set the repo for our views
+			FetchDataForRepo ("sammyd", "sammyd.github.com");
 
 			// Add the touch handler to the repo summary
 			this.repoSummary.SetTapHandler ( nameLabelFrame => {
@@ -30,23 +31,45 @@ namespace GithubDashboard
 					_repoSelectorVC = new RepoSelectorViewControllerController ("sammyd", repoName => {
 						InvokeOnMainThread(delegate {
 							_popover.Dismiss(true);
-							UpdateDashBoard (_githubUserName, repoName);
+							FetchDataForRepo (_githubUserName, repoName);
 						});
 					});
 				}
 				_popover = new UIPopoverController(_repoSelectorVC);
 				_popover.PresentFromRect (nameLabelFrame, this.repoSummary, UIPopoverArrowDirection.Up, true);
 			});
+
 		}
+
 		#endregion
 
-		private void UpdateDashBoard(string owner, string repo)
+
+		private void FetchDataForRepo(string owner, string repo)
 		{
-			// Need to set the repo for our views
-			this.punchCard.ChangeRepo (owner, repo);
-			this.weeklyCommit.ChangeRepo (owner, repo);
-			this.codeFrequency.ChangeRepo (owner, repo);
-			this.repoSummary.ChangeRepo (owner, repo);
+			GithubDataProvider.Instance.PunchCardEntries (owner, repo, data => {
+				InvokeOnMainThread (() => {
+					this.punchCard.RenderData(data);
+				});
+			});
+
+			GithubDataProvider.Instance.WeeklyCommitForRepo (owner, repo, data => {
+				InvokeOnMainThread (() => {
+					this.weeklyCommit.RenderData(data);
+				});
+			});
+
+			GithubDataProvider.Instance.CodeFrequencyEntries (owner, repo, data => {
+				InvokeOnMainThread (() => {
+					this.codeFrequency.RenderData(data);
+				});
+			});
+
+			GithubDataProvider.Instance.SummmaryForRepo (owner, repo, data => {
+				InvokeOnMainThread (() => {
+					this.repoSummary.RenderData(data);
+				});
+			});
+
 			// Check whether we need a new repo selector
 			if (owner != _githubUserName) {
 				_repoSelectorVC = null;
@@ -54,11 +77,11 @@ namespace GithubDashboard
 			}
 		}
 
-
 		public override UIInterfaceOrientationMask GetSupportedInterfaceOrientations ()
 		{
 			return UIInterfaceOrientationMask.Landscape;
 		}
+
 	}
 }
 

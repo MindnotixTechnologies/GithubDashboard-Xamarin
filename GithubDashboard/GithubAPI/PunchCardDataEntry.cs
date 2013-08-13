@@ -5,7 +5,11 @@ using RestSharp;
 
 namespace GithubAPI
 {
-	public class PunchCardEntry
+	/// <summary>
+	/// Details the number of commits for a given day and hour.
+	/// see: http://developer.github.com/v3/repos/statistics/#get-the-number-of-commits-per-hour-in-each-day
+	/// </summary>
+	public class PunchCardDataEntry
 	{
 		private static string[] _daysOfWeek = { "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" };
 		public int Day { get; set; }
@@ -18,7 +22,7 @@ namespace GithubAPI
 			get { return _daysOfWeek [this.Day]; }
 		}
 
-		public PunchCardEntry(IList<int> list)
+		public PunchCardDataEntry(IList<int> list)
 		{
 			if (list.Count != 3) {
 				throw new ArgumentException ("The IList must have 3 integer elements");

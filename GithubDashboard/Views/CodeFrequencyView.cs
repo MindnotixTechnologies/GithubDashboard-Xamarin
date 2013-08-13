@@ -11,24 +11,24 @@ using System.Drawing;
 namespace GithubDashboard
 {
 	[Register("CodeFrequencyView")]
-	public class CodeFrequencyView : UIView
+	public class CodeFrequencyView : UIView, IDataView<CodeFrequencyData>
 	{
 		private class CodeFrequencyDataSource : SChartDataSource
 		{
 			private IList<SChartDataPoint> _additionDPs;
 			private IList<SChartDataPoint> _removalDPs;
 
-			public CodeFrequencyDataSource(IEnumerable<CodeFrequencyEntry> entries)
+			public CodeFrequencyDataSource(IEnumerable<CodeFrequencyDataItem> entries)
 			{
 				this.CreateDataPointsFromCodeFrequencies(entries);
 			}
 
-			private void CreateDataPointsFromCodeFrequencies(IEnumerable<CodeFrequencyEntry> entries)
+			private void CreateDataPointsFromCodeFrequencies(IEnumerable<CodeFrequencyDataItem> entries)
 			{
 				_additionDPs = new List<SChartDataPoint> ();
 				_removalDPs = new List<SChartDataPoint> ();
 
-				foreach (CodeFrequencyEntry entry in entries) {
+				foreach (CodeFrequencyDataItem entry in entries) {
 					SChartDataPoint addPt = new SChartDataPoint ();
 					SChartDataPoint remPt = new SChartDataPoint ();
 					addPt.XValue = entry.WeekCommencing.ToNSDate ();
@@ -92,29 +92,22 @@ namespace GithubDashboard
 			this.Add (_actIndicator);
 		}
 
-		// Use this to specify the repo owner and name
-		public void ChangeRepo(string owner, string repo)
+		public void RenderData(CodeFrequencyData data)
 		{
-			GithubDataProvider.CodeFrequencyEntries (owner, repo, data => {
-				// Create a new chart datasource with the data
-				_dataSource = new CodeFrequencyDataSource(data);
+			_dataSource = new CodeFrequencyDataSource(data);
 
-				InvokeOnMainThread (delegate {
-					// If we haven't got a chart, then create one
-					if(_columnChart == null)
-					{
-						this.createChart ();
-					}
-					// Set the chart's datasource
-					_columnChart.DataSource = _dataSource;
-					// Redraw the chart
-					_columnChart.RedrawChart ();
-					// Get rid of the activity indicator
-					_actIndicator.RemoveFromSuperview ();
-					_actIndicator.StopAnimating ();
-				});
-
-			});
+			// If we haven't got a chart, then create one
+			if(_columnChart == null)
+			{
+				this.createChart ();
+			}
+			// Set the chart's datasource
+			_columnChart.DataSource = _dataSource;
+			// Redraw the chart
+			_columnChart.RedrawChart ();
+			// Get rid of the activity indicator
+			_actIndicator.RemoveFromSuperview ();
+			_actIndicator.StopAnimating ();
 		}
 
 		private void createChart()

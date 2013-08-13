@@ -30,7 +30,7 @@ namespace GithubDashboard
 		{
 			base.ViewDidLoad ();
 			// Get the data
-			GithubDataProvider.RepoList (_owner, data => {
+			GithubDataProvider.Instance.RepoList (_owner, data => {
 				_tableViewDataSource = new RepoSelectorViewControllerSource (data, _repoSelectionHandler);
 				InvokeOnMainThread (delegate {
 					TableView.Source = _tableViewDataSource;

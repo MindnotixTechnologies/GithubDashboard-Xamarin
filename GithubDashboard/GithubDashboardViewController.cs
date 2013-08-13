@@ -8,6 +8,10 @@ namespace GithubDashboard
 {
 	public partial class GithubDashboardViewController : UIViewController
 	{
+		private UIPopoverController _popover;
+		private RepoSelectorViewControllerController _repoSelectorVC;
+		private string _githubUserName;
+
 		public GithubDashboardViewController (IntPtr handle) : base (handle)
 		{
 		}
@@ -19,10 +23,25 @@ namespace GithubDashboard
 			base.ViewDidLoad ();
 
 			// Need to set the repo for our views
-			FetchDataForRepo ("tastejs", "PropertyCross");
-		}
+			FetchDataForRepo ("tastejs", "todomvc");
 
+			// Add the touch handler to the repo summary
+			this.repoSummary.SetTapHandler ( nameLabelFrame => {
+				if(_repoSelectorVC == null) {
+					_repoSelectorVC = new RepoSelectorViewControllerController (_githubUserName, repoName => {
+						InvokeOnMainThread(() => {
+							_popover.Dismiss(true);
+							FetchDataForRepo (_githubUserName, repoName);
+						});
+					});
+				}
+				_popover = new UIPopoverController(_repoSelectorVC);
+				_popover.PresentFromRect (nameLabelFrame, this.repoSummary, UIPopoverArrowDirection.Up, true);
+			});
+
+		}
 		#endregion
+
 
 		private void FetchDataForRepo(string owner, string repo)
 		{
@@ -55,6 +74,12 @@ namespace GithubDashboard
 					this.repoSummary.RenderData(data);
 				});
 			});
+
+			// Check whether we need a new repo selector
+			if (owner != _githubUserName) {
+				_repoSelectorVC = null;
+				_githubUserName = owner;
+			}
 		}
 
 		public override UIInterfaceOrientationMask GetSupportedInterfaceOrientations ()

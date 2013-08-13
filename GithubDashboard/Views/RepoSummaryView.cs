@@ -10,16 +10,17 @@ using System.Net;
 namespace GithubDashboard
 {
 	[Register("RepoSummaryView")]
-	public partial class RepoSummaryView : UIView, IDataView<RepoSummaryData>
+	public partial class RepoSummaryView : UIView, IDataView<RepoSummaryDataItem>
 	{
 		private RepoSummaryView _viewFromNib;
-		private RepoSummaryData _repoData;
+		private RepoSummaryDataItem _repoData;
+		private UITapGestureRecognizer _tapRecogniser;
 
 		public RepoSummaryView (IntPtr h) : base(h)
 		{
 		}
 
-		public void RenderData(RepoSummaryData data)
+		public void RenderData(RepoSummaryDataItem data)
 		{
 			// Ensure that we have already loaded the view from the layout nib
 			if(_viewFromNib == null) {
@@ -30,6 +31,25 @@ namespace GithubDashboard
 
 			// Refresh the view
 			this.UpdateViewForRepoData ();
+		}
+
+		public void SetTapHandler(Action<RectangleF> tapHandler)
+		{
+			if (_viewFromNib == null) {
+				LoadFromNib ();
+			}
+
+			if (_tapRecogniser != null) {
+				// If we've already been called then remove the old one
+				_viewFromNib.repoName.RemoveGestureRecognizer (_tapRecogniser);
+			}
+			// Create a tap recogniser which will call our tapHandler callback
+			_tapRecogniser = new UITapGestureRecognizer (r => {
+				tapHandler (_viewFromNib.repoName.Frame);
+			});
+			// Add to the repoName label
+			_viewFromNib.repoName.AddGestureRecognizer ( _tapRecogniser );
+			_viewFromNib.repoName.UserInteractionEnabled = true;
 		}
 
 

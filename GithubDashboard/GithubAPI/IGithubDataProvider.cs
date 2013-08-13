@@ -39,7 +39,13 @@ namespace GithubAPI
 		/// Gets the summary information for the given repo.
 		/// see: http://developer.github.com/v3/repos/#get
 		/// </summary>
-		void SummmaryForRepo(string owner, string repo, Action<RepoSummaryData> callback);
+		void SummmaryForRepo(string owner, string repo, Action<RepoSummaryDataItem> callback);
+
+		/// <summary>
+		/// Gets a list of repos for a specified user
+		/// see: http://developer.github.com/v3/repos/#list-user-repositories
+		/// </summary>
+		void RepoList (string owner, Action<RepoSummaryData> callback);
 	}
 }
 

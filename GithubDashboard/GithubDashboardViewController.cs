@@ -19,7 +19,7 @@ namespace GithubDashboard
 			base.ViewDidLoad ();
 
 			// Need to set the repo for our views
-			FetchDataForRepo ("sammyd", "sammyd.github.com");
+			FetchDataForRepo ("tastejs", "todomvc");
 		}
 
 		#endregion

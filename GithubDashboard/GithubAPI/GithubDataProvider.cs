@@ -2,74 +2,48 @@ using System;
 using System.Collections.Generic;
 using RestSharp;
 using System.Linq;
+using Newtonsoft.Json.Linq;
+using System.IO;
 
 namespace GithubAPI
 {
 	public class GithubDataProvider : IGithubDataProvider
 	{	
 		public static IGithubDataProvider Instance = new GithubDataProvider();
-
 		private String BaseURL = "https://api.github.com/";
+		private String authTokenJsonPath = "./GithubAPI/GithubAuthenticationToken.json";
 
 		#region API Methods to pull different data from the github API
 
 		public void WeeklyCommitForRepo(string owner, string repo, Action<WeeklyCommitData> callback)
 		{
-			// Create a client using the utility method
-			var client = GetGithubRestClient ();
-			// And create the request
-			var request = GetGithubRestRequest ("repos/{owner}/{repo}/stats/participation", owner, repo);
-
-			// Perform an async request call. Send the data back to the caller
-			client.ExecuteAsync<WeeklyCommitData> (request, response => {
-				callback(response.Data);
-			});
+			MakeAPIRequest<WeeklyCommitData> (owner, repo, "repos/{owner}/{repo}/stats/participation", callback);
 		}
 
 		public void CodeFrequencyEntries(string owner, string repo, Action<CodeFrequencyData> callback)
-		{
-			// Create a client using the utility method
-			var client = GetGithubRestClient ();
-			// And create the request
-			var request = GetGithubRestRequest ("repos/{owner}/{repo}/stats/code_frequency", owner, repo);
+	{
+		MakeAPIRequest<List<List<long>>, CodeFrequencyData> (owner, repo, "repos/{owner}/{repo}/stats/code_frequency", callback, responseData => {
+			return new CodeFrequencyData (responseData.Select (dp => new CodeFrequencyDataItem (dp)));
+		});
+	}
 
-			// The return is an 'array' of arrays of 3 ints each.
-			client.ExecuteAsync<List<List<long>>> (request, response => {
-				// Let's convert the 2D array into an 'array' of PunchCardEntry objects
-				var mapped = new CodeFrequencyData(response.Data.Select(dp => new CodeFrequencyDataItem (dp)));
-
-				// And push the results back
-				callback(new CodeFrequencyData(mapped));
-			});
-		}
 
 		public void PunchCardEntries(string owner, string repo, Action<PunchCardData> callback)
 		{
-			// Create a client using the utility method
-			var client = GetGithubRestClient ();
-			// And create the request
-			var request = GetGithubRestRequest ("repos/{owner}/{repo}/stats/punch_card", owner, repo);
-
-			// The return is an 'array' of arrays of 3 ints each.
-			client.ExecuteAsync<List<List<int>>> (request, response => {
-				// Let's convert the 2D array into an 'array' of PunchCardEntry objects
-				var mapped = new PunchCardData(response.Data.Select(dp => new PunchCardDataEntry(dp)));
-
-				// Send them back
-				callback(mapped);
-			});
+			MakeAPIRequest<List<List<int>>, PunchCardData>(owner, repo, "repos/{owner}/{repo}/stats/punch_card", callback, responseData => {
+							return new PunchCardData(responseData.Select(dp => new PunchCardDataEntry(dp)));
+						});
 		}
 
-		public void SummmaryForRepo(string owner, string repo, Action<RepoSummaryData> callback)
+		public void SummmaryForRepo(string owner, string repo, Action<RepoSummaryDataItem> callback)
 		{
-			// Create a client using the utility method
-			var client = GetGithubRestClient ();
-			// And create the request
-			var request = GetGithubRestRequest ("repos/{owner}/{repo}", owner, repo);
+			MakeAPIRequest<RepoSummaryDataItem> (owner, repo, "repos/{owner}/{repo}", callback);
+		}
 
-			// The return is an 'array' of arrays of 3 ints each.
-			client.ExecuteAsync<RepoSummaryData> (request, response => {
-				callback(response.Data);
+		public void RepoList(string owner, Action<RepoSummaryData> callback)
+		{
+			MakeAPIRequest<List<RepoSummaryDataItem>, RepoSummaryData> (owner, null, "users/{owner}/repos", callback, responseData => {
+				return new RepoSummaryData(responseData);
 			});
 		}
 
@@ -78,19 +52,108 @@ namespace GithubAPI
 
 		#region Utility methods
 
-		// This method could be replaced with some IoC magic
-		private IRestClient GetGithubRestClient()
+		/// <summary>
+		/// Make a request to the github API, transforming the reponse with the given transform function. The result
+		/// is sent to the given callback.
+		/// </summary>
+		private void MakeAPIRequest<TResponse, TCallback>(string owner, string repo, string apiMethod,
+			                                                  Action<TCallback> callback, Func<TResponse, TCallback> transform) 
+				where TResponse : new()
+				where TCallback : class
 		{
-			return new RestClient (BaseURL);
+			// Create a client using the utility method
+			var client = GetGithubRestClient ();
+
+			// And create the request
+			var request = GetGithubRestRequest (apiMethod, owner, repo);
+			client.ExecuteAsync<TResponse> (request, response => {
+
+				// Let's log the rate limit remaining for dev purposes
+				var h = response.Headers.First(header => header.Name == "X-RateLimit-Remaining");
+				Console.WriteLine(h);
+
+				if (response.Data != null)
+				{
+					callback(transform(response.Data));
+				}
+				else
+				{
+					callback(null);
+				}
+			});
 		}
 
+		/// <summary>
+		/// Make a request to the github API. The result
+		/// is sent to the given callback.
+		/// </summary>
+		private void MakeAPIRequest<TResponse>(string owner, string repo, string apiMethod,
+		                                                  Action<TResponse> callback) 
+			where TResponse : class, new()
+		{
+			MakeAPIRequest<TResponse, TResponse> (owner, repo, apiMethod, callback, responseData => responseData);
+		}
+
+		/// <summary>
+		/// Create a rest client to send requests to the github API. Will authenticate if
+		/// authentication tokens have been provided in the specified file
+		/// </summary>
+		private IRestClient GetGithubRestClient()
+		{
+			var client = new RestClient (BaseURL);
+
+			// Let's see whether we have some authentication details
+			if(File.Exists (authTokenJsonPath)) {
+
+				/* Without authentication GitHub limits your IP address to 60 requests per
+				 * hour. This is a problem since changing the repo in the dashboard app requires
+				 * at least 5 requests.
+				 * Authenticating against github enables you to perform up to 5000 requests per
+				 * hour. Therefore we check here whether or not credentials have been provided
+				 * and if they have then we'll use them.
+				 * 
+				 * To create credentials for the app
+				 * (based on https://help.github.com/articles/creating-an-access-token-for-command-line-use):
+				 * 1. Visit https://github.com/settings/applications
+				 * 2. Click create new token
+				 * 3. Give it an appropriate name, and copy the generated token.
+				 * 4. Using GithubAuthenticationToken.sample.json as a template create
+				 *    GithubAuthenticationToken.json - with your username and token pasted in the
+				 *    appropriate places.
+				 * 5. Right click on the JSON file in Xamarin Studio, and ensure that under build
+				 *    action "BundleResource" is selected.
+				 * 6. Ensure that you don't commit the JSON file into source control.
+				 * 
+				 * Please note that this solution is not suitable for production applications - for
+				 * these you should implement a user-based OAuth2 solution, as per the instructions
+				 * on GitHub
+				 */
+
+				var parsedObjects = JObject.Parse (File.ReadAllText (authTokenJsonPath));
+				string username = (string)parsedObjects["personal_access_token"]["user"];
+				string token = (string)parsedObjects["personal_access_token"]["token"];
+				if (!String.IsNullOrWhiteSpace (username) && !String.IsNullOrWhiteSpace (token)) {
+					// We have credentials, so let's add them to the client
+					client.Authenticator = new HttpBasicAuthenticator (username, token);
+				}
+			}
+			return client;
+		}
+
+		/// <summary>
+		/// Creates a rest request of the form {user}/{repo}. The urlPart string must be of the correct
+		/// form (i.e. containing the aforementioned parts). Owner is required, repo is optional.
+		/// </summary>
 		private IRestRequest GetGithubRestRequest(String urlPart, String owner, String repo)
 		{
-			// Create a request
+			// Get the request for just this owner
 			var request = new RestRequest (urlPart, Method.GET);
-			// Add the parameters
+			if (!String.IsNullOrEmpty (repo)) {
+				// Not always going to be provided with a repo
+				request.AddUrlSegment ("repo", repo);
+			}
+			// Add the owner parameter
 			request.AddUrlSegment ("owner", owner);
-			request.AddUrlSegment ("repo", repo);
 			// Done
 			return request;
 		}

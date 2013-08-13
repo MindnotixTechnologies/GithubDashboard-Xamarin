@@ -13,23 +13,49 @@ namespace GithubDashboard
 		}
 
 		#region View lifecycle
+
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
 
 			// Need to set the repo for our views
-			this.punchCard.ChangeRepo ("sammyd", "sammyd.github.com");
-			this.weeklyCommit.ChangeRepo ("sammyd", "sammyd.github.com");
-			this.codeFrequency.ChangeRepo ("sammyd", "sammyd.github.com");
-			this.repoSummary.ChangeRepo ("sammyd", "sammyd.github.com");
+			FetchDataForRepo ("sammyd", "sammyd.github.com");
 		}
+
 		#endregion
 
+		private void FetchDataForRepo(string owner, string repo)
+		{
+			GithubDataProvider.Instance.PunchCardEntries (owner, repo, data => {
+				InvokeOnMainThread (() => {
+					this.punchCard.RenderData(data);
+				});
+			});
+
+			GithubDataProvider.Instance.WeeklyCommitForRepo (owner, repo, data => {
+				InvokeOnMainThread (() => {
+					this.weeklyCommit.RenderData(data);
+				});
+			});
+
+			GithubDataProvider.Instance.CodeFrequencyEntries (owner, repo, data => {
+				InvokeOnMainThread (() => {
+					this.codeFrequency.RenderData(data);
+				});
+			});
+
+			GithubDataProvider.Instance.SummmaryForRepo (owner, repo, data => {
+				InvokeOnMainThread (() => {
+					this.repoSummary.RenderData(data);
+				});
+			});
+		}
 
 		public override UIInterfaceOrientationMask GetSupportedInterfaceOrientations ()
 		{
 			return UIInterfaceOrientationMask.Landscape;
 		}
+
 	}
 }
 

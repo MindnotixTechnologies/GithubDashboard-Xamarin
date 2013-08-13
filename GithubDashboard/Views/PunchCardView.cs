@@ -10,7 +10,7 @@ using System.Drawing;
 namespace GithubDashboard
 {
 	[Register("PunchCardView")]
-	public class PunchCardView : UIView
+	public class PunchCardView : UIView, IDataView<PunchCardData>
 	{
 		// Create a class to represent the chart datasource
 		private class PunchCardViewDataSource : SChartDataSource
@@ -82,30 +82,25 @@ namespace GithubDashboard
 			this.Add (_actIndicator);
 		}
 
-		// Use this to specify the repo owner and name
-		public void ChangeRepo(string owner, string repo)
+		public void RenderData(PunchCardData data)
 		{
-			GithubDataProvider.Instance.PunchCardEntries (owner, repo, data => {
-				// Create a new datasource
-				_dataSource = new PunchCardViewDataSource (data);
-				InvokeOnMainThread (delegate {
-					// If we haven't got a chart, then create one
-					if(_bubbleChart == null)
-					{
-						this.createChart ();
-					}
-					// Set it for the chart
-					_bubbleChart.DataSource = _dataSource;
-					// Redraw the chart
-					_bubbleChart.RedrawChart ();
-					// Get rid of the activity indicator
-					_actIndicator.RemoveFromSuperview ();
-					_actIndicator.StopAnimating ();
-				});
-			});
+			_dataSource = new PunchCardViewDataSource (data);
+
+			// If we haven't got a chart, then create one
+			if(_bubbleChart == null)
+			{
+				this.CreateChart ();
+			}
+			// Set it for the chart
+			_bubbleChart.DataSource = _dataSource;
+			// Redraw the chart
+			_bubbleChart.RedrawChart ();
+			// Get rid of the activity indicator
+			_actIndicator.RemoveFromSuperview ();
+			_actIndicator.StopAnimating ();
 		}
 
-		private void createChart()
+		private void CreateChart()
 		{
 			_bubbleChart = new ShinobiChart (this.Bounds);
 			_bubbleChart.AutoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight;

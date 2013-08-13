@@ -121,6 +121,7 @@
     <Compile Include="GithubAPI\CodeFrequencyDataItem.cs" />
     <Compile Include="GithubAPI\PunchCardData.cs" />
     <Compile Include="GithubAPI\PunchCardDataEntry.cs" />
+    <Compile Include="Views\IDataView.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />

@@ -10,7 +10,7 @@ using System.Net;
 namespace GithubDashboard
 {
 	[Register("RepoSummaryView")]
-	public partial class RepoSummaryView : UIView
+	public partial class RepoSummaryView : UIView, IDataView<RepoSummaryData>
 	{
 		private RepoSummaryView _viewFromNib;
 		private RepoSummaryData _repoData;
@@ -19,22 +19,17 @@ namespace GithubDashboard
 		{
 		}
 
-		public void ChangeRepo(string owner, string repo)
+		public void RenderData(RepoSummaryData data)
 		{
 			// Ensure that we have already loaded the view from the layout nib
 			if(_viewFromNib == null) {
 				this.LoadFromNib ();
 			}
 
-			// Update the repo data
-			GithubDataProvider.Instance.SummmaryForRepo (owner, repo, data => {
-				// Save the retrieved data
-				_repoData = data;
-				// Refresh the view
-				InvokeOnMainThread (delegate {
-					this.UpdateViewForRepoData ();
-				});
-			});
+			_repoData = data;
+
+			// Refresh the view
+			this.UpdateViewForRepoData ();
 		}
 
 

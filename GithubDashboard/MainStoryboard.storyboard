@@ -22,6 +22,11 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <view contentMode="scaleToFill" id="N4d-S5-cCF" customClass="LanguageStatsView">
+                                <rect key="frame" x="20" y="106" width="522" height="307"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <view contentMode="scaleToFill" id="ZEY-nb-RTm" customClass="WeeklyCommitView">
                                 <rect key="frame" x="550" y="106" width="454" height="307"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -39,6 +44,7 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="codeFrequency" destination="bN6-PL-BOC" id="nzk-XO-h5z"/>
+                        <outlet property="languageStats" destination="N4d-S5-cCF" id="Awl-oj-vwr"/>
                         <outlet property="punchCard" destination="dDD-GK-wHN" id="jKX-Sd-ok4"/>
                         <outlet property="repoSummary" destination="25q-5n-VPz" id="xuO-Qg-EEC"/>
                         <outlet property="weeklyCommit" destination="ZEY-nb-RTm" id="n56-6C-8NO"/>
@@ -56,10 +62,14 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GithubDashboardViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="codeFrequency" candidateClass="CodeFrequencyView"/>
+                <relationship kind="outlet" name="languageStats" candidateClass="CodeFrequencyView"/>
                 <relationship kind="outlet" name="punchCard" candidateClass="PunchCardView"/>
                 <relationship kind="outlet" name="repoSummary" candidateClass="RepoSummaryView"/>
                 <relationship kind="outlet" name="weeklyCommit" candidateClass="WeeklyCommitView"/>
             </relationships>
+        </class>
+        <class className="LanguageStatsView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LanguageStatsView.h"/>
         </class>
         <class className="PunchCardView" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PunchCardView.h"/>

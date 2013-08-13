@@ -122,6 +122,8 @@
     <Compile Include="GithubAPI\PunchCardData.cs" />
     <Compile Include="GithubAPI\PunchCardDataEntry.cs" />
     <Compile Include="Views\IDataView.cs" />
+    <Compile Include="GithubAPI\LanguageFrequencyData.cs" />
+    <Compile Include="Views\LanguageStatsView.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />

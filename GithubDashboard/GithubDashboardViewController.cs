@@ -19,13 +19,19 @@ namespace GithubDashboard
 			base.ViewDidLoad ();
 
 			// Need to set the repo for our views
-			FetchDataForRepo ("sammyd", "sammyd.github.com");
+			FetchDataForRepo ("tastejs", "PropertyCross");
 		}
 
 		#endregion
 
 		private void FetchDataForRepo(string owner, string repo)
 		{
+			GithubDataProvider.Instance.LanguageStatsForRepo (owner, repo, data => {
+				InvokeOnMainThread (() => {
+					this.languageStats.RenderData(data);
+				});
+			});
+
 			GithubDataProvider.Instance.PunchCardEntries (owner, repo, data => {
 				InvokeOnMainThread (() => {
 					this.punchCard.RenderData(data);

@@ -73,6 +73,21 @@ namespace GithubAPI
 			});
 		}
 
+		public void LanguageStatsForRepo(string owner, string repo, Action<LanguageFrequencyData> callback)
+		{
+			// Create a client using the utility method
+			var client = GetGithubRestClient ();
+			// And create the request
+			var request = GetGithubRestRequest ("repos/{owner}/{repo}/languages", owner, repo);
+
+			client.ExecuteAsync<Dictionary<string, long>> (request, response => {
+				var mapped = new LanguageFrequencyData(response.Data);
+
+				// Send them back
+				callback(mapped);
+			});
+		}
+
 		#endregion
 
 

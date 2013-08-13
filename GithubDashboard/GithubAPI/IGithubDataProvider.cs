@@ -1,6 +1,7 @@
 using System;
 using GithubAPI;
 using System.Collections.Generic;
+using System.Collections;
 
 namespace GithubAPI
 {
@@ -15,6 +16,12 @@ namespace GithubAPI
 		/// see: http://developer.github.com/v3/repos/statistics/#get-the-weekly-commit-count-for-the-repo-owner-and-everyone-else
 		/// </summary>
 		void WeeklyCommitForRepo(string owner, string repo, Action<WeeklyCommitData> callback);
+
+		/// <summary>
+		/// Gets the language statistics for the given repo.
+		/// see: http://developer.github.com/v3/repos/#list-languages
+		/// </summary>
+		void LanguageStatsForRepo(string owner, string repo, Action<LanguageFrequencyData> callback);
 
 		/// <summary>
 		/// Gets the number of additions / deletions each week for the given repo.

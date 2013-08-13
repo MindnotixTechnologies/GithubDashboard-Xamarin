@@ -42,7 +42,7 @@ namespace GithubAPI
 
 		public void RepoList(string owner, Action<RepoSummaryData> callback)
 		{
-			MakeAPIRequest<List<RepoSummaryDataItem>, RepoSummaryData> (owner, null, "repos/{owner}/{repo}", callback, responseData => {
+			MakeAPIRequest<List<RepoSummaryDataItem>, RepoSummaryData> (owner, null, "users/{owner}/repos", callback, responseData => {
 				return new RepoSummaryData(responseData);
 			});
 		}
@@ -89,7 +89,10 @@ namespace GithubAPI
 			MakeAPIRequest<TResponse, TResponse> (owner, repo, apiMethod, callback, responseData => responseData);
 		}
 
-		// This method could be replaced with some IoC magic
+		/// <summary>
+		/// Create a rest client to send requests to the github API. Will authenticate if
+		/// authentication tokens have been provided in the specified file
+		/// </summary>
 		private IRestClient GetGithubRestClient()
 		{
 			var client = new RestClient (BaseURL);
@@ -132,21 +135,19 @@ namespace GithubAPI
 			return client;
 		}
 
+		/// <summary>
+		/// Creates a rest request of the form {user}/{repo}. The urlPart string must be of the correct
+		/// form (i.e. containing the aforementioned parts). Owner is required, repo is optional.
+		/// </summary>
 		private IRestRequest GetGithubRestRequest(String urlPart, String owner, String repo)
 		{
 			// Get the request for just this owner
-			var request = GetGithubRestRequest (urlPart, owner);
-			// Add the repo
-			request.AddUrlSegment ("repo", repo);
-			// Done
-			return request;
-		}
-
-		private IRestRequest GetGithubRestRequest(String urlPart, String owner)
-		{
-			// Create a request
 			var request = new RestRequest (urlPart, Method.GET);
-			// Add the parameters
+			if (!String.IsNullOrEmpty (repo)) {
+				// Not always going to be provided with a repo
+				request.AddUrlSegment ("repo", repo);
+			}
+			// Add the owner parameter
 			request.AddUrlSegment ("owner", owner);
 			// Done
 			return request;

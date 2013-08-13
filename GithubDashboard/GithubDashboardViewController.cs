@@ -29,7 +29,7 @@ namespace GithubDashboard
 			this.repoSummary.SetTapHandler ( nameLabelFrame => {
 				if(_repoSelectorVC == null) {
 					_repoSelectorVC = new RepoSelectorViewControllerController (_githubUserName, repoName => {
-						InvokeOnMainThread(delegate {
+						InvokeOnMainThread(() => {
 							_popover.Dismiss(true);
 							FetchDataForRepo (_githubUserName, repoName);
 						});

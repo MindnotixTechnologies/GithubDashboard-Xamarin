@@ -11,3 +11,6 @@
 
 # We don't want to include the shinobi DLLs
 Shinobi*.dll
+
+# Or the Github auth tokens
+GithubAuthenticationToken.json

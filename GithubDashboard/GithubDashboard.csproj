@@ -146,4 +146,8 @@
       <Visible>False</Visible>
     </XamarinComponentReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="GithubAPI\GithubAuthenticationToken.json" />
+    <BundleResource Include="GithubAPI\GithubAuthenticationToken.sample.json" />
+  </ItemGroup>
 </Project>

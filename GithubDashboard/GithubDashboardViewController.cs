@@ -23,12 +23,12 @@ namespace GithubDashboard
 			base.ViewDidLoad ();
 
 			// Need to set the repo for our views
-			FetchDataForRepo ("sammyd", "sammyd.github.com");
+			FetchDataForRepo ("tastejs", "todomvc");
 
 			// Add the touch handler to the repo summary
 			this.repoSummary.SetTapHandler ( nameLabelFrame => {
 				if(_repoSelectorVC == null) {
-					_repoSelectorVC = new RepoSelectorViewControllerController ("sammyd", repoName => {
+					_repoSelectorVC = new RepoSelectorViewControllerController (_githubUserName, repoName => {
 						InvokeOnMainThread(delegate {
 							_popover.Dismiss(true);
 							FetchDataForRepo (_githubUserName, repoName);
@@ -40,7 +40,6 @@ namespace GithubDashboard
 			});
 
 		}
-
 		#endregion
 
 

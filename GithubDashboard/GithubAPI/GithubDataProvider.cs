@@ -17,74 +17,33 @@ namespace GithubAPI
 
 		public void WeeklyCommitForRepo(string owner, string repo, Action<WeeklyCommitData> callback)
 		{
-			// Create a client using the utility method
-			var client = GetGithubRestClient ();
-			// And create the request
-			var request = GetGithubRestRequest ("repos/{owner}/{repo}/stats/participation", owner, repo);
-
-			// Perform an async request call. Send the data back to the caller
-			client.ExecuteAsync<WeeklyCommitData> (request, response => {
-				callback(response.Data);
-			});
+			MakeAPIRequest<WeeklyCommitData> (owner, repo, "repos/{owner}/{repo}/stats/participation", callback);
 		}
 
 		public void CodeFrequencyEntries(string owner, string repo, Action<CodeFrequencyData> callback)
-		{
-			// Create a client using the utility method
-			var client = GetGithubRestClient ();
-			// And create the request
-			var request = GetGithubRestRequest ("repos/{owner}/{repo}/stats/code_frequency", owner, repo);
+	{
+		MakeAPIRequest<List<List<long>>, CodeFrequencyData> (owner, repo, "repos/{owner}/{repo}/stats/code_frequency", callback, responseData => {
+			return new CodeFrequencyData (responseData.Select (dp => new CodeFrequencyDataItem (dp)));
+		});
+	}
 
-			// Perform an async request call. Send the data back to the caller
-			client.ExecuteAsync<List<List<long>>> (request, response => {
-				// Let's convert the 2D array into an 'array' of PunchCardEntry objects
-				var mapped = new CodeFrequencyData(response.Data.Select(dp => new CodeFrequencyDataItem (dp)));
-
-				// And push the results back
-				callback(new CodeFrequencyData(mapped));
-			});
-		}
 
 		public void PunchCardEntries(string owner, string repo, Action<PunchCardData> callback)
 		{
-			// Create a client using the utility method
-			var client = GetGithubRestClient ();
-			// And create the request
-			var request = GetGithubRestRequest ("repos/{owner}/{repo}/stats/punch_card", owner, repo);
-
-			// Perform an async request call. Send the data back to the caller
-			client.ExecuteAsync<List<List<int>>> (request, response => {
-				// Let's convert the 2D array into an 'array' of PunchCardEntry objects
-				var mapped = new PunchCardData(response.Data.Select(dp => new PunchCardDataEntry(dp)));
-
-				// Send them back
-				callback(mapped);
-			});
+			MakeAPIRequest<List<List<int>>, PunchCardData>(owner, repo, "repos/{owner}/{repo}/stats/punch_card", callback, responseData => {
+							return new PunchCardData(responseData.Select(dp => new PunchCardDataEntry(dp)));
+						});
 		}
 
 		public void SummmaryForRepo(string owner, string repo, Action<RepoSummaryDataItem> callback)
 		{
-			// Create a client using the utility method
-			var client = GetGithubRestClient ();
-			// And create the request
-			var request = GetGithubRestRequest ("repos/{owner}/{repo}", owner, repo);
-
-			// Perform an async request call. Send the data back to the caller
-			client.ExecuteAsync<RepoSummaryDataItem> (request, response => {
-				callback(response.Data);
-			});
+			MakeAPIRequest<RepoSummaryDataItem> (owner, repo, "repos/{owner}/{repo}", callback);
 		}
 
 		public void RepoList(string owner, Action<RepoSummaryData> callback)
 		{
-			// Create a client
-			var client = GetGithubRestClient ();
-			// Create the request
-			var request = GetGithubRestRequest ("users/{owner}/repos", owner);
-
-			// Perform an async request call. Send the data back to the caller
-			client.ExecuteAsync<List<RepoSummaryDataItem>> (request, response => {
-				callback(new RepoSummaryData (response.Data));
+			MakeAPIRequest<List<RepoSummaryDataItem>, RepoSummaryData> (owner, null, "repos/{owner}/{repo}", callback, responseData => {
+				return new RepoSummaryData(responseData);
 			});
 		}
 
@@ -92,6 +51,43 @@ namespace GithubAPI
 
 
 		#region Utility methods
+
+		/// <summary>
+		/// Make a request to the github API, transforming the reponse with the given transform function. The result
+		/// is sent to the given callback.
+		/// </summary>
+		private void MakeAPIRequest<TResponse, TCallback>(string owner, string repo, string apiMethod,
+			                                                  Action<TCallback> callback, Func<TResponse, TCallback> transform) 
+				where TResponse : new()
+				where TCallback : class
+		{
+			// Create a client using the utility method
+			var client = GetGithubRestClient ();
+
+			// And create the request
+			var request = GetGithubRestRequest (apiMethod, owner, repo);
+			client.ExecuteAsync<TResponse> (request, response => {
+				if (response.Data != null)
+				{
+					callback(transform(response.Data));
+				}
+				else
+				{
+					callback(null);
+				}
+			});
+		}
+
+		/// <summary>
+		/// Make a request to the github API. The result
+		/// is sent to the given callback.
+		/// </summary>
+		private void MakeAPIRequest<TResponse>(string owner, string repo, string apiMethod,
+		                                                  Action<TResponse> callback) 
+			where TResponse : class, new()
+		{
+			MakeAPIRequest<TResponse, TResponse> (owner, repo, apiMethod, callback, responseData => responseData);
+		}
 
 		// This method could be replaced with some IoC magic
 		private IRestClient GetGithubRestClient()

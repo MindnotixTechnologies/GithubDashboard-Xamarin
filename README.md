@@ -16,7 +16,8 @@ To create credentials for the app (based on https://help.github.com/articles/cre
   1. Visit https://github.com/settings/applications
   2. Click create new token
   3. Give it an appropriate name, and copy the generated token.
-  4. Update `GithubAuthenticationToken.json` as a template create add your username and token pasted in the appropriate places.
-  5. Ensure that you don't commit your updates to the JSON file into source control.
- 
+  4. Using `GithubAuthenticationToken.sample.json` as a template create `GithubAuthenticationToken.json` - with your username and token pasted in the appropriate places.
+  5. Right click on the JSON file in Xamarin Studio, and ensure that under build action "BundleResource" is selected.
+  6. Ensure that you don't commit the JSON file into source control. 
+  
 Please note that this solution is not suitable for production applications - for these you should implement a user-based OAuth2 solution, as per the instructions on GitHub.

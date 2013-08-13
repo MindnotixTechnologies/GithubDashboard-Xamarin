@@ -62,7 +62,7 @@ namespace GithubAPI
 			});
 		}
 
-		public void SummmaryForRepo(string owner, string repo, Action<RepoSummaryData> callback)
+		public void SummmaryForRepo(string owner, string repo, Action<RepoSummaryDataItem> callback)
 		{
 			// Create a client using the utility method
 			var client = GetGithubRestClient ();
@@ -70,12 +70,12 @@ namespace GithubAPI
 			var request = GetGithubRestRequest ("repos/{owner}/{repo}", owner, repo);
 
 			// Perform an async request call. Send the data back to the caller
-			client.ExecuteAsync<RepoSummaryData> (request, response => {
+			client.ExecuteAsync<RepoSummaryDataItem> (request, response => {
 				callback(response.Data);
 			});
 		}
 
-		public void RepoList(string owner, Action<IEnumerable<RepoSummaryData>> callback)
+		public void RepoList(string owner, Action<RepoSummaryData> callback)
 		{
 			// Create a client
 			var client = GetGithubRestClient ();
@@ -83,8 +83,8 @@ namespace GithubAPI
 			var request = GetGithubRestRequest ("users/{owner}/repos", owner);
 
 			// Perform an async request call. Send the data back to the caller
-			client.ExecuteAsync<List<RepoSummaryData>> (request, response => {
-				callback(response.Data);
+			client.ExecuteAsync<List<RepoSummaryDataItem>> (request, response => {
+				callback(new RepoSummaryData (response.Data));
 			});
 		}
 
@@ -146,7 +146,7 @@ namespace GithubAPI
 			return request;
 		}
 
-		static private IRestRequest GetGithubRestRequest(String urlPart, String owner)
+		private IRestRequest GetGithubRestRequest(String urlPart, String owner)
 		{
 			// Create a request
 			var request = new RestRequest (urlPart, Method.GET);

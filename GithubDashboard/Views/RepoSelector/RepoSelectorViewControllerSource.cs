@@ -9,7 +9,7 @@ namespace GithubDashboard
 {
 	public class RepoSelectorViewControllerSource : UITableViewSource
 	{
-		private IList<RepoSummaryData> _repoData;
+		private IList<RepoSummaryDataItem> _repoData;
 		private Action<string> _repoSelectionHandler;
 
 		public string NameForIndex(int index)
@@ -18,9 +18,9 @@ namespace GithubDashboard
 			return curRepo.name;
 		}
 
-		public RepoSelectorViewControllerSource (IEnumerable<RepoSummaryData> repoData, Action<string> repoSelectionHandler)
+		public RepoSelectorViewControllerSource (IEnumerable<RepoSummaryDataItem> repoData, Action<string> repoSelectionHandler)
 		{
-			_repoData = new List<RepoSummaryData>(repoData);
+			_repoData = new List<RepoSummaryDataItem>(repoData);
 			_repoSelectionHandler = repoSelectionHandler;
 		}
 

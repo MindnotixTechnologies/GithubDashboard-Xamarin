@@ -120,7 +120,6 @@
     <Compile Include="Views\RepoSummaryView.designer.cs">
       <DependentUpon>RepoSummaryView.cs</DependentUpon>
     </Compile>
-    <Compile Include="GithubAPI\RepoSummaryData.cs" />
     <Compile Include="GithubAPI\WeeklyCommitData.cs" />
     <Compile Include="GithubAPI\GithubDataProvider.cs" />
     <Compile Include="Views\RepoSelector\RepoSelectorViewControllerController.cs" />
@@ -131,6 +130,8 @@
     <Compile Include="GithubAPI\PunchCardData.cs" />
     <Compile Include="GithubAPI\PunchCardDataEntry.cs" />
     <Compile Include="Views\IDataView.cs" />
+    <Compile Include="GithubAPI\RepoSummaryDataItem.cs" />
+    <Compile Include="GithubAPI\RepoSummaryData.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />

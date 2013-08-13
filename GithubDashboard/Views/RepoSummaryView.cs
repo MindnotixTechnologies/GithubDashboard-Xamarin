@@ -10,17 +10,17 @@ using System.Net;
 namespace GithubDashboard
 {
 	[Register("RepoSummaryView")]
-	public partial class RepoSummaryView : UIView, IDataView<RepoSummaryData>
+	public partial class RepoSummaryView : UIView, IDataView<RepoSummaryDataItem>
 	{
 		private RepoSummaryView _viewFromNib;
-		private RepoSummaryData _repoData;
+		private RepoSummaryDataItem _repoData;
 		private UITapGestureRecognizer _tapRecogniser;
 
 		public RepoSummaryView (IntPtr h) : base(h)
 		{
 		}
 
-		public void RenderData(RepoSummaryData data)
+		public void RenderData(RepoSummaryDataItem data)
 		{
 			// Ensure that we have already loaded the view from the layout nib
 			if(_viewFromNib == null) {

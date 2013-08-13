@@ -67,6 +67,11 @@ namespace GithubAPI
 			// And create the request
 			var request = GetGithubRestRequest (apiMethod, owner, repo);
 			client.ExecuteAsync<TResponse> (request, response => {
+
+				// Let's log the rate limit remaining for dev purposes
+				var h = response.Headers.First(header => header.Name == "X-RateLimit-Remaining");
+				Console.WriteLine(h);
+
 				if (response.Data != null)
 				{
 					callback(transform(response.Data));

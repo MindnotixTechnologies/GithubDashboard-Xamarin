@@ -6,7 +6,7 @@ using System.Collections;
 namespace GithubAPI
 {
 	/// <summary>
-	/// Provides access to repository data / statistics via the GitHub API	/// 
+	/// Provides access to repository data / statistics via the GitHub API. The data returned is potentially transformed an manipulated.
 	/// see: http://developer.github.com/
 	/// </summary>
 	public interface IGithubDataProvider

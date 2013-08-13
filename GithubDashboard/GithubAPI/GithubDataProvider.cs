@@ -4,14 +4,20 @@ using RestSharp;
 using System.Linq;
 using Newtonsoft.Json.Linq;
 using System.IO;
+using GithubAPI.Json;
 
 namespace GithubAPI
 {
 	public class GithubDataProvider : IGithubDataProvider
 	{	
-		public static IGithubDataProvider Instance = new GithubDataProvider();
-		private String BaseURL = "https://api.github.com/";
-		private String authTokenJsonPath = "./GithubAPI/GithubAuthenticationToken.json";
+		public static IGithubDataProvider Instance = new GithubDataProvider(new GithubJsonWebDataProvider());
+
+		private IGithubJsonDataProvider _dataProvider;
+
+		public GithubDataProvider(IGithubJsonDataProvider dataProvider) 
+		{
+			_dataProvider = dataProvider;
+		}
 
 		#region API Methods to pull different data from the github API
 
@@ -68,20 +74,11 @@ namespace GithubAPI
 				where TResponse : new()
 				where TCallback : class
 		{
-			// Create a client using the utility method
-			var client = GetGithubRestClient ();
 
-			// And create the request
-			var request = GetGithubRestRequest (apiMethod, owner, repo);
-			client.ExecuteAsync<TResponse> (request, response => {
-
-				// Let's log the rate limit remaining for dev purposes
-				var h = response.Headers.First(header => header.Name == "X-RateLimit-Remaining");
-				Console.WriteLine(h);
-
-				if (response.Data != null)
+			_dataProvider.FetchData<TResponse> (owner, repo, apiMethod, response => {
+				if (response != null)
 				{
-					callback(transform(response.Data));
+					callback(transform(response));
 				}
 				else
 				{
@@ -101,70 +98,6 @@ namespace GithubAPI
 			MakeAPIRequest<TResponse, TResponse> (owner, repo, apiMethod, callback, responseData => responseData);
 		}
 
-		/// <summary>
-		/// Create a rest client to send requests to the github API. Will authenticate if
-		/// authentication tokens have been provided in the specified file
-		/// </summary>
-		private IRestClient GetGithubRestClient()
-		{
-			var client = new RestClient (BaseURL);
-
-			// Let's see whether we have some authentication details
-			if(File.Exists (authTokenJsonPath)) {
-
-				/* Without authentication GitHub limits your IP address to 60 requests per
-				 * hour. This is a problem since changing the repo in the dashboard app requires
-				 * at least 5 requests.
-				 * Authenticating against github enables you to perform up to 5000 requests per
-				 * hour. Therefore we check here whether or not credentials have been provided
-				 * and if they have then we'll use them.
-				 * 
-				 * To create credentials for the app
-				 * (based on https://help.github.com/articles/creating-an-access-token-for-command-line-use):
-				 * 1. Visit https://github.com/settings/applications
-				 * 2. Click create new token
-				 * 3. Give it an appropriate name, and copy the generated token.
-				 * 4. Using GithubAuthenticationToken.sample.json as a template create
-				 *    GithubAuthenticationToken.json - with your username and token pasted in the
-				 *    appropriate places.
-				 * 5. Right click on the JSON file in Xamarin Studio, and ensure that under build
-				 *    action "BundleResource" is selected.
-				 * 6. Ensure that you don't commit the JSON file into source control.
-				 * 
-				 * Please note that this solution is not suitable for production applications - for
-				 * these you should implement a user-based OAuth2 solution, as per the instructions
-				 * on GitHub
-				 */
-
-
-				var parsedObjects = JObject.Parse (File.ReadAllText (authTokenJsonPath));
-				string username = (string)parsedObjects["personal_access_token"]["user"];
-				string token = (string)parsedObjects["personal_access_token"]["token"];
-				if (!String.IsNullOrWhiteSpace (username) && !String.IsNullOrWhiteSpace (token)) {
-					// We have credentials, so let's add them to the client
-					client.Authenticator = new HttpBasicAuthenticator (username, token);
-				}
-			}
-			return client;
-		}
-
-		/// <summary>
-		/// Creates a rest request of the form {user}/{repo}. The urlPart string must be of the correct
-		/// form (i.e. containing the aforementioned parts). Owner is required, repo is optional.
-		/// </summary>
-		private IRestRequest GetGithubRestRequest(String urlPart, String owner, String repo)
-		{
-			// Get the request for just this owner
-			var request = new RestRequest (urlPart, Method.GET);
-			if (!String.IsNullOrEmpty (repo)) {
-				// Not always going to be provided with a repo
-				request.AddUrlSegment ("repo", repo);
-			}
-			// Add the owner parameter
-			request.AddUrlSegment ("owner", owner);
-			// Done
-			return request;
-		}
 		#endregion
 	}
 }

@@ -100,12 +100,12 @@
     <Folder Include="Views\" />
     <Folder Include="Utilities\" />
     <Folder Include="Views\RepoSelector\" />
+    <Folder Include="GithubAPI\Json\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
     <None Include="Shinobi\ShinobiCharts.dll" />
     <None Include="GithubAPI\GithubAuthenticationToken.sample.json" />
-    <None Include="GithubAPI\GithubAuthenticationToken.json" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
@@ -136,6 +136,9 @@
     <Compile Include="Views\LanguageStatsView.cs" />
     <Compile Include="GithubAPI\RepoSummaryDataItem.cs" />
     <Compile Include="GithubAPI\RepoSummaryData.cs" />
+    <Compile Include="GithubAPI\Json\GithubJsonFileDataProvider.cs" />
+    <Compile Include="GithubAPI\Json\IGithubJsonDataProvider.cs" />
+    <Compile Include="GithubAPI\Json\GithubJsonWebDataProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />
@@ -153,5 +156,9 @@
       <Version>4.5.11</Version>
       <Visible>False</Visible>
     </XamarinComponentReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="GithubAPI\Json\Data\repos\tastejs\todomvc\languages.json" />
+    <BundleResource Include="GithubAPI\GithubAuthenticationToken.json" />
   </ItemGroup>
 </Project>

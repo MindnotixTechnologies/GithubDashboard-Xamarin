@@ -18,11 +18,15 @@ namespace GithubDashboard
 
 			public LanguageFrequencyDatasource(LanguageFrequencyData data)
 			{
-				_languageFrequency = data
-					.OrderByDescending(kvp => kvp.Value)
-					.Take (5)
-					.Select(kvp => CreateDataPoint(kvp.Key, kvp.Value))
-					.ToList();
+				if(data != null) {
+					_languageFrequency = data
+						.OrderByDescending(kvp => kvp.Value)
+						.Take (5)
+						.Select(kvp => CreateDataPoint(kvp.Key, kvp.Value))
+						.ToList();
+				} else {
+					_languageFrequency = new List<SChartDataPoint>();
+				}
 			}
 
 			#region Utility Methods

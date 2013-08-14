@@ -31,7 +31,7 @@ namespace GithubAPI.Json
 			client.ExecuteAsync<TCallback> (request, response => {
 
 				// lets log the rate limit
-				var h = response.Headers.First(header => header.Name == "X-RateLimit-Remaining");
+				var h = response.Headers.FirstOrDefault(header => header.Name == "X-RateLimit-Remaining");
 				Console.WriteLine(h);
 
 				callback(response.Data);

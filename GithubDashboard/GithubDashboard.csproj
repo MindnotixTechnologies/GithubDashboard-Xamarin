@@ -90,7 +90,7 @@
       <HintPath>Components\ShinobiGrids-2.0.0-trial\lib\ios\ShinobiGrids.dll</HintPath>
     </Reference>
     <Reference Include="ShinobiCharts">
-      <HintPath>Components\ShinobiCharts-2.2.1-trial\lib\ios\ShinobiCharts.dll</HintPath>
+      <HintPath>Components\ShinobiCharts-2.3.0-trial\lib\ios\ShinobiCharts.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -103,8 +103,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
-    <None Include="AppSecrets.sample.json" />
-    <None Include="AppSecrets.json" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
@@ -164,11 +162,13 @@
     </XamarinComponentReference>
     <XamarinComponentReference Include="ShinobiCharts-trial">
       <InstallationInProgress>True</InstallationInProgress>
-      <Version>2.2.1</Version>
+      <Version>2.3.0</Version>
       <Visible>False</Visible>
     </XamarinComponentReference>
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="GithubAPI\Json\Data\repos\tastejs\todomvc\languages.json" />
+    <BundleResource Include="AppSecrets.json" />
+    <BundleResource Include="AppSecrets.sample.json" />
   </ItemGroup>
 </Project>

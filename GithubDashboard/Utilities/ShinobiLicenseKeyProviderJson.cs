@@ -22,7 +22,7 @@ namespace GithubDashboard.Utilities
 			if (File.Exists (_appSecretsJsonPath)) {
 				var parsedObjects = JObject.Parse (File.ReadAllText (_appSecretsJsonPath));
 				_chartsKey = (string)parsedObjects ["shinobi_license_keys"] ["charts"];
-				_gridsKey = (string)parsedObjects ["shinobi_license_keys"] ["grids"];
+				_gridsKey  = (string)parsedObjects ["shinobi_license_keys"] ["grids"];
 			}
 		}
 

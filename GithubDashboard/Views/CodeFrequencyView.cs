@@ -5,6 +5,7 @@ using MonoTouch.Foundation;
 using ShinobiCharts;
 using System.Collections.Generic;
 using GithubAPI;
+using GithubDashboard.Utilities;
 using Utilities;
 using System.Drawing;
 
@@ -119,6 +120,8 @@ namespace GithubDashboard
 		private void createChart()
 		{
 			_columnChart = new ShinobiChart (this.Bounds);
+			// Get the license key from our JSON reading utility
+			_columnChart.LicenseKey = ShinobiLicenseKeyProviderJson.Instance.ChartsLicenseKey;
 			_columnChart.AutoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight;
 
 			SChartDateTimeAxis xAxis = new SChartDateTimeAxis ();

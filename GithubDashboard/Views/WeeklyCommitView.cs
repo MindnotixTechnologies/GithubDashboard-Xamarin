@@ -6,6 +6,7 @@ using ShinobiCharts;
 using System.Collections.Generic;
 using GithubAPI;
 using System.Drawing;
+using GithubDashboard.Utilities;
 
 namespace GithubDashboard
 {
@@ -118,6 +119,7 @@ namespace GithubDashboard
 		private void createChart()
 		{
 			_columnChart = new ShinobiChart (this.Bounds);
+			_columnChart.LicenseKey = ShinobiLicenseKeyProviderJson.Instance.ChartsLicenseKey;
 			_columnChart.AutoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight;
 
 			SChartNumberAxis xAxis = new SChartNumberAxis ();

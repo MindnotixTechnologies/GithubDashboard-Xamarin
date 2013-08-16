@@ -12,5 +12,8 @@
 # We don't want to include the shinobi DLLs
 Shinobi*.dll
 
-# Or the Github auth tokens
-GithubAuthenticationToken.json
+# Or the JSON file containing the secrets used in the app
+AppSecrets.json
+
+# Or the components directory
+Components/

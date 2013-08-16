@@ -6,6 +6,7 @@ using ShinobiCharts;
 using System.Collections.Generic;
 using GithubAPI;
 using System.Drawing;
+using GithubDashboard.Utilities;
 
 namespace GithubDashboard
 {
@@ -108,6 +109,7 @@ namespace GithubDashboard
 		private void CreateChart()
 		{
 			_bubbleChart = new ShinobiChart (this.Bounds);
+			_bubbleChart.LicenseKey = ShinobiLicenseKeyProviderJson.Instance.ChartsLicenseKey;
 			_bubbleChart.AutoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight;
 
 			SChartAxis xAxis = new SChartNumberAxis ();

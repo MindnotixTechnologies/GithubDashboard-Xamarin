@@ -21,7 +21,12 @@ namespace GithubDashboard
 			// Constructor takes an owner's name and a repo
 			public PunchCardViewDataSource(IEnumerable<PunchCardDataEntry> punchCardEntries)
 			{
-				_dataPoints = this.CreateDataPointsFromPunchCardEntries(punchCardEntries);
+				if(punchCardEntries != null) {
+					_dataPoints = this.CreateDataPointsFromPunchCardEntries(punchCardEntries);
+				} else {
+					// When sent null data, just create an empty list
+					_dataPoints = new List<SChartBubbleDataPoint> ();
+				}
 			}
 
 			// Utility function to convert PunchCardEntries to SChartBubblePoints

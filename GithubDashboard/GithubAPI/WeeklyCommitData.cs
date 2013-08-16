@@ -26,7 +26,13 @@ namespace GithubAPI
 		/// </summary>
 		public List<int> Others
 		{
-			get { return new List<int>(this.All.Zip (Owner, (a, o) => (a - o))); }
+			get { 
+				if (All == null || Owner == null) {
+					return null;
+				} else {
+					return new List<int> (All.Zip (Owner, (a, o) => (a - o)));
+				}
+			}
 		}
 
 		public override string ToString ()

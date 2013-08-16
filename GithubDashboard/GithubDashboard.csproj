@@ -83,14 +83,14 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>Components\json.net-4.5.11\lib\ios\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="ShinobiCharts">
+      <HintPath>Components\ShinobiCharts-2.3.0-trial\lib\ios\ShinobiCharts.dll</HintPath>
+    </Reference>
     <Reference Include="RestSharp.MonoTouch">
       <HintPath>Components\restsharp-104.1.0\lib\ios\RestSharp.MonoTouch.dll</HintPath>
     </Reference>
     <Reference Include="ShinobiGrids">
       <HintPath>Components\ShinobiGrids-2.0.0-trial\lib\ios\ShinobiGrids.dll</HintPath>
-    </Reference>
-    <Reference Include="ShinobiCharts">
-      <HintPath>Components\ShinobiCharts-2.3.0-trial\lib\ios\ShinobiCharts.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -156,12 +156,12 @@
       <Visible>False</Visible>
     </XamarinComponentReference>
     <XamarinComponentReference Include="ShinobiGrids-trial">
-      <InstallationInProgress>True</InstallationInProgress>
+      <InstallationInProgress>False</InstallationInProgress>
       <Version>2.0.0</Version>
       <Visible>False</Visible>
     </XamarinComponentReference>
     <XamarinComponentReference Include="ShinobiCharts-trial">
-      <InstallationInProgress>True</InstallationInProgress>
+      <InstallationInProgress>False</InstallationInProgress>
       <Version>2.3.0</Version>
       <Visible>False</Visible>
     </XamarinComponentReference>

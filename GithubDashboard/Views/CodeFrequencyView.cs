@@ -21,13 +21,19 @@ namespace GithubDashboard
 
 			public CodeFrequencyDataSource(IEnumerable<CodeFrequencyDataItem> entries)
 			{
-				this.CreateDataPointsFromCodeFrequencies(entries);
+				if(entries != null) {
+					this.CreateDataPointsFromCodeFrequencies(entries);
+				} else {
+					// Create some empty lists
+					_additionDPs = new List<SChartDataPoint>();
+					_removalDPs  = new List<SChartDataPoint>();
+				}
 			}
 
 			private void CreateDataPointsFromCodeFrequencies(IEnumerable<CodeFrequencyDataItem> entries)
 			{
 				_additionDPs = new List<SChartDataPoint> ();
-				_removalDPs = new List<SChartDataPoint> ();
+				_removalDPs  = new List<SChartDataPoint> ();
 
 				foreach (CodeFrequencyDataItem entry in entries) {
 					SChartDataPoint addPt = new SChartDataPoint ();

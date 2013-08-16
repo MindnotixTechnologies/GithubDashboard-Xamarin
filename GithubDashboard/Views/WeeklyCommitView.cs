@@ -20,16 +20,25 @@ namespace GithubDashboard
 
 			public WeeklyCommitViewDatasource(WeeklyCommitData data)
 			{
-				_ownerDPs = this.ConvertToDataPoints(data.Owner);
-				_nonOwnerDPs = this.ConvertToDataPoints(data.Others);
+				if(data != null) {
+					_ownerDPs = this.ConvertToDataPoints(data.Owner);
+					_nonOwnerDPs = this.ConvertToDataPoints(data.Others);
+				} else {
+					_ownerDPs = new List<SChartDataPoint> ();
+					_nonOwnerDPs = new List<SChartDataPoint>();
+				}
 			}
 
 			#region Utility Methods
 			private IList<SChartDataPoint>ConvertToDataPoints(IEnumerable<int> inp)
 			{
-				return new List<SChartDataPoint> (
-					inp.Select ((x, i) => this.CreateDataPoint(i, x))
-				);
+				if (inp == null) {
+					return new List<SChartDataPoint> ();
+				} else {
+					return new List<SChartDataPoint> (
+						inp.Select ((x, i) => this.CreateDataPoint (i, x))
+					);
+				}
 			}
 
 			private SChartDataPoint CreateDataPoint(int x, int y)

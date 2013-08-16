@@ -15,6 +15,7 @@ namespace GithubDashboard
 		private RepoSummaryView _viewFromNib;
 		private RepoSummaryDataItem _repoData;
 		private UITapGestureRecognizer _tapRecogniser;
+		private string _currentlyDisplayedOwnerImageURL;
 
 		public RepoSummaryView (IntPtr h) : base(h)
 		{
@@ -68,15 +69,18 @@ namespace GithubDashboard
 
 		private void UpdateOwnerImage(string url)
 		{
-			var webClient = new WebClient ();
-			webClient.DownloadDataCompleted += (sender, e) => 
-			{
-				UIImage image = this.GetImageFromByteArray(e.Result);
-				InvokeOnMainThread (() => {
-					_viewFromNib.ownerImage.Image = image;
-				});
-			};
-			webClient.DownloadDataAsync(new Uri(url));
+			if (url != _currentlyDisplayedOwnerImageURL) {
+				var webClient = new WebClient ();
+				webClient.DownloadDataCompleted += (sender, e) => 
+				{
+					UIImage image = this.GetImageFromByteArray (e.Result);
+					InvokeOnMainThread (() => {
+						_viewFromNib.ownerImage.Image = image;
+						_currentlyDisplayedOwnerImageURL = url;
+					});
+				};
+				webClient.DownloadDataAsync (new Uri (url));
+			}
 		}
 
 		private UIImage GetImageFromByteArray (byte[] imageBuffer)

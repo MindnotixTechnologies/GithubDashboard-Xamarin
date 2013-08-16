@@ -5,7 +5,15 @@ A dashboard built around the Github API using ShinobiControls and Xamarin.iOS bi
 
 ## Getting Started
 
-TODO: add instructions to obtain required frameworks here. This include licence key requirements.
+This project has been built using the trial versions of ShinobiCharts and ShinobiGrids - available from the Xamarin component store. Therefore, when you open the sln file in Xamarin Studio, the components should be magically installed for you. Since we're using the trial versions you'll need to register with Shinobi - available at www.shinobicontrols.com to receive a license key.
+
+In order to prevent the license key having to be repeatedly pasted into each class which uses a Shinobi control, this project uses a shared class to read the license key from a JSON file at startup and then push it into charts and grids as required. The process is very similar to the process for adding a github token (specified below):
+ 
+  1. Using `AppSecrets.sample.json` as a template, create `AppSecrets.json`, with you license keys pasted into the appropriate places within the `shinobi_license_keys` section of the file.
+  2. Right click on the JSON file in Xamarin Studio, and ensure that under build action "BundleResource" is selected.
+  3. Ensure that you don't commit the new JSON file to your source control.
+
+If you own ShinobiCharts and/or Grids then you won't need license keys, and can safely ignore these instructions.
 
 ### GitHub Personal Access Token
 
@@ -16,7 +24,7 @@ To create credentials for the app (based on https://help.github.com/articles/cre
   1. Visit https://github.com/settings/applications
   2. Click create new token
   3. Give it an appropriate name, and copy the generated token.
-  4. Using `GithubAuthenticationToken.sample.json` as a template create `GithubAuthenticationToken.json` - with your username and token pasted in the appropriate places.
+  4. Using `AppSecrets.sample.json` as a template create `AppSecrets.json` - with your username and token pasted in the appropriate places - as part of the `github_authentication_token` dictionary. 
   5. Right click on the JSON file in Xamarin Studio, and ensure that under build action "BundleResource" is selected.
   6. Ensure that you don't commit the JSON file into source control. 
   

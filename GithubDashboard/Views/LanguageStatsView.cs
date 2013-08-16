@@ -6,6 +6,7 @@ using ShinobiCharts;
 using System.Collections.Generic;
 using MonoTouch.UIKit;
 using System.Drawing;
+using GithubDashboard.Utilities;
 
 namespace GithubDashboard
 {
@@ -98,6 +99,7 @@ namespace GithubDashboard
 		private void CreateChart()
 		{
 			_chart = new ShinobiChart (this.Bounds);
+			_chart.LicenseKey = ShinobiLicenseKeyProviderJson.Instance.ChartsLicenseKey;
 			_chart.AutoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight;
 
 			// Add it as a subview

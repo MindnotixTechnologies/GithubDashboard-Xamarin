@@ -12,7 +12,7 @@ namespace GithubAPI.Json
 	public class GithubJsonWebDataProvider : IGithubJsonDataProvider
 	{
 		private String _baseURL = "https://api.github.com/";
-		private String _authTokenJsonPath = "./GithubAPI/GithubAuthenticationToken.json";
+		private String _authTokenJsonPath = "./AppSecrets.json";
 
 		public GithubJsonWebDataProvider ()
 		{
@@ -61,9 +61,9 @@ namespace GithubAPI.Json
 				 * 1. Visit https://github.com/settings/applications
 				 * 2. Click create new token
 				 * 3. Give it an appropriate name, and copy the generated token.
-				 * 4. Using GithubAuthenticationToken.sample.json as a template create
-				 *    GithubAuthenticationToken.json - with your username and token pasted in the
-				 *    appropriate places.
+				 * 4. Using AppSecrets.sample.json as a template create
+				 *    AppSecrets.json - with your username and token pasted in the
+				 *    appropriate places (as part of the github_authentication_token dictionary).
 				 * 5. Right click on the JSON file in Xamarin Studio, and ensure that under build
 				 *    action "BundleResource" is selected.
 				 * 6. Ensure that you don't commit the JSON file into source control.
@@ -75,8 +75,8 @@ namespace GithubAPI.Json
 
 
 				var parsedObjects = JObject.Parse (File.ReadAllText (_authTokenJsonPath));
-				string username = (string)parsedObjects["personal_access_token"]["user"];
-				string token = (string)parsedObjects["personal_access_token"]["token"];
+				string username = (string)parsedObjects["github_authentication_token"]["user"];
+				string token = (string)parsedObjects["github_authentication_token"]["token"];
 				if (!String.IsNullOrWhiteSpace (username) && !String.IsNullOrWhiteSpace (token)) {
 					// We have credentials, so let's add them to the client
 					client.Authenticator = new HttpBasicAuthenticator (username, token);

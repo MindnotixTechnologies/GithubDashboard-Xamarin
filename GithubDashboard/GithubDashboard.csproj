@@ -153,11 +153,19 @@
     <Compile Include="DashboardPageOneView.designer.cs">
       <DependentUpon>DashboardPageOneView.cs</DependentUpon>
     </Compile>
+    <Compile Include="GithubAPI\IssuesData.cs" />
+    <Compile Include="GithubAPI\IssueDataItem.cs" />
+    <Compile Include="Views\IssuesDataGridView.cs" />
+    <Compile Include="DashboardPageTwoView.cs" />
+    <Compile Include="DashboardPageTwoView.designer.cs">
+      <DependentUpon>DashboardPageTwoView.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />
     <InterfaceDefinition Include="Views\RepoSummaryView.xib" />
     <InterfaceDefinition Include="DashboardPageOneView.xib" />
+    <InterfaceDefinition Include="DashboardPageTwoView.xib" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

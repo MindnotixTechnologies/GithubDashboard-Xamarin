@@ -67,6 +67,13 @@ namespace GithubAPI
 			});
 		}
 
+		public void Issues (string owner, string repo, Action<IssuesData> callback)
+		{
+			MakeAPIRequest<List<IssueDataItem>, IssuesData>(owner, repo, "repos/{owner}/{repo}/issues", callback, responseData => {
+				return new IssuesData(responseData);
+			});
+		}
+
 		#endregion
 
 

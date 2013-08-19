@@ -13,6 +13,7 @@ namespace GithubDashboard
 		private RepoSelectorViewControllerController _repoSelectorVC;
 		private string _githubUserName;
 		private DashboardPageOneView _pageOne;
+		private DashboardPageTwoView _pageTwo;
 
 		public GithubDashboardViewController (IntPtr handle) : base (handle)
 		{
@@ -33,8 +34,13 @@ namespace GithubDashboard
 			var nibObjects = NSBundle.MainBundle.LoadNib("DashboardPageOneView", this, null);
 			_pageOne = (DashboardPageOneView)Runtime.GetNSObject(nibObjects.ValueAt(0));
 			_pageOne.Frame = this.scrollView.Bounds;
-
 			this.scrollView.Add(_pageOne);
+
+			// add page two
+			nibObjects = NSBundle.MainBundle.LoadNib("DashboardPageTwoView", this, null);
+			_pageTwo = (DashboardPageTwoView)Runtime.GetNSObject(nibObjects.ValueAt(0));
+			_pageTwo.Frame = new RectangleF (new PointF(this.scrollView.Bounds.Width, 0), this.scrollView.Bounds.Size);
+			this.scrollView.Add(_pageTwo);
 
 			// Need to set the repo for our views
 			FetchDataForRepo ("tastejs", "todomvc");
@@ -86,6 +92,12 @@ namespace GithubDashboard
 			GithubDataProvider.Instance.SummmaryForRepo (owner, repo, data => {
 				InvokeOnMainThread (() => {
 					this.repoSummary.RenderData(data);
+				});
+			});
+
+			GithubDataProvider.Instance.Issues (owner, repo, data => {
+				InvokeOnMainThread (() => {
+					this._pageTwo.IssuesDataGrid.RenderData(data);
 				});
 			});
 

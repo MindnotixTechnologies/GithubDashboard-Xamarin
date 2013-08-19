@@ -52,6 +52,12 @@ namespace GithubAPI
 		/// see: http://developer.github.com/v3/issues/milestones/#list-milestones-for-a-repository
 		/// </summary>
 		void OpenMilestones(string owner, string repo, Action<MilestoneData> callback);
+
+		/// <summary>
+		/// Gets the open issues for the given repo.
+		/// see: http://developer.github.com/v3/issues/#list-issues
+		/// </summary>
+		void Issues(string owner, string repo, Action<IssuesData> callback);
 	}
 }
 

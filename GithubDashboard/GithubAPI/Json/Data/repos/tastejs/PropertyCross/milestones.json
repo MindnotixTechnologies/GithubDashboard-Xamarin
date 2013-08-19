@@ -1,0 +1,34 @@
+[
+  {
+    "url": "https://api.github.com/repos/tastejs/PropertyCross/milestones/4",
+    "labels_url": "https://api.github.com/repos/tastejs/PropertyCross/milestones/4/labels",
+    "id": 344699,
+    "number": 4,
+    "title": "v1.3 release",
+    "description": "Address some of the consistency issues - add infinite scroll to the spec? tabbed navigation?",
+    "creator": {
+      "login": "ColinEberhardt",
+      "id": 1098110,
+      "avatar_url": "https://1.gravatar.com/avatar/73bba00b41ff1c9ecc3ee29487bace7d?d=https%3A%2F%2Fidenticons.github.com%2Fd86fc3845965f147ba911e36098d3849.png",
+      "gravatar_id": "73bba00b41ff1c9ecc3ee29487bace7d",
+      "url": "https://api.github.com/users/ColinEberhardt",
+      "html_url": "https://github.com/ColinEberhardt",
+      "followers_url": "https://api.github.com/users/ColinEberhardt/followers",
+      "following_url": "https://api.github.com/users/ColinEberhardt/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ColinEberhardt/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ColinEberhardt/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ColinEberhardt/subscriptions",
+      "organizations_url": "https://api.github.com/users/ColinEberhardt/orgs",
+      "repos_url": "https://api.github.com/users/ColinEberhardt/repos",
+      "events_url": "https://api.github.com/users/ColinEberhardt/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ColinEberhardt/received_events",
+      "type": "User"
+    },
+    "open_issues": 6,
+    "closed_issues": 4,
+    "state": "open",
+    "created_at": "2013-05-30T08:45:15Z",
+    "updated_at": "2013-08-05T08:28:58Z",
+    "due_on": null
+  }
+]

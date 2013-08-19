@@ -161,6 +161,7 @@
       <DependentUpon>DashboardPageTwoView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\MilestoneProgressView.cs" />
+    <Compile Include="GithubAPI\UserSummaryData.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />
@@ -173,6 +174,14 @@
     <BundleResource Include="GithubAPI\Json\Data\repos\tastejs\todomvc\languages.json" />
     <BundleResource Include="AppSecrets.json" />
     <BundleResource Include="AppSecrets.sample.json" />
+    <BundleResource Include="GithubAPI\Json\Data\users\tastejs\repos.json" />
+    <BundleResource Include="GithubAPI\Json\Data\repos\tastejs\PropertyCross.json" />
+    <BundleResource Include="GithubAPI\Json\Data\repos\tastejs\PropertyCross\milestones.json" />
+    <BundleResource Include="GithubAPI\Json\Data\repos\tastejs\PropertyCross\languages.json" />
+    <BundleResource Include="GithubAPI\Json\Data\repos\tastejs\PropertyCross\issues.json" />
+    <BundleResource Include="GithubAPI\Json\Data\repos\tastejs\PropertyCross\stats\punch_card.json" />
+    <BundleResource Include="GithubAPI\Json\Data\repos\tastejs\PropertyCross\stats\participation.json" />
+    <BundleResource Include="GithubAPI\Json\Data\repos\tastejs\PropertyCross\stats\code_frequency.json" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="ShinobiCharts-trial">

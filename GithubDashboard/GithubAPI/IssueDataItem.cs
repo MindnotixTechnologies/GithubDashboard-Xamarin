@@ -8,6 +8,7 @@ namespace GithubAPI
 	/// </summary>
 	public class IssueDataItem : NSObject
 	{
+		public UserSummaryData user {get;set;}
 		public string title {get;set;}
 		public string body {get;set;}
 		public DateTime created_at {get;set;}

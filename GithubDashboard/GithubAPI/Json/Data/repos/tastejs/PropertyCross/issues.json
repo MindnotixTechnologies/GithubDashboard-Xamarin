@@ -1,0 +1,1694 @@
+[
+  {
+    "url": "https://api.github.com/repos/tastejs/PropertyCross/issues/225",
+    "labels_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/225/labels{/name}",
+    "comments_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/225/comments",
+    "events_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/225/events",
+    "html_url": "https://github.com/tastejs/PropertyCross/issues/225",
+    "id": 17881888,
+    "number": 225,
+    "title": "Add a refined Kendo UI Mobile implementation",
+    "user": {
+      "login": "borg4242",
+      "id": 996469,
+      "avatar_url": "https://identicons.github.com/0be8cde2052750327719517a78eea7e0.png",
+      "gravatar_id": null,
+      "url": "https://api.github.com/users/borg4242",
+      "html_url": "https://github.com/borg4242",
+      "followers_url": "https://api.github.com/users/borg4242/followers",
+      "following_url": "https://api.github.com/users/borg4242/following{/other_user}",
+      "gists_url": "https://api.github.com/users/borg4242/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/borg4242/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/borg4242/subscriptions",
+      "organizations_url": "https://api.github.com/users/borg4242/orgs",
+      "repos_url": "https://api.github.com/users/borg4242/repos",
+      "events_url": "https://api.github.com/users/borg4242/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/borg4242/received_events",
+      "type": "User"
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "assignee": null,
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2013-08-09T19:47:21Z",
+    "updated_at": "2013-08-10T09:11:13Z",
+    "closed_at": null,
+    "pull_request": {
+      "html_url": null,
+      "diff_url": null,
+      "patch_url": null
+    },
+    "body": "The new Kendo UI Mobile promises that the same UI code would render Androidish on Android and iOSish on iOS. ( http://www.kendoui.com/mobile.aspx ) I'm not sure if the current Kendo UI Mobile implementation uses this feature to its full extent. It'd probably worth a look. Thank you.\r\n\r\nAlso, to avoid confusion, please refer to this framework as \"Kendo UI Mobile\" on the page. (\"Kendo UI\" is a suite that contains an other JS UI solution as well.)"
+  },
+  {
+    "url": "https://api.github.com/repos/tastejs/PropertyCross/issues/224",
+    "labels_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/224/labels{/name}",
+    "comments_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/224/comments",
+    "events_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/224/events",
+    "html_url": "https://github.com/tastejs/PropertyCross/issues/224",
+    "id": 17624027,
+    "number": 224,
+    "title": "Add Lavaca to the website",
+    "user": {
+      "login": "ColinEberhardt",
+      "id": 1098110,
+      "avatar_url": "https://0.gravatar.com/avatar/73bba00b41ff1c9ecc3ee29487bace7d?d=https%3A%2F%2Fidenticons.github.com%2Fd86fc3845965f147ba911e36098d3849.png",
+      "gravatar_id": "73bba00b41ff1c9ecc3ee29487bace7d",
+      "url": "https://api.github.com/users/ColinEberhardt",
+      "html_url": "https://github.com/ColinEberhardt",
+      "followers_url": "https://api.github.com/users/ColinEberhardt/followers",
+      "following_url": "https://api.github.com/users/ColinEberhardt/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ColinEberhardt/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ColinEberhardt/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ColinEberhardt/subscriptions",
+      "organizations_url": "https://api.github.com/users/ColinEberhardt/orgs",
+      "repos_url": "https://api.github.com/users/ColinEberhardt/repos",
+      "events_url": "https://api.github.com/users/ColinEberhardt/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ColinEberhardt/received_events",
+      "type": "User"
+    },
+    "labels": [
+      {
+        "url": "https://api.github.com/repos/tastejs/PropertyCross/labels/website",
+        "name": "website",
+        "color": "0b02e1"
+      },
+      {
+        "url": "https://api.github.com/repos/tastejs/PropertyCross/labels/builds",
+        "name": "builds",
+        "color": "009800"
+      }
+    ],
+    "state": "open",
+    "assignee": null,
+    "milestone": {
+      "url": "https://api.github.com/repos/tastejs/PropertyCross/milestones/4",
+      "labels_url": "https://api.github.com/repos/tastejs/PropertyCross/milestones/4/labels",
+      "id": 344699,
+      "number": 4,
+      "title": "v1.3 release",
+      "description": "Address some of the consistency issues - add infinite scroll to the spec? tabbed navigation?",
+      "creator": {
+        "login": "ColinEberhardt",
+        "id": 1098110,
+        "avatar_url": "https://0.gravatar.com/avatar/73bba00b41ff1c9ecc3ee29487bace7d?d=https%3A%2F%2Fidenticons.github.com%2Fd86fc3845965f147ba911e36098d3849.png",
+        "gravatar_id": "73bba00b41ff1c9ecc3ee29487bace7d",
+        "url": "https://api.github.com/users/ColinEberhardt",
+        "html_url": "https://github.com/ColinEberhardt",
+        "followers_url": "https://api.github.com/users/ColinEberhardt/followers",
+        "following_url": "https://api.github.com/users/ColinEberhardt/following{/other_user}",
+        "gists_url": "https://api.github.com/users/ColinEberhardt/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/ColinEberhardt/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/ColinEberhardt/subscriptions",
+        "organizations_url": "https://api.github.com/users/ColinEberhardt/orgs",
+        "repos_url": "https://api.github.com/users/ColinEberhardt/repos",
+        "events_url": "https://api.github.com/users/ColinEberhardt/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/ColinEberhardt/received_events",
+        "type": "User"
+      },
+      "open_issues": 6,
+      "closed_issues": 4,
+      "state": "open",
+      "created_at": "2013-05-30T08:45:15Z",
+      "updated_at": "2013-08-05T08:28:58Z",
+      "due_on": null
+    },
+    "comments": 0,
+    "created_at": "2013-08-05T08:28:58Z",
+    "updated_at": "2013-08-05T08:28:58Z",
+    "closed_at": null,
+    "pull_request": {
+      "html_url": null,
+      "diff_url": null,
+      "patch_url": null
+    },
+    "body": ""
+  },
+  {
+    "url": "https://api.github.com/repos/tastejs/PropertyCross/issues/223",
+    "labels_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/223/labels{/name}",
+    "comments_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/223/comments",
+    "events_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/223/events",
+    "html_url": "https://github.com/tastejs/PropertyCross/issues/223",
+    "id": 17435877,
+    "number": 223,
+    "title": "Search input widget changes unexpectedly when clicking Go (Galaxy S2)",
+    "user": {
+      "login": "mikkolipasti",
+      "id": 5126706,
+      "avatar_url": "https://2.gravatar.com/avatar/fae13b7ccc582599799487c6805a5ac4?d=https%3A%2F%2Fidenticons.github.com%2F08c2e1dcfb02d09f89cec54ca27a6f79.png",
+      "gravatar_id": "fae13b7ccc582599799487c6805a5ac4",
+      "url": "https://api.github.com/users/mikkolipasti",
+      "html_url": "https://github.com/mikkolipasti",
+      "followers_url": "https://api.github.com/users/mikkolipasti/followers",
+      "following_url": "https://api.github.com/users/mikkolipasti/following{/other_user}",
+      "gists_url": "https://api.github.com/users/mikkolipasti/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/mikkolipasti/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/mikkolipasti/subscriptions",
+      "organizations_url": "https://api.github.com/users/mikkolipasti/orgs",
+      "repos_url": "https://api.github.com/users/mikkolipasti/repos",
+      "events_url": "https://api.github.com/users/mikkolipasti/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/mikkolipasti/received_events",
+      "type": "User"
+    },
+    "labels": [
+      {
+        "url": "https://api.github.com/repos/tastejs/PropertyCross/labels/jQueryMobile",
+        "name": "jQueryMobile",
+        "color": "ED4732"
+      }
+    ],
+    "state": "open",
+    "assignee": null,
+    "milestone": null,
+    "comments": 2,
+    "created_at": "2013-07-31T06:08:59Z",
+    "updated_at": "2013-07-31T12:39:19Z",
+    "closed_at": null,
+    "pull_request": {
+      "html_url": null,
+      "diff_url": null,
+      "patch_url": null
+    },
+    "body": "Strange behaviour on search text input widget on Galaxy S2.\r\n\r\nSteps:\r\n1. Open PropertyCross Android JQuery Mobile version\r\n2. Tap on search text input widget\r\n3. Type 'west'. The Samsung Keyboard suggests Westminster as one of the alternatives.\r\n4. Tap on the Westminster suggestion. Text input widget now says 'Westminster'\r\n5. Tap 'Go' button\r\n\r\nExpected behaviour:\r\n6. Search on 'Westminster' is performed\r\n\r\nActual behaviour:\r\n6. Text input widget content reverts back to 'west'. Search on 'west' is performed, producing a list of locations starting with 'west'\r\n\r\n\r\nI haven't seen this kind of behaviour in any other application / situation which I believe is an indication of an issue specific to PropertyCross."
+  },
+  {
+    "url": "https://api.github.com/repos/tastejs/PropertyCross/issues/222",
+    "labels_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/222/labels{/name}",
+    "comments_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/222/comments",
+    "events_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/222/events",
+    "html_url": "https://github.com/tastejs/PropertyCross/issues/222",
+    "id": 17399464,
+    "number": 222,
+    "title": "Add Oxygene implementation",
+    "user": {
+      "login": "dwarfland",
+      "id": 184026,
+      "avatar_url": "https://0.gravatar.com/avatar/1a58cf44fd832177d8f5e93021cf2498?d=https%3A%2F%2Fidenticons.github.com%2Fe2cf2c8f50bb77af0d64bbf2555adf05.png",
+      "gravatar_id": "1a58cf44fd832177d8f5e93021cf2498",
+      "url": "https://api.github.com/users/dwarfland",
+      "html_url": "https://github.com/dwarfland",
+      "followers_url": "https://api.github.com/users/dwarfland/followers",
+      "following_url": "https://api.github.com/users/dwarfland/following{/other_user}",
+      "gists_url": "https://api.github.com/users/dwarfland/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/dwarfland/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/dwarfland/subscriptions",
+      "organizations_url": "https://api.github.com/users/dwarfland/orgs",
+      "repos_url": "https://api.github.com/users/dwarfland/repos",
+      "events_url": "https://api.github.com/users/dwarfland/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/dwarfland/received_events",
+      "type": "User"
+    },
+    "labels": [
+      {
+        "url": "https://api.github.com/repos/tastejs/PropertyCross/labels/Framework+Request",
+        "name": "Framework Request",
+        "color": "DDDDDD"
+      }
+    ],
+    "state": "open",
+    "assignee": null,
+    "milestone": null,
+    "comments": 1,
+    "created_at": "2013-07-30T14:40:18Z",
+    "updated_at": "2013-07-31T11:12:38Z",
+    "closed_at": null,
+    "pull_request": {
+      "html_url": null,
+      "diff_url": null,
+      "patch_url": null
+    },
+    "body": ""
+  },
+  {
+    "url": "https://api.github.com/repos/tastejs/PropertyCross/issues/221",
+    "labels_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/221/labels{/name}",
+    "comments_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/221/comments",
+    "events_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/221/events",
+    "html_url": "https://github.com/tastejs/PropertyCross/issues/221",
+    "id": 17286027,
+    "number": 221,
+    "title": "Formatting of results list is incorrect",
+    "user": {
+      "login": "ColinEberhardt",
+      "id": 1098110,
+      "avatar_url": "https://0.gravatar.com/avatar/73bba00b41ff1c9ecc3ee29487bace7d?d=https%3A%2F%2Fidenticons.github.com%2Fd86fc3845965f147ba911e36098d3849.png",
+      "gravatar_id": "73bba00b41ff1c9ecc3ee29487bace7d",
+      "url": "https://api.github.com/users/ColinEberhardt",
+      "html_url": "https://github.com/ColinEberhardt",
+      "followers_url": "https://api.github.com/users/ColinEberhardt/followers",
+      "following_url": "https://api.github.com/users/ColinEberhardt/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ColinEberhardt/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ColinEberhardt/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ColinEberhardt/subscriptions",
+      "organizations_url": "https://api.github.com/users/ColinEberhardt/orgs",
+      "repos_url": "https://api.github.com/users/ColinEberhardt/repos",
+      "events_url": "https://api.github.com/users/ColinEberhardt/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ColinEberhardt/received_events",
+      "type": "User"
+    },
+    "labels": [
+      {
+        "url": "https://api.github.com/repos/tastejs/PropertyCross/labels/Lavaca",
+        "name": "Lavaca",
+        "color": "d4c5f9"
+      }
+    ],
+    "state": "open",
+    "assignee": null,
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2013-07-26T21:40:00Z",
+    "updated_at": "2013-07-26T21:40:00Z",
+    "closed_at": null,
+    "pull_request": {
+      "html_url": null,
+      "diff_url": null,
+      "patch_url": null
+    },
+    "body": "Current format is\r\n```\r\nCity Rd, Newcastle\r\n145,000 GBP\r\n```\r\nIt should be \r\n```\r\n£145,000\r\nCity Rd, Newcastle\r\n```\r\n\r\nSee the following:\r\n\r\nhttp://propertycross.com/screenshots/native/ios/SearchResults.png"
+  },
+  {
+    "url": "https://api.github.com/repos/tastejs/PropertyCross/issues/220",
+    "labels_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/220/labels{/name}",
+    "comments_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/220/comments",
+    "events_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/220/events",
+    "html_url": "https://github.com/tastejs/PropertyCross/issues/220",
+    "id": 17108783,
+    "number": 220,
+    "title": "Intel App Framework - Update website images and builds",
+    "user": {
+      "login": "ColinEberhardt",
+      "id": 1098110,
+      "avatar_url": "https://0.gravatar.com/avatar/73bba00b41ff1c9ecc3ee29487bace7d?d=https%3A%2F%2Fidenticons.github.com%2Fd86fc3845965f147ba911e36098d3849.png",
+      "gravatar_id": "73bba00b41ff1c9ecc3ee29487bace7d",
+      "url": "https://api.github.com/users/ColinEberhardt",
+      "html_url": "https://github.com/ColinEberhardt",
+      "followers_url": "https://api.github.com/users/ColinEberhardt/followers",
+      "following_url": "https://api.github.com/users/ColinEberhardt/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ColinEberhardt/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ColinEberhardt/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ColinEberhardt/subscriptions",
+      "organizations_url": "https://api.github.com/users/ColinEberhardt/orgs",
+      "repos_url": "https://api.github.com/users/ColinEberhardt/repos",
+      "events_url": "https://api.github.com/users/ColinEberhardt/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ColinEberhardt/received_events",
+      "type": "User"
+    },
+    "labels": [
+      {
+        "url": "https://api.github.com/repos/tastejs/PropertyCross/labels/website",
+        "name": "website",
+        "color": "0b02e1"
+      },
+      {
+        "url": "https://api.github.com/repos/tastejs/PropertyCross/labels/builds",
+        "name": "builds",
+        "color": "009800"
+      }
+    ],
+    "state": "open",
+    "assignee": null,
+    "milestone": {
+      "url": "https://api.github.com/repos/tastejs/PropertyCross/milestones/4",
+      "labels_url": "https://api.github.com/repos/tastejs/PropertyCross/milestones/4/labels",
+      "id": 344699,
+      "number": 4,
+      "title": "v1.3 release",
+      "description": "Address some of the consistency issues - add infinite scroll to the spec? tabbed navigation?",
+      "creator": {
+        "login": "ColinEberhardt",
+        "id": 1098110,
+        "avatar_url": "https://0.gravatar.com/avatar/73bba00b41ff1c9ecc3ee29487bace7d?d=https%3A%2F%2Fidenticons.github.com%2Fd86fc3845965f147ba911e36098d3849.png",
+        "gravatar_id": "73bba00b41ff1c9ecc3ee29487bace7d",
+        "url": "https://api.github.com/users/ColinEberhardt",
+        "html_url": "https://github.com/ColinEberhardt",
+        "followers_url": "https://api.github.com/users/ColinEberhardt/followers",
+        "following_url": "https://api.github.com/users/ColinEberhardt/following{/other_user}",
+        "gists_url": "https://api.github.com/users/ColinEberhardt/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/ColinEberhardt/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/ColinEberhardt/subscriptions",
+        "organizations_url": "https://api.github.com/users/ColinEberhardt/orgs",
+        "repos_url": "https://api.github.com/users/ColinEberhardt/repos",
+        "events_url": "https://api.github.com/users/ColinEberhardt/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/ColinEberhardt/received_events",
+        "type": "User"
+      },
+      "open_issues": 6,
+      "closed_issues": 4,
+      "state": "open",
+      "created_at": "2013-05-30T08:45:15Z",
+      "updated_at": "2013-08-05T08:28:58Z",
+      "due_on": null
+    },
+    "comments": 0,
+    "created_at": "2013-07-23T15:50:42Z",
+    "updated_at": "2013-07-23T15:51:40Z",
+    "closed_at": null,
+    "pull_request": {
+      "html_url": null,
+      "diff_url": null,
+      "patch_url": null
+    },
+    "body": "IAF has a new look and feel, so the website screenshots need to be updated.\r\n\r\nhttps://github.com/tastejs/PropertyCross/pull/213\r\n"
+  },
+  {
+    "url": "https://api.github.com/repos/tastejs/PropertyCross/issues/218",
+    "labels_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/218/labels{/name}",
+    "comments_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/218/comments",
+    "events_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/218/events",
+    "html_url": "https://github.com/tastejs/PropertyCross/issues/218",
+    "id": 16310368,
+    "number": 218,
+    "title": "Update the ST2 build",
+    "user": {
+      "login": "ColinEberhardt",
+      "id": 1098110,
+      "avatar_url": "https://0.gravatar.com/avatar/73bba00b41ff1c9ecc3ee29487bace7d?d=https%3A%2F%2Fidenticons.github.com%2Fd86fc3845965f147ba911e36098d3849.png",
+      "gravatar_id": "73bba00b41ff1c9ecc3ee29487bace7d",
+      "url": "https://api.github.com/users/ColinEberhardt",
+      "html_url": "https://github.com/ColinEberhardt",
+      "followers_url": "https://api.github.com/users/ColinEberhardt/followers",
+      "following_url": "https://api.github.com/users/ColinEberhardt/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ColinEberhardt/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ColinEberhardt/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ColinEberhardt/subscriptions",
+      "organizations_url": "https://api.github.com/users/ColinEberhardt/orgs",
+      "repos_url": "https://api.github.com/users/ColinEberhardt/repos",
+      "events_url": "https://api.github.com/users/ColinEberhardt/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ColinEberhardt/received_events",
+      "type": "User"
+    },
+    "labels": [
+      {
+        "url": "https://api.github.com/repos/tastejs/PropertyCross/labels/builds",
+        "name": "builds",
+        "color": "009800"
+      }
+    ],
+    "state": "open",
+    "assignee": null,
+    "milestone": {
+      "url": "https://api.github.com/repos/tastejs/PropertyCross/milestones/4",
+      "labels_url": "https://api.github.com/repos/tastejs/PropertyCross/milestones/4/labels",
+      "id": 344699,
+      "number": 4,
+      "title": "v1.3 release",
+      "description": "Address some of the consistency issues - add infinite scroll to the spec? tabbed navigation?",
+      "creator": {
+        "login": "ColinEberhardt",
+        "id": 1098110,
+        "avatar_url": "https://0.gravatar.com/avatar/73bba00b41ff1c9ecc3ee29487bace7d?d=https%3A%2F%2Fidenticons.github.com%2Fd86fc3845965f147ba911e36098d3849.png",
+        "gravatar_id": "73bba00b41ff1c9ecc3ee29487bace7d",
+        "url": "https://api.github.com/users/ColinEberhardt",
+        "html_url": "https://github.com/ColinEberhardt",
+        "followers_url": "https://api.github.com/users/ColinEberhardt/followers",
+        "following_url": "https://api.github.com/users/ColinEberhardt/following{/other_user}",
+        "gists_url": "https://api.github.com/users/ColinEberhardt/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/ColinEberhardt/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/ColinEberhardt/subscriptions",
+        "organizations_url": "https://api.github.com/users/ColinEberhardt/orgs",
+        "repos_url": "https://api.github.com/users/ColinEberhardt/repos",
+        "events_url": "https://api.github.com/users/ColinEberhardt/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/ColinEberhardt/received_events",
+        "type": "User"
+      },
+      "open_issues": 6,
+      "closed_issues": 4,
+      "state": "open",
+      "created_at": "2013-05-30T08:45:15Z",
+      "updated_at": "2013-08-05T08:28:58Z",
+      "due_on": null
+    },
+    "comments": 0,
+    "created_at": "2013-07-03T10:05:05Z",
+    "updated_at": "2013-07-03T10:05:05Z",
+    "closed_at": null,
+    "pull_request": {
+      "html_url": null,
+      "diff_url": null,
+      "patch_url": null
+    },
+    "body": ""
+  },
+  {
+    "url": "https://api.github.com/repos/tastejs/PropertyCross/issues/217",
+    "labels_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/217/labels{/name}",
+    "comments_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/217/comments",
+    "events_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/217/events",
+    "html_url": "https://github.com/tastejs/PropertyCross/issues/217",
+    "id": 16308818,
+    "number": 217,
+    "title": "Build the delphi implementation and add to the website",
+    "user": {
+      "login": "ColinEberhardt",
+      "id": 1098110,
+      "avatar_url": "https://0.gravatar.com/avatar/73bba00b41ff1c9ecc3ee29487bace7d?d=https%3A%2F%2Fidenticons.github.com%2Fd86fc3845965f147ba911e36098d3849.png",
+      "gravatar_id": "73bba00b41ff1c9ecc3ee29487bace7d",
+      "url": "https://api.github.com/users/ColinEberhardt",
+      "html_url": "https://github.com/ColinEberhardt",
+      "followers_url": "https://api.github.com/users/ColinEberhardt/followers",
+      "following_url": "https://api.github.com/users/ColinEberhardt/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ColinEberhardt/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ColinEberhardt/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ColinEberhardt/subscriptions",
+      "organizations_url": "https://api.github.com/users/ColinEberhardt/orgs",
+      "repos_url": "https://api.github.com/users/ColinEberhardt/repos",
+      "events_url": "https://api.github.com/users/ColinEberhardt/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ColinEberhardt/received_events",
+      "type": "User"
+    },
+    "labels": [
+      {
+        "url": "https://api.github.com/repos/tastejs/PropertyCross/labels/website",
+        "name": "website",
+        "color": "0b02e1"
+      },
+      {
+        "url": "https://api.github.com/repos/tastejs/PropertyCross/labels/builds",
+        "name": "builds",
+        "color": "009800"
+      }
+    ],
+    "state": "open",
+    "assignee": null,
+    "milestone": {
+      "url": "https://api.github.com/repos/tastejs/PropertyCross/milestones/4",
+      "labels_url": "https://api.github.com/repos/tastejs/PropertyCross/milestones/4/labels",
+      "id": 344699,
+      "number": 4,
+      "title": "v1.3 release",
+      "description": "Address some of the consistency issues - add infinite scroll to the spec? tabbed navigation?",
+      "creator": {
+        "login": "ColinEberhardt",
+        "id": 1098110,
+        "avatar_url": "https://0.gravatar.com/avatar/73bba00b41ff1c9ecc3ee29487bace7d?d=https%3A%2F%2Fidenticons.github.com%2Fd86fc3845965f147ba911e36098d3849.png",
+        "gravatar_id": "73bba00b41ff1c9ecc3ee29487bace7d",
+        "url": "https://api.github.com/users/ColinEberhardt",
+        "html_url": "https://github.com/ColinEberhardt",
+        "followers_url": "https://api.github.com/users/ColinEberhardt/followers",
+        "following_url": "https://api.github.com/users/ColinEberhardt/following{/other_user}",
+        "gists_url": "https://api.github.com/users/ColinEberhardt/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/ColinEberhardt/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/ColinEberhardt/subscriptions",
+        "organizations_url": "https://api.github.com/users/ColinEberhardt/orgs",
+        "repos_url": "https://api.github.com/users/ColinEberhardt/repos",
+        "events_url": "https://api.github.com/users/ColinEberhardt/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/ColinEberhardt/received_events",
+        "type": "User"
+      },
+      "open_issues": 6,
+      "closed_issues": 4,
+      "state": "open",
+      "created_at": "2013-05-30T08:45:15Z",
+      "updated_at": "2013-08-05T08:28:58Z",
+      "due_on": null
+    },
+    "comments": 0,
+    "created_at": "2013-07-03T09:24:45Z",
+    "updated_at": "2013-07-03T09:24:45Z",
+    "closed_at": null,
+    "pull_request": {
+      "html_url": null,
+      "diff_url": null,
+      "patch_url": null
+    },
+    "body": ""
+  },
+  {
+    "url": "https://api.github.com/repos/tastejs/PropertyCross/issues/216",
+    "labels_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/216/labels{/name}",
+    "comments_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/216/comments",
+    "events_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/216/events",
+    "html_url": "https://github.com/tastejs/PropertyCross/issues/216",
+    "id": 16308512,
+    "number": 216,
+    "title": "Search should be initiated when the soft 'return' key is pressed",
+    "user": {
+      "login": "ColinEberhardt",
+      "id": 1098110,
+      "avatar_url": "https://0.gravatar.com/avatar/73bba00b41ff1c9ecc3ee29487bace7d?d=https%3A%2F%2Fidenticons.github.com%2Fd86fc3845965f147ba911e36098d3849.png",
+      "gravatar_id": "73bba00b41ff1c9ecc3ee29487bace7d",
+      "url": "https://api.github.com/users/ColinEberhardt",
+      "html_url": "https://github.com/ColinEberhardt",
+      "followers_url": "https://api.github.com/users/ColinEberhardt/followers",
+      "following_url": "https://api.github.com/users/ColinEberhardt/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ColinEberhardt/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ColinEberhardt/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ColinEberhardt/subscriptions",
+      "organizations_url": "https://api.github.com/users/ColinEberhardt/orgs",
+      "repos_url": "https://api.github.com/users/ColinEberhardt/repos",
+      "events_url": "https://api.github.com/users/ColinEberhardt/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ColinEberhardt/received_events",
+      "type": "User"
+    },
+    "labels": [
+      {
+        "url": "https://api.github.com/repos/tastejs/PropertyCross/labels/delphi",
+        "name": "delphi",
+        "color": "eb6420"
+      }
+    ],
+    "state": "open",
+    "assignee": null,
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2013-07-03T09:17:09Z",
+    "updated_at": "2013-07-03T09:17:09Z",
+    "closed_at": null,
+    "pull_request": {
+      "html_url": null,
+      "diff_url": null,
+      "patch_url": null
+    },
+    "body": "If you type in a search team ten hit enter on the soft keyboard, the search should be executed."
+  },
+  {
+    "url": "https://api.github.com/repos/tastejs/PropertyCross/issues/215",
+    "labels_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/215/labels{/name}",
+    "comments_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/215/comments",
+    "events_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/215/events",
+    "html_url": "https://github.com/tastejs/PropertyCross/issues/215",
+    "id": 16308469,
+    "number": 215,
+    "title": "The search results list maintains selection state between searches",
+    "user": {
+      "login": "ColinEberhardt",
+      "id": 1098110,
+      "avatar_url": "https://0.gravatar.com/avatar/73bba00b41ff1c9ecc3ee29487bace7d?d=https%3A%2F%2Fidenticons.github.com%2Fd86fc3845965f147ba911e36098d3849.png",
+      "gravatar_id": "73bba00b41ff1c9ecc3ee29487bace7d",
+      "url": "https://api.github.com/users/ColinEberhardt",
+      "html_url": "https://github.com/ColinEberhardt",
+      "followers_url": "https://api.github.com/users/ColinEberhardt/followers",
+      "following_url": "https://api.github.com/users/ColinEberhardt/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ColinEberhardt/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ColinEberhardt/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ColinEberhardt/subscriptions",
+      "organizations_url": "https://api.github.com/users/ColinEberhardt/orgs",
+      "repos_url": "https://api.github.com/users/ColinEberhardt/repos",
+      "events_url": "https://api.github.com/users/ColinEberhardt/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ColinEberhardt/received_events",
+      "type": "User"
+    },
+    "labels": [
+      {
+        "url": "https://api.github.com/repos/tastejs/PropertyCross/labels/delphi",
+        "name": "delphi",
+        "color": "eb6420"
+      }
+    ],
+    "state": "open",
+    "assignee": null,
+    "milestone": null,
+    "comments": 1,
+    "created_at": "2013-07-03T09:16:10Z",
+    "updated_at": "2013-07-03T09:18:08Z",
+    "closed_at": null,
+    "pull_request": {
+      "html_url": null,
+      "diff_url": null,
+      "patch_url": null
+    },
+    "body": "To reproduce, search for ne1, select the third search result, then navigate back to the 'home' screen. Next, search for ne2. When the app navigates to the search results screen, you will see that the table view already has the third item selected.\r\n\r\nSelection is being used for navigation so should be transient."
+  },
+  {
+    "url": "https://api.github.com/repos/tastejs/PropertyCross/issues/214",
+    "labels_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/214/labels{/name}",
+    "comments_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/214/comments",
+    "events_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/214/events",
+    "html_url": "https://github.com/tastejs/PropertyCross/issues/214",
+    "id": 16305491,
+    "number": 214,
+    "title": "Delphi configuration issues",
+    "user": {
+      "login": "ColinEberhardt",
+      "id": 1098110,
+      "avatar_url": "https://0.gravatar.com/avatar/73bba00b41ff1c9ecc3ee29487bace7d?d=https%3A%2F%2Fidenticons.github.com%2Fd86fc3845965f147ba911e36098d3849.png",
+      "gravatar_id": "73bba00b41ff1c9ecc3ee29487bace7d",
+      "url": "https://api.github.com/users/ColinEberhardt",
+      "html_url": "https://github.com/ColinEberhardt",
+      "followers_url": "https://api.github.com/users/ColinEberhardt/followers",
+      "following_url": "https://api.github.com/users/ColinEberhardt/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ColinEberhardt/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ColinEberhardt/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ColinEberhardt/subscriptions",
+      "organizations_url": "https://api.github.com/users/ColinEberhardt/orgs",
+      "repos_url": "https://api.github.com/users/ColinEberhardt/repos",
+      "events_url": "https://api.github.com/users/ColinEberhardt/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ColinEberhardt/received_events",
+      "type": "User"
+    },
+    "labels": [
+      {
+        "url": "https://api.github.com/repos/tastejs/PropertyCross/labels/delphi",
+        "name": "delphi",
+        "color": "eb6420"
+      }
+    ],
+    "state": "open",
+    "assignee": null,
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2013-07-03T07:49:36Z",
+    "updated_at": "2013-07-03T07:49:36Z",
+    "closed_at": null,
+    "pull_request": {
+      "html_url": null,
+      "diff_url": null,
+      "patch_url": null
+    },
+    "body": "Just a few minor issues ...\r\n\r\n+ The application name should be called 'PropertyCross' - I cannot see where to change that?\r\n+ The splashscreen and icons have been changd to teh PropertyCross 'standard', but the path is absolute. What token do you use for relative paths?\r\n+ The icon should be 'pre-rendered', ie. no 'gloss' layer. Is there a setting for that?"
+  },
+  {
+    "url": "https://api.github.com/repos/tastejs/PropertyCross/issues/212",
+    "labels_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/212/labels{/name}",
+    "comments_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/212/comments",
+    "events_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/212/events",
+    "html_url": "https://github.com/tastejs/PropertyCross/issues/212",
+    "id": 16272694,
+    "number": 212,
+    "title": "jqMobile android theme",
+    "user": {
+      "login": "mrpotes",
+      "id": 959542,
+      "avatar_url": "https://2.gravatar.com/avatar/07a6caefb4d313282586f3f1acdeeaf7?d=https%3A%2F%2Fidenticons.github.com%2Fed879b659ade03c970c7a3fcc8c23bc2.png",
+      "gravatar_id": "07a6caefb4d313282586f3f1acdeeaf7",
+      "url": "https://api.github.com/users/mrpotes",
+      "html_url": "https://github.com/mrpotes",
+      "followers_url": "https://api.github.com/users/mrpotes/followers",
+      "following_url": "https://api.github.com/users/mrpotes/following{/other_user}",
+      "gists_url": "https://api.github.com/users/mrpotes/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/mrpotes/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/mrpotes/subscriptions",
+      "organizations_url": "https://api.github.com/users/mrpotes/orgs",
+      "repos_url": "https://api.github.com/users/mrpotes/repos",
+      "events_url": "https://api.github.com/users/mrpotes/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/mrpotes/received_events",
+      "type": "User"
+    },
+    "labels": [
+      {
+        "url": "https://api.github.com/repos/tastejs/PropertyCross/labels/enhancement",
+        "name": "enhancement",
+        "color": "84b6eb"
+      },
+      {
+        "url": "https://api.github.com/repos/tastejs/PropertyCross/labels/jQueryMobile",
+        "name": "jQueryMobile",
+        "color": "ED4732"
+      }
+    ],
+    "state": "open",
+    "assignee": null,
+    "milestone": null,
+    "comments": 1,
+    "created_at": "2013-07-02T16:17:52Z",
+    "updated_at": "2013-07-03T07:53:15Z",
+    "closed_at": null,
+    "pull_request": {
+      "html_url": null,
+      "diff_url": null,
+      "patch_url": null
+    },
+    "body": "How about http://nativedroid.godesign.ch/ for an android theme?\r\n\r\nI think the code sharing stats are a bit off for jqMobile at the moment - the default iOS theme doesn't suit android, so shouldn't really be counted as shared code?"
+  },
+  {
+    "url": "https://api.github.com/repos/tastejs/PropertyCross/issues/209",
+    "labels_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/209/labels{/name}",
+    "comments_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/209/comments",
+    "events_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/209/events",
+    "html_url": "https://github.com/tastejs/PropertyCross/issues/209",
+    "id": 15621961,
+    "number": 209,
+    "title": "Rebuild the Enyo implementation",
+    "user": {
+      "login": "ColinEberhardt",
+      "id": 1098110,
+      "avatar_url": "https://0.gravatar.com/avatar/73bba00b41ff1c9ecc3ee29487bace7d?d=https%3A%2F%2Fidenticons.github.com%2Fd86fc3845965f147ba911e36098d3849.png",
+      "gravatar_id": "73bba00b41ff1c9ecc3ee29487bace7d",
+      "url": "https://api.github.com/users/ColinEberhardt",
+      "html_url": "https://github.com/ColinEberhardt",
+      "followers_url": "https://api.github.com/users/ColinEberhardt/followers",
+      "following_url": "https://api.github.com/users/ColinEberhardt/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ColinEberhardt/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ColinEberhardt/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ColinEberhardt/subscriptions",
+      "organizations_url": "https://api.github.com/users/ColinEberhardt/orgs",
+      "repos_url": "https://api.github.com/users/ColinEberhardt/repos",
+      "events_url": "https://api.github.com/users/ColinEberhardt/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ColinEberhardt/received_events",
+      "type": "User"
+    },
+    "labels": [
+      {
+        "url": "https://api.github.com/repos/tastejs/PropertyCross/labels/builds",
+        "name": "builds",
+        "color": "009800"
+      }
+    ],
+    "state": "open",
+    "assignee": null,
+    "milestone": {
+      "url": "https://api.github.com/repos/tastejs/PropertyCross/milestones/4",
+      "labels_url": "https://api.github.com/repos/tastejs/PropertyCross/milestones/4/labels",
+      "id": 344699,
+      "number": 4,
+      "title": "v1.3 release",
+      "description": "Address some of the consistency issues - add infinite scroll to the spec? tabbed navigation?",
+      "creator": {
+        "login": "ColinEberhardt",
+        "id": 1098110,
+        "avatar_url": "https://0.gravatar.com/avatar/73bba00b41ff1c9ecc3ee29487bace7d?d=https%3A%2F%2Fidenticons.github.com%2Fd86fc3845965f147ba911e36098d3849.png",
+        "gravatar_id": "73bba00b41ff1c9ecc3ee29487bace7d",
+        "url": "https://api.github.com/users/ColinEberhardt",
+        "html_url": "https://github.com/ColinEberhardt",
+        "followers_url": "https://api.github.com/users/ColinEberhardt/followers",
+        "following_url": "https://api.github.com/users/ColinEberhardt/following{/other_user}",
+        "gists_url": "https://api.github.com/users/ColinEberhardt/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/ColinEberhardt/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/ColinEberhardt/subscriptions",
+        "organizations_url": "https://api.github.com/users/ColinEberhardt/orgs",
+        "repos_url": "https://api.github.com/users/ColinEberhardt/repos",
+        "events_url": "https://api.github.com/users/ColinEberhardt/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/ColinEberhardt/received_events",
+        "type": "User"
+      },
+      "open_issues": 6,
+      "closed_issues": 4,
+      "state": "open",
+      "created_at": "2013-05-30T08:45:15Z",
+      "updated_at": "2013-08-05T08:28:58Z",
+      "due_on": null
+    },
+    "comments": 0,
+    "created_at": "2013-06-17T08:42:36Z",
+    "updated_at": "2013-06-17T08:42:41Z",
+    "closed_at": null,
+    "pull_request": {
+      "html_url": null,
+      "diff_url": null,
+      "patch_url": null
+    },
+    "body": "Issue #202 has been fixed"
+  },
+  {
+    "url": "https://api.github.com/repos/tastejs/PropertyCross/issues/207",
+    "labels_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/207/labels{/name}",
+    "comments_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/207/comments",
+    "events_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/207/events",
+    "html_url": "https://github.com/tastejs/PropertyCross/issues/207",
+    "id": 15543084,
+    "number": 207,
+    "title": "Rebuild the PhoneJS implementation",
+    "user": {
+      "login": "ColinEberhardt",
+      "id": 1098110,
+      "avatar_url": "https://0.gravatar.com/avatar/73bba00b41ff1c9ecc3ee29487bace7d?d=https%3A%2F%2Fidenticons.github.com%2Fd86fc3845965f147ba911e36098d3849.png",
+      "gravatar_id": "73bba00b41ff1c9ecc3ee29487bace7d",
+      "url": "https://api.github.com/users/ColinEberhardt",
+      "html_url": "https://github.com/ColinEberhardt",
+      "followers_url": "https://api.github.com/users/ColinEberhardt/followers",
+      "following_url": "https://api.github.com/users/ColinEberhardt/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ColinEberhardt/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ColinEberhardt/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ColinEberhardt/subscriptions",
+      "organizations_url": "https://api.github.com/users/ColinEberhardt/orgs",
+      "repos_url": "https://api.github.com/users/ColinEberhardt/repos",
+      "events_url": "https://api.github.com/users/ColinEberhardt/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ColinEberhardt/received_events",
+      "type": "User"
+    },
+    "labels": [
+      {
+        "url": "https://api.github.com/repos/tastejs/PropertyCross/labels/builds",
+        "name": "builds",
+        "color": "009800"
+      }
+    ],
+    "state": "open",
+    "assignee": null,
+    "milestone": {
+      "url": "https://api.github.com/repos/tastejs/PropertyCross/milestones/4",
+      "labels_url": "https://api.github.com/repos/tastejs/PropertyCross/milestones/4/labels",
+      "id": 344699,
+      "number": 4,
+      "title": "v1.3 release",
+      "description": "Address some of the consistency issues - add infinite scroll to the spec? tabbed navigation?",
+      "creator": {
+        "login": "ColinEberhardt",
+        "id": 1098110,
+        "avatar_url": "https://0.gravatar.com/avatar/73bba00b41ff1c9ecc3ee29487bace7d?d=https%3A%2F%2Fidenticons.github.com%2Fd86fc3845965f147ba911e36098d3849.png",
+        "gravatar_id": "73bba00b41ff1c9ecc3ee29487bace7d",
+        "url": "https://api.github.com/users/ColinEberhardt",
+        "html_url": "https://github.com/ColinEberhardt",
+        "followers_url": "https://api.github.com/users/ColinEberhardt/followers",
+        "following_url": "https://api.github.com/users/ColinEberhardt/following{/other_user}",
+        "gists_url": "https://api.github.com/users/ColinEberhardt/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/ColinEberhardt/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/ColinEberhardt/subscriptions",
+        "organizations_url": "https://api.github.com/users/ColinEberhardt/orgs",
+        "repos_url": "https://api.github.com/users/ColinEberhardt/repos",
+        "events_url": "https://api.github.com/users/ColinEberhardt/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/ColinEberhardt/received_events",
+        "type": "User"
+      },
+      "open_issues": 6,
+      "closed_issues": 4,
+      "state": "open",
+      "created_at": "2013-05-30T08:45:15Z",
+      "updated_at": "2013-08-05T08:28:58Z",
+      "due_on": null
+    },
+    "comments": 0,
+    "created_at": "2013-06-14T05:33:51Z",
+    "updated_at": "2013-06-14T05:33:51Z",
+    "closed_at": null,
+    "pull_request": {
+      "html_url": null,
+      "diff_url": null,
+      "patch_url": null
+    },
+    "body": "PhoneJS has been updated https://github.com/tastejs/PropertyCross/pull/204"
+  },
+  {
+    "url": "https://api.github.com/repos/tastejs/PropertyCross/issues/205",
+    "labels_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/205/labels{/name}",
+    "comments_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/205/comments",
+    "events_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/205/events",
+    "html_url": "https://github.com/tastejs/PropertyCross/issues/205",
+    "id": 15354028,
+    "number": 205,
+    "title": "Add a Dojo implementation",
+    "user": {
+      "login": "ColinEberhardt",
+      "id": 1098110,
+      "avatar_url": "https://0.gravatar.com/avatar/73bba00b41ff1c9ecc3ee29487bace7d?d=https%3A%2F%2Fidenticons.github.com%2Fd86fc3845965f147ba911e36098d3849.png",
+      "gravatar_id": "73bba00b41ff1c9ecc3ee29487bace7d",
+      "url": "https://api.github.com/users/ColinEberhardt",
+      "html_url": "https://github.com/ColinEberhardt",
+      "followers_url": "https://api.github.com/users/ColinEberhardt/followers",
+      "following_url": "https://api.github.com/users/ColinEberhardt/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ColinEberhardt/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ColinEberhardt/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ColinEberhardt/subscriptions",
+      "organizations_url": "https://api.github.com/users/ColinEberhardt/orgs",
+      "repos_url": "https://api.github.com/users/ColinEberhardt/repos",
+      "events_url": "https://api.github.com/users/ColinEberhardt/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ColinEberhardt/received_events",
+      "type": "User"
+    },
+    "labels": [
+      {
+        "url": "https://api.github.com/repos/tastejs/PropertyCross/labels/Framework+Request",
+        "name": "Framework Request",
+        "color": "DDDDDD"
+      }
+    ],
+    "state": "open",
+    "assignee": null,
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2013-06-10T15:42:20Z",
+    "updated_at": "2013-06-10T15:42:20Z",
+    "closed_at": null,
+    "pull_request": {
+      "html_url": null,
+      "diff_url": null,
+      "patch_url": null
+    },
+    "body": "Dojo has mobile support: http://dojotoolkit.org/features/mobile"
+  },
+  {
+    "url": "https://api.github.com/repos/tastejs/PropertyCross/issues/203",
+    "labels_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/203/labels{/name}",
+    "comments_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/203/comments",
+    "events_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/203/events",
+    "html_url": "https://github.com/tastejs/PropertyCross/issues/203",
+    "id": 15225012,
+    "number": 203,
+    "title": "Android back button not correctly supported",
+    "user": {
+      "login": "ColinEberhardt",
+      "id": 1098110,
+      "avatar_url": "https://0.gravatar.com/avatar/73bba00b41ff1c9ecc3ee29487bace7d?d=https%3A%2F%2Fidenticons.github.com%2Fd86fc3845965f147ba911e36098d3849.png",
+      "gravatar_id": "73bba00b41ff1c9ecc3ee29487bace7d",
+      "url": "https://api.github.com/users/ColinEberhardt",
+      "html_url": "https://github.com/ColinEberhardt",
+      "followers_url": "https://api.github.com/users/ColinEberhardt/followers",
+      "following_url": "https://api.github.com/users/ColinEberhardt/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ColinEberhardt/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ColinEberhardt/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ColinEberhardt/subscriptions",
+      "organizations_url": "https://api.github.com/users/ColinEberhardt/orgs",
+      "repos_url": "https://api.github.com/users/ColinEberhardt/repos",
+      "events_url": "https://api.github.com/users/ColinEberhardt/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ColinEberhardt/received_events",
+      "type": "User"
+    },
+    "labels": [
+      {
+        "url": "https://api.github.com/repos/tastejs/PropertyCross/labels/Enyo",
+        "name": "Enyo",
+        "color": "d4c5f9"
+      }
+    ],
+    "state": "open",
+    "assignee": null,
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2013-06-06T14:21:50Z",
+    "updated_at": "2013-06-06T14:21:50Z",
+    "closed_at": null,
+    "pull_request": {
+      "html_url": null,
+      "diff_url": null,
+      "patch_url": null
+    },
+    "body": "With Android the hardware back button should navigate back to the previous screen. \r\n\r\n(In PhoneGap wrapped apps this means you need to handle the backbutton event)"
+  },
+  {
+    "url": "https://api.github.com/repos/tastejs/PropertyCross/issues/201",
+    "labels_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/201/labels{/name}",
+    "comments_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/201/comments",
+    "events_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/201/events",
+    "html_url": "https://github.com/tastejs/PropertyCross/issues/201",
+    "id": 15209694,
+    "number": 201,
+    "title": "Enyo build does not copy across the config.xml PGBuild file",
+    "user": {
+      "login": "ColinEberhardt",
+      "id": 1098110,
+      "avatar_url": "https://0.gravatar.com/avatar/73bba00b41ff1c9ecc3ee29487bace7d?d=https%3A%2F%2Fidenticons.github.com%2Fd86fc3845965f147ba911e36098d3849.png",
+      "gravatar_id": "73bba00b41ff1c9ecc3ee29487bace7d",
+      "url": "https://api.github.com/users/ColinEberhardt",
+      "html_url": "https://github.com/ColinEberhardt",
+      "followers_url": "https://api.github.com/users/ColinEberhardt/followers",
+      "following_url": "https://api.github.com/users/ColinEberhardt/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ColinEberhardt/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ColinEberhardt/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ColinEberhardt/subscriptions",
+      "organizations_url": "https://api.github.com/users/ColinEberhardt/orgs",
+      "repos_url": "https://api.github.com/users/ColinEberhardt/repos",
+      "events_url": "https://api.github.com/users/ColinEberhardt/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ColinEberhardt/received_events",
+      "type": "User"
+    },
+    "labels": [
+      {
+        "url": "https://api.github.com/repos/tastejs/PropertyCross/labels/Enyo",
+        "name": "Enyo",
+        "color": "d4c5f9"
+      }
+    ],
+    "state": "open",
+    "assignee": null,
+    "milestone": null,
+    "comments": 1,
+    "created_at": "2013-06-06T07:50:37Z",
+    "updated_at": "2013-06-07T04:13:17Z",
+    "closed_at": null,
+    "pull_request": {
+      "html_url": null,
+      "diff_url": null,
+      "patch_url": null
+    },
+    "body": "The Enyo build is nice and simple - and documented here:\r\n\r\nhttps://github.com/tastejs/PropertyCross/blob/master/enyo/deploy.md\r\n\r\nHowever, the build does not copy the config.xml file into the deploy folder. It probably should, as this would make PG packaging easier."
+  },
+  {
+    "url": "https://api.github.com/repos/tastejs/PropertyCross/issues/200",
+    "labels_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/200/labels{/name}",
+    "comments_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/200/comments",
+    "events_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/200/events",
+    "html_url": "https://github.com/tastejs/PropertyCross/issues/200",
+    "id": 15206554,
+    "number": 200,
+    "title": "Sencha submodule for PG Build is not working",
+    "user": {
+      "login": "ColinEberhardt",
+      "id": 1098110,
+      "avatar_url": "https://0.gravatar.com/avatar/73bba00b41ff1c9ecc3ee29487bace7d?d=https%3A%2F%2Fidenticons.github.com%2Fd86fc3845965f147ba911e36098d3849.png",
+      "gravatar_id": "73bba00b41ff1c9ecc3ee29487bace7d",
+      "url": "https://api.github.com/users/ColinEberhardt",
+      "html_url": "https://github.com/ColinEberhardt",
+      "followers_url": "https://api.github.com/users/ColinEberhardt/followers",
+      "following_url": "https://api.github.com/users/ColinEberhardt/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ColinEberhardt/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ColinEberhardt/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ColinEberhardt/subscriptions",
+      "organizations_url": "https://api.github.com/users/ColinEberhardt/orgs",
+      "repos_url": "https://api.github.com/users/ColinEberhardt/repos",
+      "events_url": "https://api.github.com/users/ColinEberhardt/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ColinEberhardt/received_events",
+      "type": "User"
+    },
+    "labels": [
+      {
+        "url": "https://api.github.com/repos/tastejs/PropertyCross/labels/enhancement",
+        "name": "enhancement",
+        "color": "84b6eb"
+      }
+    ],
+    "state": "open",
+    "assignee": null,
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2013-06-06T05:26:46Z",
+    "updated_at": "2013-06-06T05:26:46Z",
+    "closed_at": null,
+    "pull_request": {
+      "html_url": null,
+      "diff_url": null,
+      "patch_url": null
+    },
+    "body": "```\r\nfatal: reference is not a tree: 0d9cb68d3ac14554b49581c101e20cb888805b2d\r\nUnable to checkout '0d9cb68d3ac14554b49581c101e20cb888805b2d' in submodule path\r\n'senchatouch2/build/package'\r\n```\r\n\r\nBasically, I don't think this approach is scalable. I think we should remove all the repos that are used for building using PhoneGap and come up with a more scalable solution - see #180"
+  },
+  {
+    "url": "https://api.github.com/repos/tastejs/PropertyCross/issues/199",
+    "labels_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/199/labels{/name}",
+    "comments_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/199/comments",
+    "events_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/199/events",
+    "html_url": "https://github.com/tastejs/PropertyCross/issues/199",
+    "id": 15198839,
+    "number": 199,
+    "title": "Add Appery.io Implementation",
+    "user": {
+      "login": "rpparas",
+      "id": 592204,
+      "avatar_url": "https://1.gravatar.com/avatar/2706716d2dd9d8a24881cd1fd499bd71?d=https%3A%2F%2Fidenticons.github.com%2F9a941dbc413288369970fb7f0f5fd61f.png",
+      "gravatar_id": "2706716d2dd9d8a24881cd1fd499bd71",
+      "url": "https://api.github.com/users/rpparas",
+      "html_url": "https://github.com/rpparas",
+      "followers_url": "https://api.github.com/users/rpparas/followers",
+      "following_url": "https://api.github.com/users/rpparas/following{/other_user}",
+      "gists_url": "https://api.github.com/users/rpparas/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/rpparas/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/rpparas/subscriptions",
+      "organizations_url": "https://api.github.com/users/rpparas/orgs",
+      "repos_url": "https://api.github.com/users/rpparas/repos",
+      "events_url": "https://api.github.com/users/rpparas/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/rpparas/received_events",
+      "type": "User"
+    },
+    "labels": [
+      {
+        "url": "https://api.github.com/repos/tastejs/PropertyCross/labels/Framework+Request",
+        "name": "Framework Request",
+        "color": "DDDDDD"
+      }
+    ],
+    "state": "open",
+    "assignee": null,
+    "milestone": null,
+    "comments": 1,
+    "created_at": "2013-06-05T23:11:38Z",
+    "updated_at": "2013-06-06T05:16:05Z",
+    "closed_at": null,
+    "pull_request": {
+      "html_url": null,
+      "diff_url": null,
+      "patch_url": null
+    },
+    "body": ""
+  },
+  {
+    "url": "https://api.github.com/repos/tastejs/PropertyCross/issues/196",
+    "labels_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/196/labels{/name}",
+    "comments_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/196/comments",
+    "events_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/196/events",
+    "html_url": "https://github.com/tastejs/PropertyCross/issues/196",
+    "id": 14947636,
+    "number": 196,
+    "title": "Cannot type in search textbox on android",
+    "user": {
+      "login": "joshua1",
+      "id": 557293,
+      "avatar_url": "https://2.gravatar.com/avatar/5b8c5418ccf58de06c4045c8d0ef3de4?d=https%3A%2F%2Fidenticons.github.com%2F5f9ce41cf87879764759a7ecfa2119ca.png",
+      "gravatar_id": "5b8c5418ccf58de06c4045c8d0ef3de4",
+      "url": "https://api.github.com/users/joshua1",
+      "html_url": "https://github.com/joshua1",
+      "followers_url": "https://api.github.com/users/joshua1/followers",
+      "following_url": "https://api.github.com/users/joshua1/following{/other_user}",
+      "gists_url": "https://api.github.com/users/joshua1/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/joshua1/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/joshua1/subscriptions",
+      "organizations_url": "https://api.github.com/users/joshua1/orgs",
+      "repos_url": "https://api.github.com/users/joshua1/repos",
+      "events_url": "https://api.github.com/users/joshua1/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/joshua1/received_events",
+      "type": "User"
+    },
+    "labels": [
+      {
+        "url": "https://api.github.com/repos/tastejs/PropertyCross/labels/Lungo",
+        "name": "Lungo",
+        "color": "fef2c0"
+      }
+    ],
+    "state": "open",
+    "assignee": null,
+    "milestone": null,
+    "comments": 1,
+    "created_at": "2013-05-30T15:51:10Z",
+    "updated_at": "2013-06-01T08:58:40Z",
+    "closed_at": null,
+    "pull_request": {
+      "html_url": null,
+      "diff_url": null,
+      "patch_url": null
+    },
+    "body": "I installed the lungojs sample on three android devices. the text box to enter search location does not work (keyboard does not get pulled up). is there a specific version of android that it works with.meanwhile on all three, the phonejs sample works"
+  },
+  {
+    "url": "https://api.github.com/repos/tastejs/PropertyCross/issues/194",
+    "labels_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/194/labels{/name}",
+    "comments_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/194/comments",
+    "events_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/194/events",
+    "html_url": "https://github.com/tastejs/PropertyCross/issues/194",
+    "id": 14848004,
+    "number": 194,
+    "title": "Android version has exactly the same look and feel as the iOS version",
+    "user": {
+      "login": "ColinEberhardt",
+      "id": 1098110,
+      "avatar_url": "https://0.gravatar.com/avatar/73bba00b41ff1c9ecc3ee29487bace7d?d=https%3A%2F%2Fidenticons.github.com%2Fd86fc3845965f147ba911e36098d3849.png",
+      "gravatar_id": "73bba00b41ff1c9ecc3ee29487bace7d",
+      "url": "https://api.github.com/users/ColinEberhardt",
+      "html_url": "https://github.com/ColinEberhardt",
+      "followers_url": "https://api.github.com/users/ColinEberhardt/followers",
+      "following_url": "https://api.github.com/users/ColinEberhardt/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ColinEberhardt/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ColinEberhardt/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ColinEberhardt/subscriptions",
+      "organizations_url": "https://api.github.com/users/ColinEberhardt/orgs",
+      "repos_url": "https://api.github.com/users/ColinEberhardt/repos",
+      "events_url": "https://api.github.com/users/ColinEberhardt/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ColinEberhardt/received_events",
+      "type": "User"
+    },
+    "labels": [
+      {
+        "url": "https://api.github.com/repos/tastejs/PropertyCross/labels/wontfix",
+        "name": "wontfix",
+        "color": "ffffff"
+      },
+      {
+        "url": "https://api.github.com/repos/tastejs/PropertyCross/labels/jQueryMobile",
+        "name": "jQueryMobile",
+        "color": "ED4732"
+      },
+      {
+        "url": "https://api.github.com/repos/tastejs/PropertyCross/labels/SenchaTouch2",
+        "name": "SenchaTouch2",
+        "color": "e102d8"
+      },
+      {
+        "url": "https://api.github.com/repos/tastejs/PropertyCross/labels/AIR",
+        "name": "AIR",
+        "color": "EE9900"
+      },
+      {
+        "url": "https://api.github.com/repos/tastejs/PropertyCross/labels/jQTouch",
+        "name": "jQTouch",
+        "color": "d4c5f9"
+      },
+      {
+        "url": "https://api.github.com/repos/tastejs/PropertyCross/labels/RhoMobile",
+        "name": "RhoMobile",
+        "color": "02e10c"
+      },
+      {
+        "url": "https://api.github.com/repos/tastejs/PropertyCross/labels/IntelAppFramework",
+        "name": "IntelAppFramework",
+        "color": "fbca04"
+      },
+      {
+        "url": "https://api.github.com/repos/tastejs/PropertyCross/labels/Lungo",
+        "name": "Lungo",
+        "color": "fef2c0"
+      }
+    ],
+    "state": "open",
+    "assignee": null,
+    "milestone": null,
+    "comments": 3,
+    "created_at": "2013-05-28T16:20:02Z",
+    "updated_at": "2013-07-03T07:53:15Z",
+    "closed_at": null,
+    "pull_request": {
+      "html_url": null,
+      "diff_url": null,
+      "patch_url": null
+    },
+    "body": "The specification states that the look and feel of each of the target platforms should be matched. Implementations that exhibit this issue have the same look and feel for both Android and iOS.\r\n\r\nIt is worth noting that the PropertyCross team are not saying that this approach to cross-platform development is right or wrong. When writing the specification, the choice to adopt the relevant platform's look and feel was made simply because we feel that this is what most people will want to do right now.\r\n\r\nIt's also worth noting that some of the implementation, like mgwt, try to tailor the UI to make it more Android-like, but with little success.\r\n\r\n"
+  },
+  {
+    "url": "https://api.github.com/repos/tastejs/PropertyCross/issues/193",
+    "labels_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/193/labels{/name}",
+    "comments_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/193/comments",
+    "events_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/193/events",
+    "html_url": "https://github.com/tastejs/PropertyCross/issues/193",
+    "id": 14847754,
+    "number": 193,
+    "title": "RhoMobile - geolocation based searches do not work.",
+    "user": {
+      "login": "ColinEberhardt",
+      "id": 1098110,
+      "avatar_url": "https://0.gravatar.com/avatar/73bba00b41ff1c9ecc3ee29487bace7d?d=https%3A%2F%2Fidenticons.github.com%2Fd86fc3845965f147ba911e36098d3849.png",
+      "gravatar_id": "73bba00b41ff1c9ecc3ee29487bace7d",
+      "url": "https://api.github.com/users/ColinEberhardt",
+      "html_url": "https://github.com/ColinEberhardt",
+      "followers_url": "https://api.github.com/users/ColinEberhardt/followers",
+      "following_url": "https://api.github.com/users/ColinEberhardt/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ColinEberhardt/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ColinEberhardt/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ColinEberhardt/subscriptions",
+      "organizations_url": "https://api.github.com/users/ColinEberhardt/orgs",
+      "repos_url": "https://api.github.com/users/ColinEberhardt/repos",
+      "events_url": "https://api.github.com/users/ColinEberhardt/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ColinEberhardt/received_events",
+      "type": "User"
+    },
+    "labels": [
+      {
+        "url": "https://api.github.com/repos/tastejs/PropertyCross/labels/RhoMobile",
+        "name": "RhoMobile",
+        "color": "02e10c"
+      }
+    ],
+    "state": "open",
+    "assignee": null,
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2013-05-28T16:15:19Z",
+    "updated_at": "2013-05-28T16:15:19Z",
+    "closed_at": null,
+    "pull_request": {
+      "html_url": null,
+      "diff_url": null,
+      "patch_url": null
+    },
+    "body": ""
+  },
+  {
+    "url": "https://api.github.com/repos/tastejs/PropertyCross/issues/192",
+    "labels_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/192/labels{/name}",
+    "comments_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/192/comments",
+    "events_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/192/events",
+    "html_url": "https://github.com/tastejs/PropertyCross/issues/192",
+    "id": 14847700,
+    "number": 192,
+    "title": "RhoMobile - previous search term is forgotten",
+    "user": {
+      "login": "ColinEberhardt",
+      "id": 1098110,
+      "avatar_url": "https://0.gravatar.com/avatar/73bba00b41ff1c9ecc3ee29487bace7d?d=https%3A%2F%2Fidenticons.github.com%2Fd86fc3845965f147ba911e36098d3849.png",
+      "gravatar_id": "73bba00b41ff1c9ecc3ee29487bace7d",
+      "url": "https://api.github.com/users/ColinEberhardt",
+      "html_url": "https://github.com/ColinEberhardt",
+      "followers_url": "https://api.github.com/users/ColinEberhardt/followers",
+      "following_url": "https://api.github.com/users/ColinEberhardt/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ColinEberhardt/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ColinEberhardt/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ColinEberhardt/subscriptions",
+      "organizations_url": "https://api.github.com/users/ColinEberhardt/orgs",
+      "repos_url": "https://api.github.com/users/ColinEberhardt/repos",
+      "events_url": "https://api.github.com/users/ColinEberhardt/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ColinEberhardt/received_events",
+      "type": "User"
+    },
+    "labels": [
+      {
+        "url": "https://api.github.com/repos/tastejs/PropertyCross/labels/RhoMobile",
+        "name": "RhoMobile",
+        "color": "02e10c"
+      }
+    ],
+    "state": "open",
+    "assignee": null,
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2013-05-28T16:14:05Z",
+    "updated_at": "2013-05-28T16:14:05Z",
+    "closed_at": null,
+    "pull_request": {
+      "html_url": null,
+      "diff_url": null,
+      "patch_url": null
+    },
+    "body": "If you perform a search, then return to the 'home' page the previous search text should still be present in the input field. With RhoMobile this is empty."
+  },
+  {
+    "url": "https://api.github.com/repos/tastejs/PropertyCross/issues/191",
+    "labels_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/191/labels{/name}",
+    "comments_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/191/comments",
+    "events_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/191/events",
+    "html_url": "https://github.com/tastejs/PropertyCross/issues/191",
+    "id": 14847645,
+    "number": 191,
+    "title": "RhoMobile - recent searches are not displayed",
+    "user": {
+      "login": "ColinEberhardt",
+      "id": 1098110,
+      "avatar_url": "https://0.gravatar.com/avatar/73bba00b41ff1c9ecc3ee29487bace7d?d=https%3A%2F%2Fidenticons.github.com%2Fd86fc3845965f147ba911e36098d3849.png",
+      "gravatar_id": "73bba00b41ff1c9ecc3ee29487bace7d",
+      "url": "https://api.github.com/users/ColinEberhardt",
+      "html_url": "https://github.com/ColinEberhardt",
+      "followers_url": "https://api.github.com/users/ColinEberhardt/followers",
+      "following_url": "https://api.github.com/users/ColinEberhardt/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ColinEberhardt/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ColinEberhardt/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ColinEberhardt/subscriptions",
+      "organizations_url": "https://api.github.com/users/ColinEberhardt/orgs",
+      "repos_url": "https://api.github.com/users/ColinEberhardt/repos",
+      "events_url": "https://api.github.com/users/ColinEberhardt/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ColinEberhardt/received_events",
+      "type": "User"
+    },
+    "labels": [
+      {
+        "url": "https://api.github.com/repos/tastejs/PropertyCross/labels/RhoMobile",
+        "name": "RhoMobile",
+        "color": "02e10c"
+      }
+    ],
+    "state": "open",
+    "assignee": null,
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2013-05-28T16:13:07Z",
+    "updated_at": "2013-05-28T16:13:07Z",
+    "closed_at": null,
+    "pull_request": {
+      "html_url": null,
+      "diff_url": null,
+      "patch_url": null
+    },
+    "body": "The 'recent searches' specification feature has not been implemented."
+  },
+  {
+    "url": "https://api.github.com/repos/tastejs/PropertyCross/issues/190",
+    "labels_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/190/labels{/name}",
+    "comments_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/190/comments",
+    "events_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/190/events",
+    "html_url": "https://github.com/tastejs/PropertyCross/issues/190",
+    "id": 14847594,
+    "number": 190,
+    "title": "The implementation does not provide a 'fixed' header",
+    "user": {
+      "login": "ColinEberhardt",
+      "id": 1098110,
+      "avatar_url": "https://0.gravatar.com/avatar/73bba00b41ff1c9ecc3ee29487bace7d?d=https%3A%2F%2Fidenticons.github.com%2Fd86fc3845965f147ba911e36098d3849.png",
+      "gravatar_id": "73bba00b41ff1c9ecc3ee29487bace7d",
+      "url": "https://api.github.com/users/ColinEberhardt",
+      "html_url": "https://github.com/ColinEberhardt",
+      "followers_url": "https://api.github.com/users/ColinEberhardt/followers",
+      "following_url": "https://api.github.com/users/ColinEberhardt/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ColinEberhardt/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ColinEberhardt/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ColinEberhardt/subscriptions",
+      "organizations_url": "https://api.github.com/users/ColinEberhardt/orgs",
+      "repos_url": "https://api.github.com/users/ColinEberhardt/repos",
+      "events_url": "https://api.github.com/users/ColinEberhardt/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ColinEberhardt/received_events",
+      "type": "User"
+    },
+    "labels": [
+      {
+        "url": "https://api.github.com/repos/tastejs/PropertyCross/labels/wontfix",
+        "name": "wontfix",
+        "color": "ffffff"
+      },
+      {
+        "url": "https://api.github.com/repos/tastejs/PropertyCross/labels/jQTouch",
+        "name": "jQTouch",
+        "color": "d4c5f9"
+      },
+      {
+        "url": "https://api.github.com/repos/tastejs/PropertyCross/labels/RhoMobile",
+        "name": "RhoMobile",
+        "color": "02e10c"
+      }
+    ],
+    "state": "open",
+    "assignee": null,
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2013-05-28T16:12:05Z",
+    "updated_at": "2013-05-28T16:12:05Z",
+    "closed_at": null,
+    "pull_request": {
+      "html_url": null,
+      "diff_url": null,
+      "patch_url": null
+    },
+    "body": "The specification mentions that the aim of PropertyCross is to mimic the look and feel of the various platforms (iOS, Android ...).\r\n\r\nFor iOS the standard UI has a header (UINavigationBar) and a content area. When the content area scrolls the header remains fixed at the top of the screen.\r\n\r\nThis issue indicates that for the given frameworks, that the header scrolls with the content.\r\n\r\nOn an implementation note, this is not a trivial task for an HTML5 app, most mobile web browser do not provide support for fixed position elements. Complex solutions such as iScroll exist:\r\n\r\nhttp://cubiq.org/iscroll-4"
+  },
+  {
+    "url": "https://api.github.com/repos/tastejs/PropertyCross/issues/187",
+    "labels_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/187/labels{/name}",
+    "comments_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/187/comments",
+    "events_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/187/events",
+    "html_url": "https://github.com/tastejs/PropertyCross/issues/187",
+    "id": 14766742,
+    "number": 187,
+    "title": "Should the specification allow infinite scrolling?",
+    "user": {
+      "login": "ColinEberhardt",
+      "id": 1098110,
+      "avatar_url": "https://0.gravatar.com/avatar/73bba00b41ff1c9ecc3ee29487bace7d?d=https%3A%2F%2Fidenticons.github.com%2Fd86fc3845965f147ba911e36098d3849.png",
+      "gravatar_id": "73bba00b41ff1c9ecc3ee29487bace7d",
+      "url": "https://api.github.com/users/ColinEberhardt",
+      "html_url": "https://github.com/ColinEberhardt",
+      "followers_url": "https://api.github.com/users/ColinEberhardt/followers",
+      "following_url": "https://api.github.com/users/ColinEberhardt/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ColinEberhardt/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ColinEberhardt/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ColinEberhardt/subscriptions",
+      "organizations_url": "https://api.github.com/users/ColinEberhardt/orgs",
+      "repos_url": "https://api.github.com/users/ColinEberhardt/repos",
+      "events_url": "https://api.github.com/users/ColinEberhardt/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ColinEberhardt/received_events",
+      "type": "User"
+    },
+    "labels": [
+      {
+        "url": "https://api.github.com/repos/tastejs/PropertyCross/labels/enhancement",
+        "name": "enhancement",
+        "color": "84b6eb"
+      },
+      {
+        "url": "https://api.github.com/repos/tastejs/PropertyCross/labels/PhoneJS",
+        "name": "PhoneJS",
+        "color": "bfe5bf"
+      }
+    ],
+    "state": "open",
+    "assignee": null,
+    "milestone": null,
+    "comments": 14,
+    "created_at": "2013-05-26T05:35:32Z",
+    "updated_at": "2013-07-03T09:24:15Z",
+    "closed_at": null,
+    "pull_request": {
+      "html_url": null,
+      "diff_url": null,
+      "patch_url": null
+    },
+    "body": "Currently the PhoneJS implementation has infinite scrolling. I allowed this through the review process, even though it is not per-spec, because I am starting to change my mind about this area of the specification. It is such a popular feature, and many of these frameworks do support it, that I think the spec should be flexible here. \r\n\r\nSee for example the Enyo pull request:\r\n\r\nhttps://github.com/ColinEberhardt/PropertyCross/pull/184\r\n\r\nThe Enyo team want to use pull-to-load-more too."
+  },
+  {
+    "url": "https://api.github.com/repos/tastejs/PropertyCross/issues/180",
+    "labels_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/180/labels{/name}",
+    "comments_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/180/comments",
+    "events_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/180/events",
+    "html_url": "https://github.com/tastejs/PropertyCross/issues/180",
+    "id": 14591021,
+    "number": 180,
+    "title": "Standardise the build system",
+    "user": {
+      "login": "ColinEberhardt",
+      "id": 1098110,
+      "avatar_url": "https://0.gravatar.com/avatar/73bba00b41ff1c9ecc3ee29487bace7d?d=https%3A%2F%2Fidenticons.github.com%2Fd86fc3845965f147ba911e36098d3849.png",
+      "gravatar_id": "73bba00b41ff1c9ecc3ee29487bace7d",
+      "url": "https://api.github.com/users/ColinEberhardt",
+      "html_url": "https://github.com/ColinEberhardt",
+      "followers_url": "https://api.github.com/users/ColinEberhardt/followers",
+      "following_url": "https://api.github.com/users/ColinEberhardt/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ColinEberhardt/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ColinEberhardt/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ColinEberhardt/subscriptions",
+      "organizations_url": "https://api.github.com/users/ColinEberhardt/orgs",
+      "repos_url": "https://api.github.com/users/ColinEberhardt/repos",
+      "events_url": "https://api.github.com/users/ColinEberhardt/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ColinEberhardt/received_events",
+      "type": "User"
+    },
+    "labels": [
+      {
+        "url": "https://api.github.com/repos/tastejs/PropertyCross/labels/enhancement",
+        "name": "enhancement",
+        "color": "84b6eb"
+      }
+    ],
+    "state": "open",
+    "assignee": null,
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2013-05-21T21:02:25Z",
+    "updated_at": "2013-06-06T05:26:46Z",
+    "closed_at": null,
+    "pull_request": {
+      "html_url": null,
+      "diff_url": null,
+      "patch_url": null
+    },
+    "body": "Some projects use the PGBuild maven approach, some use a github 'mirror' repo for PGB, others just expect you to zip the contents, other (PhoneJS) have a build script that creats the release package.\r\n\r\nShould we standardise?"
+  },
+  {
+    "url": "https://api.github.com/repos/tastejs/PropertyCross/issues/177",
+    "labels_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/177/labels{/name}",
+    "comments_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/177/comments",
+    "events_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/177/events",
+    "html_url": "https://github.com/tastejs/PropertyCross/issues/177",
+    "id": 14584179,
+    "number": 177,
+    "title": "jQM implementation has a complex build due to the need to remove require.js",
+    "user": {
+      "login": "ColinEberhardt",
+      "id": 1098110,
+      "avatar_url": "https://0.gravatar.com/avatar/73bba00b41ff1c9ecc3ee29487bace7d?d=https%3A%2F%2Fidenticons.github.com%2Fd86fc3845965f147ba911e36098d3849.png",
+      "gravatar_id": "73bba00b41ff1c9ecc3ee29487bace7d",
+      "url": "https://api.github.com/users/ColinEberhardt",
+      "html_url": "https://github.com/ColinEberhardt",
+      "followers_url": "https://api.github.com/users/ColinEberhardt/followers",
+      "following_url": "https://api.github.com/users/ColinEberhardt/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ColinEberhardt/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ColinEberhardt/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ColinEberhardt/subscriptions",
+      "organizations_url": "https://api.github.com/users/ColinEberhardt/orgs",
+      "repos_url": "https://api.github.com/users/ColinEberhardt/repos",
+      "events_url": "https://api.github.com/users/ColinEberhardt/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ColinEberhardt/received_events",
+      "type": "User"
+    },
+    "labels": [
+      {
+        "url": "https://api.github.com/repos/tastejs/PropertyCross/labels/jQueryMobile",
+        "name": "jQueryMobile",
+        "color": "ED4732"
+      }
+    ],
+    "state": "open",
+    "assignee": null,
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2013-05-21T18:43:03Z",
+    "updated_at": "2013-05-28T08:29:44Z",
+    "closed_at": null,
+    "pull_request": {
+      "html_url": null,
+      "diff_url": null,
+      "patch_url": null
+    },
+    "body": "The current jQM implementation uses PhoneGap Build, however, we have found that RequireJS is not compatible with PGB. As a result, the jQM implementation has a complex build.\r\n\r\nPerhaps we should not use RequireJS in order to simplify the code?"
+  },
+  {
+    "url": "https://api.github.com/repos/tastejs/PropertyCross/issues/173",
+    "labels_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/173/labels{/name}",
+    "comments_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/173/comments",
+    "events_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/173/events",
+    "html_url": "https://github.com/tastejs/PropertyCross/issues/173",
+    "id": 14446355,
+    "number": 173,
+    "title": "Standardise the config.xml files",
+    "user": {
+      "login": "ColinEberhardt",
+      "id": 1098110,
+      "avatar_url": "https://0.gravatar.com/avatar/73bba00b41ff1c9ecc3ee29487bace7d?d=https%3A%2F%2Fidenticons.github.com%2Fd86fc3845965f147ba911e36098d3849.png",
+      "gravatar_id": "73bba00b41ff1c9ecc3ee29487bace7d",
+      "url": "https://api.github.com/users/ColinEberhardt",
+      "html_url": "https://github.com/ColinEberhardt",
+      "followers_url": "https://api.github.com/users/ColinEberhardt/followers",
+      "following_url": "https://api.github.com/users/ColinEberhardt/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ColinEberhardt/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ColinEberhardt/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ColinEberhardt/subscriptions",
+      "organizations_url": "https://api.github.com/users/ColinEberhardt/orgs",
+      "repos_url": "https://api.github.com/users/ColinEberhardt/repos",
+      "events_url": "https://api.github.com/users/ColinEberhardt/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ColinEberhardt/received_events",
+      "type": "User"
+    },
+    "labels": [
+      {
+        "url": "https://api.github.com/repos/tastejs/PropertyCross/labels/enhancement",
+        "name": "enhancement",
+        "color": "84b6eb"
+      }
+    ],
+    "state": "open",
+    "assignee": null,
+    "milestone": null,
+    "comments": 1,
+    "created_at": "2013-05-17T10:29:42Z",
+    "updated_at": "2013-05-17T10:31:51Z",
+    "closed_at": null,
+    "pull_request": {
+      "html_url": null,
+      "diff_url": null,
+      "patch_url": null
+    },
+    "body": "Many of the projects use PhoneGap Build, and so have a config.xml file. There should be a standard template for these."
+  },
+  {
+    "url": "https://api.github.com/repos/tastejs/PropertyCross/issues/167",
+    "labels_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/167/labels{/name}",
+    "comments_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/167/comments",
+    "events_url": "https://api.github.com/repos/tastejs/PropertyCross/issues/167/events",
+    "html_url": "https://github.com/tastejs/PropertyCross/issues/167",
+    "id": 14147260,
+    "number": 167,
+    "title": "AngularJs support",
+    "user": {
+      "login": "rtimothy",
+      "id": 1627492,
+      "avatar_url": "https://2.gravatar.com/avatar/a3c21d231324e22d9a338cd5e60e8caa?d=https%3A%2F%2Fidenticons.github.com%2F32660a21b4227d817aaf533919302b12.png",
+      "gravatar_id": "a3c21d231324e22d9a338cd5e60e8caa",
+      "url": "https://api.github.com/users/rtimothy",
+      "html_url": "https://github.com/rtimothy",
+      "followers_url": "https://api.github.com/users/rtimothy/followers",
+      "following_url": "https://api.github.com/users/rtimothy/following{/other_user}",
+      "gists_url": "https://api.github.com/users/rtimothy/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/rtimothy/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/rtimothy/subscriptions",
+      "organizations_url": "https://api.github.com/users/rtimothy/orgs",
+      "repos_url": "https://api.github.com/users/rtimothy/repos",
+      "events_url": "https://api.github.com/users/rtimothy/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/rtimothy/received_events",
+      "type": "User"
+    },
+    "labels": [
+      {
+        "url": "https://api.github.com/repos/tastejs/PropertyCross/labels/Framework+Request",
+        "name": "Framework Request",
+        "color": "DDDDDD"
+      }
+    ],
+    "state": "open",
+    "assignee": null,
+    "milestone": null,
+    "comments": 4,
+    "created_at": "2013-05-09T14:02:57Z",
+    "updated_at": "2013-05-11T16:06:54Z",
+    "closed_at": null,
+    "pull_request": {
+      "html_url": null,
+      "diff_url": null,
+      "patch_url": null
+    },
+    "body": "Angular is rapidly gaining popularity, it'd be very nice to see how it fits in.  Additionally to see if you can easily add your own UI/mobile touch layer on top of Angular's foundation. "
+  }
+]

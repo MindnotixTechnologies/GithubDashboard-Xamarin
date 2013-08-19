@@ -16,11 +16,5 @@ namespace GithubAPI
 		public int open_issues {get;set;}
 		public bool has_issues {get;set;}
 		public string language {get;set;}
-
-		public class UserSummaryData
-		{
-			public string login {get; set;}
-			public string avatar_url { get; set;}
-		}
 	}
 }

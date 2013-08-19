@@ -16,7 +16,17 @@ namespace GithubDashboard
 		{
 			protected override NSObject GroupValueForProperty (SDataGridDataSourceHelper helper, string propertyKey, NSObject source)
 			{
-				return GetProperty((IssueDataItem)source, propertyKey);
+				IssueDataItem issue = (IssueDataItem)source;
+				NSObject value = GetProperty(issue, propertyKey);
+
+				// for the date column, we specialise the formatting
+				if (propertyKey == "created_at")
+				{
+					DateTime created = issue.created_at;
+					value = (NSString)created.ToString ("MMM yyyy");
+				}
+
+				return value;
 			}
 
 			protected override NSObject DisplayValueForProperty (SDataGridDataSourceHelper helper, string propertyKey, NSObject source)
@@ -134,6 +144,7 @@ namespace GithubDashboard
 
 			// provide a datasource helper. This acts as both the datasource and the delegate
 			_dataSourceHelper = new SDataGridDataSourceHelper (_dataGrid);
+			_dataSourceHelper.GroupedPropertyKey = "created_at";
 			_dataSourceHelper.Delegate = new IssuesDataGridHelperDelegate ();
 
 			this.Add (_dataGrid);

@@ -118,6 +118,7 @@ namespace GithubDashboard
 		{
 			// create a datagrid
 			_dataGrid = new ShinobiDataGrid (this.Bounds);
+			_dataGrid.LicenseKey = ShinobiLicenseKeyProviderJson.Instance.GridsLicenseKey;
 			_dataGrid.AutoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight;
 
 			// add the columns

@@ -81,20 +81,20 @@
     <Reference Include="System.Core" />
     <Reference Include="monotouch" />
     <Reference Include="ShinobiCharts">
-      <HintPath>Shinobi\ShinobiCharts.dll</HintPath>
+      <HintPath>Components\ShinobiCharts-2.3.0-trial\lib\ios\ShinobiCharts.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>Shinobi\Newtonsoft.Json.dll</HintPath>
+      <HintPath>Components\json.net-4.5.11\lib\ios\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="RestSharp.MonoTouch">
-      <HintPath>Shinobi\RestSharp.MonoTouch.dll</HintPath>
-    </Reference>
-    <Reference Include="ShinobiGauges">
-      <HintPath>Shinobi\ShinobiGauges.dll</HintPath>
+      <HintPath>Components\restsharp-104.1.0\lib\ios\RestSharp.MonoTouch.dll</HintPath>
     </Reference>
     <Reference Include="MonoTouch.Dialog-1" />
     <Reference Include="ShinobiGrids">
-      <HintPath>Shinobi\ShinobiGrids.dll</HintPath>
+      <HintPath>Components\ShinobiGrids-2.0.0-trial\lib\ios\ShinobiGrids.dll</HintPath>
+    </Reference>
+    <Reference Include="ShinobiGauges">
+      <HintPath>Shinobi\ShinobiGauges.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -172,5 +172,27 @@
     <BundleResource Include="GithubAPI\Json\Data\repos\tastejs\todomvc\languages.json" />
     <BundleResource Include="AppSecrets.json" />
     <BundleResource Include="AppSecrets.sample.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <XamarinComponentReference Include="ShinobiCharts-trial">
+      <InstallationInProgress>True</InstallationInProgress>
+      <Version>2.3.0</Version>
+      <Visible>False</Visible>
+    </XamarinComponentReference>
+    <XamarinComponentReference Include="ShinobiGrids-trial">
+      <InstallationInProgress>True</InstallationInProgress>
+      <Version>2.0.0</Version>
+      <Visible>False</Visible>
+    </XamarinComponentReference>
+    <XamarinComponentReference Include="json.net">
+      <InstallationInProgress>True</InstallationInProgress>
+      <Version>4.5.11</Version>
+      <Visible>False</Visible>
+    </XamarinComponentReference>
+    <XamarinComponentReference Include="restsharp">
+      <InstallationInProgress>True</InstallationInProgress>
+      <Version>104.1.0</Version>
+      <Visible>False</Visible>
+    </XamarinComponentReference>
   </ItemGroup>
 </Project>

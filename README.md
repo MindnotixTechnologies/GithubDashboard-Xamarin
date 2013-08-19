@@ -5,7 +5,11 @@ A dashboard built around the Github API using ShinobiControls and Xamarin.iOS bi
 
 ## Getting Started
 
-This project has been built using the trial versions of ShinobiCharts and ShinobiGrids - available from the Xamarin component store. Therefore, when you open the sln file in Xamarin Studio, the components should be magically installed for you. Since we're using the trial versions you'll need to register with Shinobi - available at www.shinobicontrols.com to receive a license key.
+### Shinobi licence keys
+
+This project has been built using the trial versions of ShinobiCharts and ShinobiGrids - available from the Xamarin component store. Therefore, when you open the solution file in Xamarin Studio, the components should be magically installed for you.
+
+Since we're using the trial versions you'll be issued with licence keys for each component when they are first downloaded from the component store. You can access these licence keys by logging in to the component store via the web interface, selecting your account and viewing 'My Components'. Form here you can select your trail components fro your list of components in order to find your trial keys.
 
 In order to prevent the license key having to be repeatedly pasted into each class which uses a Shinobi control, this project uses a shared class to read the license key from a JSON file at startup and then push it into charts and grids as required. The process is very similar to the process for adding a github token (specified below):
  

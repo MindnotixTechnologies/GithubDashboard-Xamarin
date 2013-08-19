@@ -95,6 +95,7 @@
     <Reference Include="ShinobiGauges">
       <HintPath>Shinobi\ShinobiGauges.dll</HintPath>
     </Reference>
+    <Reference Include="MonoTouch.Dialog-1" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
@@ -148,10 +149,15 @@
     <Compile Include="MilestoneView.designer.cs">
       <DependentUpon>MilestoneView.cs</DependentUpon>
     </Compile>
+    <Compile Include="DashboardPageOneView.cs" />
+    <Compile Include="DashboardPageOneView.designer.cs">
+      <DependentUpon>DashboardPageOneView.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />
     <InterfaceDefinition Include="Views\RepoSummaryView.xib" />
+    <InterfaceDefinition Include="DashboardPageOneView.xib" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

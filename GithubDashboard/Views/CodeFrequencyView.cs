@@ -99,18 +99,21 @@ namespace GithubDashboard
 			// If we haven't got a chart, then create one
 			if(_columnChart == null)
 			{
-				this.createChart ();
+				this.CreateChart ();
 			}
+
 			// Set the chart's datasource
 			_columnChart.DataSource = _dataSource;
+
 			// Redraw the chart
 			_columnChart.RedrawChart ();
+
 			// Get rid of the activity indicator
 			_actIndicator.RemoveFromSuperview ();
 			_actIndicator.StopAnimating ();
 		}
 
-		private void createChart()
+		private void CreateChart()
 		{
 			_columnChart = new ShinobiChart (this.Bounds);
 			_columnChart.AutoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight;
@@ -128,6 +131,9 @@ namespace GithubDashboard
 			_columnChart.Legend.Hidden = false;
 			_columnChart.Legend.Placement = SChartLegendPlacement.InsidePlotArea;
 			_columnChart.Legend.Position = SChartLegendPosition.TopRight;
+
+			// disable interaction - in order to allow paging of the container view
+			_columnChart.UserInteractionEnabled = false;
 
 			// Add it as a subview
 			this.AddSubview (_columnChart);

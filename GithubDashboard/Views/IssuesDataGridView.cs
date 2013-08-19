@@ -6,6 +6,7 @@ using System.Drawing;
 using ShinobiGrids;
 using System.Linq;
 using GithubDashboard.Utilities;
+using MonoTouch.ObjCRuntime;
 
 namespace GithubDashboard
 {
@@ -14,6 +15,17 @@ namespace GithubDashboard
 	{
 		private class IssuesDataGridHelperDelegate : SDataGridDataSourceHelperDelegate
 		{
+			protected override bool PopulateCell (SDataGridDataSourceHelper helper, SDataGridCell cell, NSObject value, string propertyKey, NSObject source)
+			{
+				if (propertyKey == "reported")
+				{
+					AvatarCell avatarCell = (AvatarCell)cell;
+					avatarCell.AvatarUrl = (NSString)value;
+					return true;
+				}
+
+				return false;
+			}
 			protected override NSObject GroupValueForProperty (SDataGridDataSourceHelper helper, string propertyKey, NSObject source)
 			{
 				IssueDataItem issue = (IssueDataItem)source;
@@ -63,6 +75,10 @@ namespace GithubDashboard
 
 				case "created_at":
 					val = (NSDate)issue.created_at;
+					break;
+
+				case "reported":
+					val = (NSString)issue.user.avatar_url;
 					break;
 
 				default:
@@ -132,7 +148,9 @@ namespace GithubDashboard
 			_dataGrid.LicenseKey = ShinobiLicenseKeyProviderJson.Instance.GridsLicenseKey;
 			_dataGrid.AutoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight;
 
-			_dataGrid.DefaultCellStyleForAlternateRows = new SDataGridCellStyle(new UIColor(0.8f,0.8f,0.8f,1.0f), null, null);
+			// styling
+			_dataGrid.DefaultCellStyleForAlternateRows = new SDataGridCellStyle(new UIColor(0.9f,0.9f,0.9f,1.0f), null, null);
+			_dataGrid.DefaultGridLineStyle = new SDataGridLineStyle (0.0f, UIColor.Clear);
 
 			// add the columns
 			SDataGridColumn createdDateColumn = new SDataGridColumn ("created", "created_at");
@@ -142,8 +160,12 @@ namespace GithubDashboard
 
 			SDataGridColumn titleColumn = new SDataGridColumn ("title", "title");
 			titleColumn.SortMode = SDataGridColumnSortMode.TriState;
-			titleColumn.Width = new NSNumber (857);
+			titleColumn.Width = new NSNumber (795);
 			_dataGrid.AddColumn (titleColumn);
+
+			SDataGridColumn reportedColumn = new SDataGridColumn (" ", "reported", new Class("AvatarCell"), new Class("SDataGridHeaderCell"));
+			reportedColumn.Width = new NSNumber (50);
+			_dataGrid.AddColumn (reportedColumn);
 
 			// provide a datasource helper. This acts as both the datasource and the delegate
 			_dataSourceHelper = new SDataGridDataSourceHelper (_dataGrid);

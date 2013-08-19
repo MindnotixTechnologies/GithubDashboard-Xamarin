@@ -93,6 +93,9 @@
     <Reference Include="ShinobiGrids">
       <HintPath>Components\ShinobiGrids-2.0.0-trial\lib\ios\ShinobiGrids.dll</HintPath>
     </Reference>
+    <Reference Include="ShinobiGauges">
+      <HintPath>Shinobi\ShinobiGauges.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
@@ -157,6 +160,7 @@
     <Compile Include="DashboardPageTwoView.designer.cs">
       <DependentUpon>DashboardPageTwoView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\MilestoneProgressView.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />

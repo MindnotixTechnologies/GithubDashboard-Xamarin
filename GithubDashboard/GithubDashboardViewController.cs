@@ -43,7 +43,7 @@ namespace GithubDashboard
 			this.scrollView.Add(_pageTwo);
 
 			// Need to set the repo for our views
-			FetchDataForRepo ("tastejs", "todomvc");
+			FetchDataForRepo ("tastejs", "PropertyCross");
 
 			// Add the touch handler to the repo summary
 			this.repoSummary.SetTapHandler ( nameLabelFrame => {
@@ -100,6 +100,13 @@ namespace GithubDashboard
 					this._pageTwo.IssuesDataGrid.RenderData(data);
 				});
 			});
+
+			GithubDataProvider.Instance.OpenMilestones (owner, repo, data => {
+				InvokeOnMainThread (() => {
+					this._pageTwo.MilestoneProgress.RenderData(data);
+				});
+			});
+
 
 			// Check whether we need a new repo selector
 			if (owner != _githubUserName) {

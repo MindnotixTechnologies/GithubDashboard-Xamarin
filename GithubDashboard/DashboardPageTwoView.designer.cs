@@ -12,9 +12,17 @@ namespace GithubDashboard
 	{
 		[Outlet]
 		GithubDashboard.IssuesDataGridView issuesDataGrid { get; set; }
+
+		[Outlet]
+		GithubDashboard.MilestoneProgressView milestoneProgess { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (milestoneProgess != null) {
+				milestoneProgess.Dispose ();
+				milestoneProgess = null;
+			}
+
 			if (issuesDataGrid != null) {
 				issuesDataGrid.Dispose ();
 				issuesDataGrid = null;

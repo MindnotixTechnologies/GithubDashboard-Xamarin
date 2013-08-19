@@ -13,6 +13,7 @@ namespace GithubAPI
 		public string description {get;set;}
 		public int open_issues {get;set;}
 		public int closed_issues {get;set;}
+		public DateTime created_at {get;set;}
 	}
 }
 

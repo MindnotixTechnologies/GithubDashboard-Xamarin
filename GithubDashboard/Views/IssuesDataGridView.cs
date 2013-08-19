@@ -71,6 +71,7 @@ namespace GithubDashboard
 
 				return val;
 			}
+			 
 		}
 
 		private class IssuesDataGridDataSource : SDataGridDataSource
@@ -131,6 +132,8 @@ namespace GithubDashboard
 			_dataGrid.LicenseKey = ShinobiLicenseKeyProviderJson.Instance.GridsLicenseKey;
 			_dataGrid.AutoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight;
 
+			_dataGrid.DefaultCellStyleForAlternateRows = new SDataGridCellStyle(new UIColor(0.8f,0.8f,0.8f,1.0f), null, null);
+
 			// add the columns
 			SDataGridColumn createdDateColumn = new SDataGridColumn ("created", "created_at");
 			createdDateColumn.SortMode = SDataGridColumnSortMode.TriState;
@@ -145,6 +148,7 @@ namespace GithubDashboard
 			// provide a datasource helper. This acts as both the datasource and the delegate
 			_dataSourceHelper = new SDataGridDataSourceHelper (_dataGrid);
 			_dataSourceHelper.GroupedPropertyKey = "created_at";
+			_dataSourceHelper.GroupedPropertySortOrder = SDataGridColumnSortOrder.Descending;
 			_dataSourceHelper.Delegate = new IssuesDataGridHelperDelegate ();
 
 			this.Add (_dataGrid);

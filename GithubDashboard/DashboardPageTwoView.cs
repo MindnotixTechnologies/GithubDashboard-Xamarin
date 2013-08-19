@@ -9,9 +9,15 @@ namespace GithubDashboard
 	{
 		public IssuesDataGridView IssuesDataGrid { get{ return this.issuesDataGrid; } }
 
+		public MilestoneProgressView MilestoneProgress { get{ return this.milestoneProgess; } }
+
+
 		public DashboardPageTwoView (IntPtr h) : base(h)
 		{
+
 		}
+
+
 	}
 }
 

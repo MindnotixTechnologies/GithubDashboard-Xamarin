@@ -11,7 +11,7 @@ using GithubDashboard.Utilities;
 namespace GithubDashboard
 {
 	[Register("PunchCardView")]
-	public class PunchCardView : UIView, IDataView<PunchCardData>
+	public class PunchCardView : LoadingIndicatorView, IDataView<PunchCardData>
 	{
 		// Create a class to represent the chart datasource
 		private class PunchCardViewDataSource : SChartDataSource
@@ -77,15 +77,9 @@ namespace GithubDashboard
 		// Variables to store chart and datasource
 		private ShinobiChart _bubbleChart;
 		private PunchCardViewDataSource _dataSource;
-		private UIActivityIndicatorView _actIndicator;
 
 		public PunchCardView(IntPtr p) : base(p)
 		{
-			// Create an activity indicator
-			_actIndicator = new UIActivityIndicatorView ();
-			_actIndicator.Center = new PointF (Bounds.Width / 2, Bounds.Height / 2);
-			_actIndicator.StartAnimating ();
-			this.Add (_actIndicator);
 		}
 
 		public void RenderData(PunchCardData data)
@@ -102,8 +96,7 @@ namespace GithubDashboard
 			// Redraw the chart
 			_bubbleChart.RedrawChart ();
 			// Get rid of the activity indicator
-			_actIndicator.RemoveFromSuperview ();
-			_actIndicator.StopAnimating ();
+			HideIndicator ();
 		}
 
 		private void CreateChart()

@@ -138,6 +138,7 @@
     <Compile Include="Utilities\IShinobiLicenseKeyProvider.cs" />
     <Compile Include="Utilities\ShinobiLicenseKeyProviderJson.cs" />
     <Compile Include="Views\PunchCardView.cs" />
+    <Compile Include="Views\LoadingIndicatorView.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />

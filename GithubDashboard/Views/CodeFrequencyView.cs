@@ -11,7 +11,7 @@ using GithubDashboard.Utilities;
 namespace GithubDashboard
 {
 	[Register("CodeFrequencyView")]
-	public class CodeFrequencyView : UIView, IDataView<CodeFrequencyData>
+	public class CodeFrequencyView : LoadingIndicatorView, IDataView<CodeFrequencyData>
 	{
 		private class CodeFrequencyDataSource : SChartDataSource
 		{
@@ -87,15 +87,9 @@ namespace GithubDashboard
 
 		private ShinobiChart _lineChart;
 		private CodeFrequencyDataSource _dataSource;
-		private UIActivityIndicatorView _actIndicator;
 
 		public CodeFrequencyView (IntPtr p) : base(p)
 		{
-			// Create an activity indicator
-			_actIndicator = new UIActivityIndicatorView ();
-			_actIndicator.Center = new PointF (Bounds.Width / 2, Bounds.Height / 2);
-			_actIndicator.StartAnimating ();
-			this.Add (_actIndicator);
 		}
 
 		public void RenderData(CodeFrequencyData data)
@@ -112,8 +106,7 @@ namespace GithubDashboard
 			// Redraw the chart
 			_lineChart.RedrawChart ();
 			// Get rid of the activity indicator
-			_actIndicator.RemoveFromSuperview ();
-			_actIndicator.StopAnimating ();
+			HideIndicator ();
 		}
 
 		private void createChart()

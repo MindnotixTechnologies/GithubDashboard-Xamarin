@@ -11,7 +11,7 @@ using GithubDashboard.Utilities;
 namespace GithubDashboard
 {
 	[Register("LanguageStatsView")]
-	public class LanguageStatsView : UIView, IDataView<LanguageFrequencyData>
+	public class LanguageStatsView : LoadingIndicatorView, IDataView<LanguageFrequencyData>
 	{
 		private class LanguageFrequencyDatasource : SChartDataSource
 		{
@@ -69,15 +69,9 @@ namespace GithubDashboard
 
 		private ShinobiChart _chart;
 		private LanguageFrequencyDatasource _dataSource;
-		private UIActivityIndicatorView _actIndicator;
 
 		public LanguageStatsView (IntPtr p) : base(p)
 		{
-			// Create an activity indicator
-			_actIndicator = new UIActivityIndicatorView ();
-			_actIndicator.Center = new PointF (Bounds.Width / 2, Bounds.Height / 2);
-			_actIndicator.StartAnimating ();
-			this.Add (_actIndicator);
 		}
 
 		public void RenderData(LanguageFrequencyData data)
@@ -96,8 +90,7 @@ namespace GithubDashboard
 			_chart.Legend.Hidden = false;
 
 			// Get rid of the activity indicator
-			_actIndicator.RemoveFromSuperview ();
-			_actIndicator.StopAnimating ();
+			HideIndicator ();
 		}
 
 		private void CreateChart()

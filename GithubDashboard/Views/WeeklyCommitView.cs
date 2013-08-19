@@ -11,7 +11,7 @@ using GithubDashboard.Utilities;
 namespace GithubDashboard
 {
 	[Register("WeeklyCommitView")]
-	public class WeeklyCommitView : UIView, IDataView<WeeklyCommitData>
+	public class WeeklyCommitView : LoadingIndicatorView, IDataView<WeeklyCommitData>
 	{
 		private class WeeklyCommitViewDatasource : SChartDataSource
 		{
@@ -87,15 +87,9 @@ namespace GithubDashboard
 
 		private ShinobiChart _columnChart;
 		private WeeklyCommitViewDatasource _dataSource;
-		private UIActivityIndicatorView _actIndicator;
 
 		public WeeklyCommitView (IntPtr p) : base(p)
 		{
-			// Create an activity indicator
-			_actIndicator = new UIActivityIndicatorView ();
-			_actIndicator.Center = new PointF (Bounds.Width / 2, Bounds.Height / 2);
-			_actIndicator.StartAnimating ();
-			this.Add (_actIndicator);
 		}
 
 		public void RenderData(WeeklyCommitData data)
@@ -112,8 +106,7 @@ namespace GithubDashboard
 			// And then redraw the chart
 			_columnChart.RedrawChart();
 			// Get rid of the activity indicator
-			_actIndicator.RemoveFromSuperview ();
-			_actIndicator.StopAnimating ();
+			HideIndicator ();
 		}
 
 		private void createChart()

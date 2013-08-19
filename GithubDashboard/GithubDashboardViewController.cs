@@ -3,6 +3,7 @@ using System.Drawing;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using GithubAPI;
+using MonoTouch.ObjCRuntime;
 
 namespace GithubDashboard
 {
@@ -11,9 +12,12 @@ namespace GithubDashboard
 		private UIPopoverController _popover;
 		private RepoSelectorViewControllerController _repoSelectorVC;
 		private string _githubUserName;
+		private DashboardPageOneView _pageOne;
+		private DashboardPageTwoView _pageTwo;
 
 		public GithubDashboardViewController (IntPtr handle) : base (handle)
 		{
+
 		}
 
 		#region View lifecycle
@@ -21,6 +25,22 @@ namespace GithubDashboard
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
+
+			// make the main content area scroll over two pages
+			this.scrollView.ContentSize = new SizeF (this.scrollView.Bounds.Width * 2, this.scrollView.Bounds.Height);
+			this.scrollView.PagingEnabled = true;
+
+			// add page one
+			var nibObjects = NSBundle.MainBundle.LoadNib("DashboardPageOneView", this, null);
+			_pageOne = (DashboardPageOneView)Runtime.GetNSObject(nibObjects.ValueAt(0));
+			_pageOne.Frame = this.scrollView.Bounds;
+			this.scrollView.Add(_pageOne);
+
+			// add page two
+			nibObjects = NSBundle.MainBundle.LoadNib("DashboardPageTwoView", this, null);
+			_pageTwo = (DashboardPageTwoView)Runtime.GetNSObject(nibObjects.ValueAt(0));
+			_pageTwo.Frame = new RectangleF (new PointF(this.scrollView.Bounds.Width, 0), this.scrollView.Bounds.Size);
+			this.scrollView.Add(_pageTwo);
 
 			// Need to set the repo for our views
 			FetchDataForRepo ("tastejs", "todomvc");
@@ -47,31 +67,37 @@ namespace GithubDashboard
 		{
 			GithubDataProvider.Instance.LanguageStatsForRepo (owner, repo, data => {
 				InvokeOnMainThread (() => {
-					this.languageStats.RenderData(data);
+					this._pageOne.LanguageStats.RenderData(data);
 				});
 			});
 
 			GithubDataProvider.Instance.PunchCardEntries (owner, repo, data => {
 				InvokeOnMainThread (() => {
-					this.punchCard.RenderData(data);
+					this._pageOne.PunchCard.RenderData(data);
 				});
 			});
 
 			GithubDataProvider.Instance.WeeklyCommitForRepo (owner, repo, data => {
 				InvokeOnMainThread (() => {
-					this.weeklyCommit.RenderData(data);
+					this._pageOne.WeeklyCommits.RenderData(data);
 				});
 			});
 
 			GithubDataProvider.Instance.CodeFrequencyEntries (owner, repo, data => {
 				InvokeOnMainThread (() => {
-					this.codeFrequency.RenderData(data);
+					this._pageOne.CodeFrequency.RenderData(data);
 				});
 			});
 
 			GithubDataProvider.Instance.SummmaryForRepo (owner, repo, data => {
 				InvokeOnMainThread (() => {
 					this.repoSummary.RenderData(data);
+				});
+			});
+
+			GithubDataProvider.Instance.Issues (owner, repo, data => {
+				InvokeOnMainThread (() => {
+					this._pageTwo.IssuesDataGrid.RenderData(data);
 				});
 			});
 

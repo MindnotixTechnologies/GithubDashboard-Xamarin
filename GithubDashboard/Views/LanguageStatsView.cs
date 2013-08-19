@@ -83,8 +83,10 @@ namespace GithubDashboard
 			{
 				this.CreateChart ();
 			}
+
 			// Assign it to this chart
 			_chart.DataSource = _dataSource;
+
 			// And then redraw the chart
 			_chart.RedrawChart();
 			_chart.Legend.Hidden = false;
@@ -98,6 +100,9 @@ namespace GithubDashboard
 			_chart = new ShinobiChart (this.Bounds);
 			_chart.LicenseKey = ShinobiLicenseKeyProviderJson.Instance.ChartsLicenseKey;
 			_chart.AutoresizingMask = UIViewAutoresizing.FlexibleDimensions;
+
+			// disable interaction - in order to allow paging of the container view
+			_chart.UserInteractionEnabled = false;
 
 			// Add it as a subview
 			this.Add (_chart);

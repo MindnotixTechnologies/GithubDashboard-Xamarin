@@ -12,45 +12,21 @@ namespace GithubDashboard
 	partial class GithubDashboardViewController
 	{
 		[Outlet]
-		GithubDashboard.CodeFrequencyView codeFrequency { get; set; }
-
-		[Outlet]
-		GithubDashboard.PunchCardView punchCard { get; set; }
-
-		[Outlet]
 		GithubDashboard.RepoSummaryView repoSummary { get; set; }
 
 		[Outlet]
-		GithubDashboard.WeeklyCommitView weeklyCommit { get; set; }
-
-		[Outlet]
-		GithubDashboard.LanguageStatsView languageStats { get; set; }
+		MonoTouch.UIKit.UIScrollView scrollView { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (codeFrequency != null) {
-				codeFrequency.Dispose ();
-				codeFrequency = null;
-			}
-
-			if (punchCard != null) {
-				punchCard.Dispose ();
-				punchCard = null;
-			}
-
 			if (repoSummary != null) {
 				repoSummary.Dispose ();
 				repoSummary = null;
 			}
 
-			if (weeklyCommit != null) {
-				weeklyCommit.Dispose ();
-				weeklyCommit = null;
-			}
-
-			if (languageStats != null) {
-				languageStats.Dispose ();
-				languageStats = null;
+			if (scrollView != null) {
+				scrollView.Dispose ();
+				scrollView = null;
 			}
 		}
 	}

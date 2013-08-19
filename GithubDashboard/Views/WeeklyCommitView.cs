@@ -96,20 +96,23 @@ namespace GithubDashboard
 		{
 			_dataSource = new WeeklyCommitViewDatasource(data);
 
-				// If we haven't got a chart, then create one
+			// If we haven't got a chart, then create one
 			if(_columnChart == null)
 			{
-				this.createChart ();
+				this.CreateChart ();
 			}
+
 			// Assign it to this chart
 			_columnChart.DataSource = _dataSource;
+
 			// And then redraw the chart
 			_columnChart.RedrawChart();
+
 			// Get rid of the activity indicator
 			HideIndicator ();
 		}
 
-		private void createChart()
+		private void CreateChart()
 		{
 			_columnChart = new ShinobiChart (this.Bounds);
 			_columnChart.LicenseKey = ShinobiLicenseKeyProviderJson.Instance.ChartsLicenseKey;
@@ -128,6 +131,9 @@ namespace GithubDashboard
 			_columnChart.Legend.Hidden = false;
 			_columnChart.Legend.Placement = SChartLegendPlacement.InsidePlotArea;
 			_columnChart.Legend.Position = SChartLegendPosition.TopLeft;
+
+			// disable interaction - in order to allow paging of the container view
+			_columnChart.UserInteractionEnabled = false;
 
 			// Add it as a subview
 			this.Add (_columnChart);

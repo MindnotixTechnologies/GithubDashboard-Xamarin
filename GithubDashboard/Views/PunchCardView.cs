@@ -95,6 +95,8 @@ namespace GithubDashboard
 			_bubbleChart.DataSource = _dataSource;
 			// Redraw the chart
 			_bubbleChart.RedrawChart ();
+			// disable interaction - in order to allow paging of the container view
+			_bubbleChart.UserInteractionEnabled = false;
 			// Get rid of the activity indicator
 			HideIndicator ();
 		}

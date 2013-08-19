@@ -5,9 +5,8 @@ using MonoTouch.Foundation;
 using ShinobiCharts;
 using System.Collections.Generic;
 using GithubAPI;
-using GithubDashboard.Utilities;
-using Utilities;
 using System.Drawing;
+using GithubDashboard.Utilities;
 
 namespace GithubDashboard
 {
@@ -19,7 +18,7 @@ namespace GithubDashboard
 			private IList<SChartDataPoint> _additionDPs;
 			private IList<SChartDataPoint> _removalDPs;
 
-			public CodeFrequencyDataSource(IEnumerable<CodeFrequencyDataItem> entries)
+			public CodeFrequencyDataSource(CodeFrequencyData entries)
 			{
 				if(entries != null) {
 					this.CreateDataPointsFromCodeFrequencies(entries);
@@ -30,7 +29,7 @@ namespace GithubDashboard
 				}
 			}
 
-			private void CreateDataPointsFromCodeFrequencies(IEnumerable<CodeFrequencyDataItem> entries)
+			private void CreateDataPointsFromCodeFrequencies(CodeFrequencyData entries)
 			{
 				_additionDPs = new List<SChartDataPoint> ();
 				_removalDPs  = new List<SChartDataPoint> ();
@@ -38,11 +37,11 @@ namespace GithubDashboard
 				foreach (CodeFrequencyDataItem entry in entries) {
 					SChartDataPoint addPt = new SChartDataPoint ();
 					SChartDataPoint remPt = new SChartDataPoint ();
-					addPt.XValue = entry.WeekCommencing.ToNSDate ();
-					remPt.XValue = entry.WeekCommencing.ToNSDate ();
+					addPt.XValue = (NSDate)entry.WeekCommencing;
+					remPt.XValue = (NSDate)entry.WeekCommencing;
 
-					addPt.YValue = new NSNumber (entry.Additions);
-					remPt.YValue = new NSNumber (entry.Deletions);
+					addPt.YValue = (NSNumber)entry.Additions;
+					remPt.YValue = (NSNumber)entry.Deletions;
 
 					_additionDPs.Add (addPt);
 					_removalDPs.Add (remPt);
@@ -79,14 +78,14 @@ namespace GithubDashboard
 					series.Title = "Deletions";
 				}
 				series.Style.ShowFill = true;
-				series.Baseline = new NSNumber (0);
+				series.Baseline = 0;
 				return series;
 			}
 
 			#endregion
 		}
 
-		private ShinobiChart _columnChart;
+		private ShinobiChart _lineChart;
 		private CodeFrequencyDataSource _dataSource;
 		private UIActivityIndicatorView _actIndicator;
 
@@ -104,14 +103,14 @@ namespace GithubDashboard
 			_dataSource = new CodeFrequencyDataSource(data);
 
 			// If we haven't got a chart, then create one
-			if(_columnChart == null)
+			if(_lineChart == null)
 			{
 				this.createChart ();
 			}
 			// Set the chart's datasource
-			_columnChart.DataSource = _dataSource;
+			_lineChart.DataSource = _dataSource;
 			// Redraw the chart
-			_columnChart.RedrawChart ();
+			_lineChart.RedrawChart ();
 			// Get rid of the activity indicator
 			_actIndicator.RemoveFromSuperview ();
 			_actIndicator.StopAnimating ();
@@ -119,27 +118,27 @@ namespace GithubDashboard
 
 		private void createChart()
 		{
-			_columnChart = new ShinobiChart (this.Bounds);
+			_lineChart = new ShinobiChart (this.Bounds);
 			// Get the license key from our JSON reading utility
-			_columnChart.LicenseKey = ShinobiLicenseKeyProviderJson.Instance.ChartsLicenseKey;
-			_columnChart.AutoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight;
+			_lineChart.LicenseKey = ShinobiLicenseKeyProviderJson.Instance.ChartsLicenseKey;
+			_lineChart.AutoresizingMask = UIViewAutoresizing.FlexibleDimensions;
 
 			SChartDateTimeAxis xAxis = new SChartDateTimeAxis ();
 			xAxis.Title = "Week Commencing";
-			_columnChart.XAxis = xAxis;
+			_lineChart.XAxis = xAxis;
 
 			SChartNumberAxis yAxis = new SChartNumberAxis ();
-			yAxis.RangePaddingHigh = new NSNumber (0.5);
+			yAxis.RangePaddingHigh = (NSNumber)0.5;
 			yAxis.Title = "Changes";
-			_columnChart.YAxis = yAxis;
+			_lineChart.YAxis = yAxis;
 
 			// Display the legend
-			_columnChart.Legend.Hidden = false;
-			_columnChart.Legend.Placement = SChartLegendPlacement.InsidePlotArea;
-			_columnChart.Legend.Position = SChartLegendPosition.TopRight;
+			_lineChart.Legend.Hidden = false;
+			_lineChart.Legend.Placement = SChartLegendPlacement.InsidePlotArea;
+			_lineChart.Legend.Position = SChartLegendPosition.TopRight;
 
 			// Add it as a subview
-			this.AddSubview (_columnChart);
+			this.AddSubview (_lineChart);
 		}
 	}
 }

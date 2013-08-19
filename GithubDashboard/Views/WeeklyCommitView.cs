@@ -44,8 +44,8 @@ namespace GithubDashboard
 			private SChartDataPoint CreateDataPoint(int x, int y)
 			{
 				SChartDataPoint dp = new SChartDataPoint ();
-				dp.XValue = new NSNumber (x);
-				dp.YValue = new NSNumber (y);
+				dp.XValue = (NSNumber)x;
+				dp.YValue = (NSNumber)y;
 				return dp;
 			}
 			#endregion
@@ -73,7 +73,7 @@ namespace GithubDashboard
 			public override SChartSeries GetSeries (ShinobiChart chart, int dataSeriesIndex)
 			{
 				SChartColumnSeries series = new SChartColumnSeries ();
-				series.StackIndex = new NSNumber (0);
+				series.StackIndex = 0;
 				if (dataSeriesIndex == 0) {
 					series.Title = "Non-owner";
 				} else {
@@ -120,14 +120,14 @@ namespace GithubDashboard
 		{
 			_columnChart = new ShinobiChart (this.Bounds);
 			_columnChart.LicenseKey = ShinobiLicenseKeyProviderJson.Instance.ChartsLicenseKey;
-			_columnChart.AutoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight;
+			_columnChart.AutoresizingMask = UIViewAutoresizing.FlexibleDimensions;
 
 			SChartNumberAxis xAxis = new SChartNumberAxis ();
 			xAxis.Title = "Week";
 			_columnChart.XAxis = xAxis;
 
 			SChartNumberAxis yAxis = new SChartNumberAxis ();
-			yAxis.RangePaddingHigh = new NSNumber (0.5);
+			yAxis.RangePaddingHigh = (NSNumber)0.5;
 			yAxis.Title = "Commits";
 			_columnChart.YAxis = yAxis;
 

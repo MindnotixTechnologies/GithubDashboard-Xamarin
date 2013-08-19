@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using RestSharp;
 using System.Linq;
-using Utilities;
+using GithubDashboard.Utilities;
 
 namespace GithubAPI
 {

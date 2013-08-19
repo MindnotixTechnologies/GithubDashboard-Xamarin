@@ -19,7 +19,7 @@ namespace GithubDashboard
 			private IList<SChartBubbleDataPoint> _dataPoints;
 
 			// Constructor takes an owner's name and a repo
-			public PunchCardViewDataSource(IEnumerable<PunchCardDataEntry> punchCardEntries)
+			public PunchCardViewDataSource(PunchCardData punchCardEntries)
 			{
 				if(punchCardEntries != null) {
 					_dataPoints = this.CreateDataPointsFromPunchCardEntries(punchCardEntries);
@@ -30,7 +30,7 @@ namespace GithubDashboard
 			}
 
 			// Utility function to convert PunchCardEntries to SChartBubblePoints
-			private IList<SChartBubbleDataPoint> CreateDataPointsFromPunchCardEntries(IEnumerable<PunchCardDataEntry> entries)
+			private IList<SChartBubbleDataPoint> CreateDataPointsFromPunchCardEntries(PunchCardData entries)
 			{
 				// We aren't interested in the entries which don't represent any commits
 				return entries.Where (entry => entry.Commits != 0)
@@ -42,8 +42,8 @@ namespace GithubDashboard
 			private SChartBubbleDataPoint CreateBubbleDataPointForPunchCardEntry(PunchCardDataEntry entry)
 			{
 				SChartBubbleDataPoint dp = new SChartBubbleDataPoint ();
-				dp.XValue = new NSNumber(entry.Hour);
-				dp.YValue = new NSString(entry.DayName);
+				dp.XValue = (NSNumber)entry.Hour;
+				dp.YValue = (NSString)entry.DayName;
 				dp.Area = entry.Commits * 50.0;
 				return dp;
 			}
@@ -57,7 +57,7 @@ namespace GithubDashboard
 			public override SChartSeries GetSeries (ShinobiChart chart, int dataSeriesIndex)
 			{
 				SChartBubbleSeries chartSeries = new SChartBubbleSeries();
-				chartSeries.AutoScalingBiggestBubbleDiameter = new NSNumber (40);
+				chartSeries.AutoScalingBiggestBubbleDiameter = 40;
 				return chartSeries;
 			}
 
@@ -110,17 +110,17 @@ namespace GithubDashboard
 		{
 			_bubbleChart = new ShinobiChart (this.Bounds);
 			_bubbleChart.LicenseKey = ShinobiLicenseKeyProviderJson.Instance.ChartsLicenseKey;
-			_bubbleChart.AutoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight;
+			_bubbleChart.AutoresizingMask = UIViewAutoresizing.FlexibleDimensions;
 
 			SChartAxis xAxis = new SChartNumberAxis ();
-			xAxis.RangePaddingHigh = new NSNumber (0.5);
-			xAxis.RangePaddingLow = new NSNumber (0.5);
+			xAxis.RangePaddingHigh = (NSNumber)0.5;
+			xAxis.RangePaddingLow = (NSNumber)0.5;
 			xAxis.Title = "Hour";
 			_bubbleChart.XAxis = xAxis;
 
 			SChartCategoryAxis yAxis = new SChartCategoryAxis ();
-			yAxis.RangePaddingHigh = new NSNumber (0.5);
-			yAxis.RangePaddingLow = new NSNumber (0.5);
+			yAxis.RangePaddingHigh = (NSNumber)0.5;
+			yAxis.RangePaddingLow = (NSNumber)0.5;
 			yAxis.Title = "Day";
 			_bubbleChart.YAxis = yAxis;
 

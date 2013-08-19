@@ -36,7 +36,7 @@ namespace GithubDashboard
 			{
 				return new SChartRadialDataPoint () {
 					Name = x,
-					Value = new NSNumber(y)
+					Value = (NSNumber)y
 				};
 			}
 			#endregion
@@ -104,7 +104,7 @@ namespace GithubDashboard
 		{
 			_chart = new ShinobiChart (this.Bounds);
 			_chart.LicenseKey = ShinobiLicenseKeyProviderJson.Instance.ChartsLicenseKey;
-			_chart.AutoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight;
+			_chart.AutoresizingMask = UIViewAutoresizing.FlexibleDimensions;
 
 			// Add it as a subview
 			this.Add (_chart);

@@ -46,6 +46,12 @@ namespace GithubAPI
 		/// see: http://developer.github.com/v3/repos/#list-user-repositories
 		/// </summary>
 		void RepoList (string owner, Action<RepoSummaryData> callback);
+
+		/// <summary>
+		/// Gets the open milestones for the given repo.
+		/// see: http://developer.github.com/v3/issues/milestones/#list-milestones-for-a-repository
+		/// </summary>
+		void OpenMilestones(string owner, string repo, Action<MilestoneData> callback);
 	}
 }
 

@@ -118,11 +118,13 @@ namespace GithubDashboard
 
 			SChartDateTimeAxis xAxis = new SChartDateTimeAxis ();
 			xAxis.Title = "Week Commencing";
+			EnableGesturesOnAxis (xAxis);
 			_lineChart.XAxis = xAxis;
 
 			SChartNumberAxis yAxis = new SChartNumberAxis ();
 			yAxis.RangePaddingHigh = (NSNumber)0.5;
 			yAxis.Title = "Changes";
+			EnableGesturesOnAxis (yAxis);
 			_lineChart.YAxis = yAxis;
 
 			// Display the legend
@@ -132,6 +134,14 @@ namespace GithubDashboard
 
 			// Add it as a subview
 			this.AddSubview (_lineChart);
+		}
+
+		private void EnableGesturesOnAxis (SChartAxis axis)
+		{
+			axis.EnableGesturePanning = true;
+			axis.EnableGestureZooming = true;
+			axis.EnableMomentumPanning = true;
+			axis.EnableMomentumZooming = true;
 		}
 	}
 }

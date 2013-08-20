@@ -13,10 +13,15 @@ namespace GithubDashboard
 	[Register("IssuesDataGridView")]
 	public class IssuesDataGridView : LoadingIndicatorView, IDataView<IssuesData>
 	{
+		/// <summary>
+		/// A data helper delegate, used to specialise the way that the datasource helper extracts property values.
+		/// </summary>
 		private class IssuesDataGridHelperDelegate : SDataGridDataSourceHelperDelegate
 		{
 			protected override bool PopulateCell (SDataGridDataSourceHelper helper, SDataGridCell cell, NSObject value, string propertyKey, NSObject source)
 			{
+				// the table has a custom cell, AvatarCell. This method override is used
+				// to populate this custom cell type.
 				if (propertyKey == "reported")
 				{
 					AvatarCell avatarCell = (AvatarCell)cell;
@@ -31,7 +36,7 @@ namespace GithubDashboard
 				IssueDataItem issue = (IssueDataItem)source;
 				NSObject value = GetProperty(issue, propertyKey);
 
-				// for the date column, we specialise the formatting
+				// for the date column, we specialise the formatting in order to group by month
 				if (propertyKey == "created_at")
 				{
 					DateTime created = issue.created_at;
@@ -64,6 +69,14 @@ namespace GithubDashboard
 			/// <summary>
 			/// Gets the property with the given name, casting to the required type
 			/// </summary>
+			/// <remarks>
+			/// The Objective-C datasource helper uses NSObject valueForkey in order to  extract property
+			/// values from the data objects. This does not work for data objects defined in C# code. Here
+			/// we manually extract the values for each proeprty.
+			/// 
+			/// Furthermore, as the C# data object uses .NET types, we need to perform an explicit cast for
+			/// each value in order to convert it to the corresponding Objective-C type.
+			/// </remarks>
 			private NSObject GetProperty(IssueDataItem issue, string property)
 			{
 				NSObject val;
@@ -88,34 +101,6 @@ namespace GithubDashboard
 				return val;
 			}
 			 
-		}
-
-		private class IssuesDataGridDataSource : SDataGridDataSource
-		{
-			private IssuesData _issuesData;
-
-			public IssuesDataGridDataSource (IssuesData issuesData)
-			{
-				_issuesData = issuesData;
-			}
-
-			#region implemented abstract members of SDataGridDataSource
-			protected override void PrepareCellForDisplay (ShinobiDataGrid grid, SDataGridCell cell)
-			{
-				// cast to the know type of cell
-				SDataGridTextCell textCell = (SDataGridTextCell)cell;
-
-				// find the issue
-				IssueDataItem issue = _issuesData [cell.Coordinate.Row.RowIndex];
-
-				// update the text
-				textCell.TextField.Text = issue.title;
-			}
-			protected override uint GetNumberOfRowsInSection (ShinobiDataGrid grid, int sectionIndex)
-			{
-				return (uint)_issuesData.Count;
-			}
-			#endregion
 		}
 
 		private ShinobiDataGrid _dataGrid;
@@ -163,6 +148,7 @@ namespace GithubDashboard
 			titleColumn.Width = new NSNumber (795);
 			_dataGrid.AddColumn (titleColumn);
 
+			// reported column, using a custom cell type
 			SDataGridColumn reportedColumn = new SDataGridColumn (" ", "reported", new Class("AvatarCell"), new Class("SDataGridHeaderCell"));
 			reportedColumn.Width = new NSNumber (50);
 			_dataGrid.AddColumn (reportedColumn);

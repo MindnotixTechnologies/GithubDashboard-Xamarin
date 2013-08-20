@@ -7,6 +7,9 @@ using System.Drawing;
 
 namespace GithubDashboard
 {
+	/// <summary>
+	/// A custom avatar cell, renders the avatar as a small thumbnail
+	/// </summary>
 	[Register("AvatarCell")]
 	public class AvatarCell : SDataGridCell
 	{
@@ -15,10 +18,12 @@ namespace GithubDashboard
 
 		public string AvatarUrl
 		{
-			get{
+			get
+			{
 				return _avatarUrl;
 			}
-			set{
+			set
+			{
 				_avatarUrl = value;
 
 				DispatchQueue.DefaultGlobalQueue.DispatchAsync(() => {
@@ -32,6 +37,7 @@ namespace GithubDashboard
 				});
 			}
 		}
+
 		public AvatarCell (IntPtr p) : base(p)
 		{
 			_imageView = new UIImageView (new RectangleF(3,3,35,35));

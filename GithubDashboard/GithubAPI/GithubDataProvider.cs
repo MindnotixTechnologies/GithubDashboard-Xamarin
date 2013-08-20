@@ -10,7 +10,7 @@ namespace GithubAPI
 {
 	public class GithubDataProvider : IGithubDataProvider
 	{	
-		public static IGithubDataProvider Instance = new GithubDataProvider(new GithubJsonFileDataProvider());
+		public static IGithubDataProvider Instance = new GithubDataProvider(new GithubJsonWebDataProvider());
 
 		private IGithubJsonDataProvider _dataProvider;
 
